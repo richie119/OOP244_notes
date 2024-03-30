@@ -1,3 +1,49 @@
 # OOP244_notes_Introduction to Object Oriented Programming (C++)
 
-<meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"></div><div class="theme-doc-markdown markdown"><h1>Table of contents</h1><h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction-">Introduction <a id="part-a-introduction"></a><a href="#introduction-" class="hash-link" aria-label="Direct link to introduction-" title="Direct link to introduction-">​</a></h2><ul class=""><li><a href="/A-Introduction/welcome-to-oo">Welcome to Object-Oriented</a></li><li><a href="/A-Introduction/object-terminology">Object Terminology</a></li><li><a href="/A-Introduction/modular-programming">Modular Programming</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="foundations">Foundations<a href="#foundations" class="hash-link" aria-label="Direct link to Foundations" title="Direct link to Foundations">​</a></h2><ul class=""><li><a href="/B-Foundations/types-overloading-and-references">Types, Overloading and References</a></li><li><a href="/B-Foundations/dynamic-memory">Dynamic Memory</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="encapsulation">Encapsulation<a href="#encapsulation" class="hash-link" aria-label="Direct link to Encapsulation" title="Direct link to Encapsulation">​</a></h2><ul class=""><li><a href="/C-Encapsulation/member-functions-and-privacy">Member Functions and Privacy</a></li><li><a href="/C-Encapsulation/construction-and-destruction">Construction and Destruction</a></li><li><a href="/C-Encapsulation/the-current-object">The Current Object</a></li><li><a href="/C-Encapsulation/member-operators">Member Operators</a></li><li><a href="/C-Encapsulation/classes-and-resources">Classes and Resources</a></li><li><a href="/C-Encapsulation/helper-functions">Helper Functions</a></li><li><a href="/C-Encapsulation/input-and-output-operators">Input and Output Operators</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="inheritance">Inheritance<a href="#inheritance" class="hash-link" aria-label="Direct link to Inheritance" title="Direct link to Inheritance">​</a></h2><ul class=""><li><a href="/D-Inheritance/derived-classes">Derived Classes</a></li><li><a href="/D-Inheritance/functions-in-a-hierarchy">Functions in a Hierarchy</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="polymorphism">Polymorphism<a href="#polymorphism" class="hash-link" aria-label="Direct link to Polymorphism" title="Direct link to Polymorphism">​</a></h2><ul class=""><li><a href="/E-Polymorphism/virtual-functions">Virtual Functions</a></li><li><a href="/E-Polymorphism/abstract-base-classes">Abstract Base Classes</a></li><li><a href="/E-Polymorphism/templates">Templates</a></li><li><a href="/E-Polymorphism/overview-of-polymorphism">Overview of Polymorphism</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="refinements">Refinements<a href="#refinements" class="hash-link" aria-label="Direct link to Refinements" title="Direct link to Refinements">​</a></h2><ul class=""><li><a href="/F-Refinements/input-and-output-refinements">Input and Output Refinements</a></li><li><a href="/F-Refinements/derived-classes-and-resources">Derived Classes and Resources</a></li><li><a href="/F-Refinements/language-standards">Language Standards</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="appendices">Appendices<a href="#appendices" class="hash-link" aria-label="Direct link to Appendices" title="Direct link to Appendices">​</a></h2><ul class=""><li><a href="/Resources-Appendices/standard-library-functions">Standard Library Functions</a></li><li><a href="/Resources-Appendices/ascii-collating-sequence">ASCII Collating Sequence</a></li><li><a href="/Resources-Appendices/operator-precedence">Operator Precedence</a></li><li><a href="/Resources-Appendices/relation-between-cpp-and-c">Relation between C++ and C</a></li></ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/Seneca-ICTOER/Intro2OOP/tree/main/docs/intro.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article>
+# Table of contents
+
+## Introduction <a id="part-a-introduction"></a>
+
+- [Welcome to Object-Oriented](A-Introduction/welcome-to-oo.md)
+- [Object Terminology](A-Introduction/object-terminology.md)
+- [Modular Programming](A-Introduction/modular-programming.md)
+
+## Foundations
+
+- [Types, Overloading and References](B-Foundations/types-overloading-and-references.md)
+- [Dynamic Memory](B-Foundations/dynamic-memory.md)
+
+## Encapsulation
+
+- [Member Functions and Privacy](C-Encapsulation/member-functions-and-privacy.md)
+- [Construction and Destruction](C-Encapsulation/construction-and-destruction.md)
+- [The Current Object](C-Encapsulation/the-current-object.md)
+- [Member Operators](C-Encapsulation/member-operators.md)
+- [Classes and Resources](C-Encapsulation/classes-and-resources.md)
+- [Helper Functions](C-Encapsulation/helper-functions.md)
+- [Input and Output Operators](C-Encapsulation/input-and-output-operators.md)
+
+## Inheritance
+
+- [Derived Classes](D-Inheritance/derived-classes.md)
+- [Functions in a Hierarchy](D-Inheritance/functions-in-a-hierarchy.md)
+
+## Polymorphism
+
+- [Virtual Functions](E-Polymorphism/virtual-functions.md)
+- [Abstract Base Classes](E-Polymorphism/abstract-base-classes.md)
+- [Templates](E-Polymorphism/templates.md)
+- [Overview of Polymorphism](E-Polymorphism/overview-of-polymorphism.md)
+
+## Refinements
+
+- [Input and Output Refinements](F-Refinements/input-and-output-refinements.md)
+- [Derived Classes and Resources](F-Refinements/derived-classes-and-resources.md)
+- [Language Standards](F-Refinements/language-standards.md)
+
+## Appendices
+
+- [Standard Library Functions](Resources-Appendices/standard-library-functions.md)
+- [ASCII Collating Sequence](Resources-Appendices/ascii-collating-sequence.md)
+- [Operator Precedence](Resources-Appendices/operator-precedence.md)
+- [Relation between C++ and C](Resources-Appendices/relation-between-cpp-and-c.md)
