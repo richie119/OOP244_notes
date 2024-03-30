@@ -1,0 +1,1428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/custo.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Encapsulation | Input and Output Operators</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Input and Output Operators_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Input and Output Operators_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Input and Output Operators_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Input and Output Operators_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Encapsulation _ Input and Output Operators_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo_p.html"><img src="./Encapsulation _ Input and Output Operators_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part C - Encapsulation</span>
+        <br>
+        <br>
+        <span class="texthead">Input and Output Operators</span>
+        <br>
+        <br>
+        <span class="textagend">Use stream objects to interact with users and access persistent data
+        <br>
+        Introduce association relationships between classes
+        <br>
+        Overload the extraction and insertion operators as helper operators</span>
+
+        <p class="quote">"You don't need to modify istream or ostream to add new &lt;&lt; and &gt;&gt; operators" (Stroustrup, 1997)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#obj">Stream Library</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#cus">Standard I/O Operators</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#fil">File I/O Operators</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#str">String Class</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#exe">Exercises</a></span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       The relationships between classes that object-oriented languages support include
+       compositions and associations.&nbsp; Both of these relationships are more loosely
+       coupled than friendship.&nbsp; A <i>composition</i> is a relationship in which one
+       class <i>has</i> another class, while an <i>association</i> is a relationship in
+       which one class <i>uses</i> another class.&nbsp;
+       In relationship diagrams, associations appear as open circles and compositions as
+       filled circles.&nbsp; The diagram below shows that <span class="code">Code</span> uses
+       the <span class="code">Calendar</span> (to determine availability), while each
+       <span class="code">Course</span> has a Course <span class="code">Code</span> class.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Encapsulation _ Input and Output Operators_files/class_relationships.png" width="252" height="72" alt="class relationships"></p>
+
+       <p>
+       Associations are more loosely coupled than compositions.&nbsp; Typical examples of
+       associations are relationships between the stream-based input and output library
+       classes that support the C++ language and our own custom classes.&nbsp; To create
+       these relationships, we overload the insertion and extraction operators as helper
+       operators that take stream objects as their left operands and objects of our class
+       type as their right operands.&nbsp;
+       </p>
+
+       <p>
+       This chapter describes the stream-based input/output library and shows how to
+       overload the insertion and extraction operators for objects of our custom
+       classes.&nbsp; This chapter shows how to define file objects and use them
+       to store and retrieve variables of fundamental type.&nbsp; The chapter concludes
+       by introducing the standard library's <span class="code">string</span> class, which
+       manages character stream input of user-defined length.&nbsp;
+       </p>
+       <br>
+
+       <p id="des" class="section">Stream Library Overview</p>
+
+       <p>
+       The stream-based input/output library that supports the core C++ language overloads
+       two operators for extracting values from an input stream and inserting values into
+       an output stream:</p>
+
+       <ul>
+        <li><span class="code">&gt;&gt;</span> (extract from an input stream)</li>
+        <li><span class="code">&lt;&lt;</span> (insert into an output stream)</li>
+       </ul>
+       <p>
+       The library embeds its class definitions in the standard namespace
+       (<span class="code">std</span>).&nbsp; To access those instances of these classes
+       that the library predefines, we prefix their identifiers with the namespace
+       identifier and the scope resolution operator (<span class="code">std::</span>).&nbsp;
+       </p>
+
+       <p>
+       For example,
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> <span class="high">#include &lt;iostream&gt;</span>
+
+ int main() {
+     int x;
+
+     <span class="high">std::</span>cout &lt;&lt; "Enter an integer : ";
+     <span class="high">std::</span>cin &gt;&gt; x;
+     <span class="high">std::</span>cout &lt;&lt; "You entered " &lt;&lt; x &lt;&lt; <span class="high">std::</span>endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+ Enter an integer : 3&nbsp;
+
+ You entered 3
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Standard I/O and File I/O</p>
+
+       <p class="sssection">Standard I/O</p>
+
+       <p>
+       The <span class="code">iostream</span> system header file contains the definitions for
+       streaming from and to standard devices.&nbsp;
+       </p>
+
+       <table width="45%" summary="fstream">
+        <tbody><tr>
+         <td>
+         <pre class="defin">#include &lt;iostream&gt;&nbsp;</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       This header file includes the definitions of the
+       </p>
+       <ul>
+       <li><span class="code">std::istream</span> class - for processing input from the standard input device</li>
+       <li><span class="code">std::ostream</span> class - for processing output to the standard output devices</li>
+       </ul>
+       <p>
+       This header file also predefines the standard input and output objects:
+       </p>
+       <ul>
+       <li><span class="code">std::istream</span>
+       <ul>
+       <li><span class="code">std::cin</span> - standard input</li>
+       </ul></li>
+       <li><span class="code">std::ostream</span>
+       <ul>
+       <li><span class="code">std::cout</span> - standard output</li>
+       <li><span class="code">std::cerr</span> - standard error</li>
+       <li><span class="code">std::clog</span> - standard log</li>
+       </ul>
+       </li>
+       </ul>
+       <p>
+       We use these objects directly and don't need to redefine them.
+       </p>
+
+       <p class="sssection">File I/O</p>
+
+       <p>
+       The <span class="code">fstream</span> system header file contains the definitions for
+       streaming from and to files.&nbsp;
+       </p>
+
+       <table width="45%" summary="fstream">
+        <tbody><tr>
+         <td>
+         <pre class="defin">#include &lt;fstream&gt;&nbsp;</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       This header file includes the definitions of the
+       </p>
+       <ul>
+       <li><span class="code">std::ifstream</span> class - for processing input from a file stream</li>
+       <li><span class="code">std::ofstream</span> class - processing output to a file stream</li>
+       <li><span class="code">std::fstream</span> class - processing input from and output to a file stream</li>
+       </ul>
+       <p>
+       These three classes manage communication between file streams containing
+       8-bit characters and system memory.&nbsp; They provide access to a file stream
+       through separate input and output buffers.&nbsp;
+       </p>
+
+       <p class="ssection">Design Considerations</p>
+
+       <p>
+       In overloading the insertion and extraction operators for our class types, good
+       design suggests:
+       </p>
+       <ul>
+       <li>providing flexibility in the selection of stream objects</li>
+       <li>resolving scope on classes and objects defined in header files</li>
+       <li>enabling cascading as implemented for fundamental types</li>
+       </ul>
+
+       <p class="sssection">Selection of Stream Objects</p>
+
+       <p>
+       To enable selection of the stream objects by the client code, we upgrade our
+       <span class="code">display()</span> member function to receive a modifiable reference to
+       an object of <span class="code">std::ostream</span> type.&nbsp; The changes to the
+       header file are shown on the left and the implementation file on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Student.h
+
+ <span class="high">#include &lt;iostream&gt;</span> // for
+                     // std::ostream
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);&nbsp;
+     void display(<span class="high">std::ostream&amp;</span>)
+      const;
+ };
+
+
+
+
+
+
+
+
+</pre>
+         </td>
+
+         <td class="half">
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ // ...
+
+ void Student::display(<span class="high">ostream&amp;&nbsp;
+  os</span>) const {
+     if (no &gt; 0) {
+         <span class="high">os</span> &lt;&lt; no &lt;&lt; ":\n";
+         <span class="high">os</span>.setf(ios::fixed);
+         <span class="high">os</span>.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             <span class="high">os</span>.width(6);
+             <span class="high">os</span> &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         <span class="high">os</span>.unsetf(ios::fixed);
+         <span class="high">os</span>.precision(6);
+     } else {
+         <span class="high">os</span> &lt;&lt; "no data available"
+          &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       With this upgrade the client code can choose the destination stream
+       (<span class="code">cout</span>, <span class="code">cerr</span>, or
+       <span class="code">clog</span>).&nbsp;</p>
+
+       <p class="sssection">Header Files</p>
+
+       <p>
+       A header files may be included alongside other header files written by other
+       developers.&nbsp; To avoid conflicts between the header files included in an
+       implementation file, we follow certain guidelines:
+       </p>
+       <ul>
+       <li>include system header files before custom header files</li>
+       <li>insert namespace directives after all header files</li>
+       <li>resolve the scope of any identifier in a header file at the identifier itself</li>
+       </ul>
+       <p>
+       The preferred method of coding header files is shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre class="error"> // Student.h
+
+ #include &lt;iostream&gt;
+ <span class="high">using namespace std; // POOR DESIGN</span>
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void display(ostream&amp; os) const;
+ };
+</pre>
+         </td>
+
+         <td class="half">
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;  // GOOD DESIGN
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void display(<span class="high">std::</span>ostream&amp; os)
+      const;&nbsp;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p></p>
+       <p>
+       Exposing all of the names in any namespace as on the left may lead to unnecessary
+       conflicts with new names or conflicts when several header files are included in
+       an implementation file.&nbsp;
+       Resolving scope in the <span class="code">display()</span> function's
+       parameter list identifies the class used with its namespace, without
+       exposing any name in that namespace.&nbsp;
+       </p>
+
+       <p class="sssection">Cascading</p>
+
+       <p>
+       The following expression is a cascaded expression
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; x &lt;&lt; y &lt;&lt; z &lt;&lt; std::endl;&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Cascading support enables concatenation of operations
+       where the leftmost operand serves as the left operand
+       for every operation in a compound expression.&nbsp;
+       </p>
+
+       <p>
+       The cascaded expression above expands to two simpler sub-expressions
+       executed in the following
+       order:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; x;
+ std::cout &lt;&lt; y &lt;&lt; z &lt;&lt; std::endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>The cascaded sub-expression</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; y &lt;&lt; z &lt;&lt; std::endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>expands to two simpler sub-expressions executed in the following
+       order:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; y;
+ std::cout &lt;&lt; z &lt;&lt; std::endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>Finally, the cascaded sub-expression</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; z &lt;&lt; std::endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>expands into two simpler sub-expressions executed in the following
+       order:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> std::cout &lt;&lt; z;
+ std::cout &lt;&lt; std::endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Enabling cascading requires that we return a modifiable reference to the
+       left operand.&nbsp;</p>
+
+       <p>
+       Returning a modifiable reference from a function lets the client code use
+       the return value as the left operand for the operator on its right.&nbsp;
+       </p>
+       <!--The call
+       to an operator that returns a modifiable reference takes the following
+       form after returning from the function:</p>
+       <pre class=defin>
+ <i>return value   next operator   next right operand</i>
+ </pre>
+       <p>
+       The next right operand may be a compound expression with more operators as shown
+       in the above example.
+       </p>-->
+
+       <br>
+
+       <p id="cus" class="section">Standard I/O Operators</p>
+
+       <p>The prototypes for the overloaded insertion and extraction operators
+       for standard input and output on objects of our own classes take the form &nbsp;</p>
+       <pre class="defin"> std::istream&amp; operator&gt;&gt;(std::istream&amp;, <i>Type</i>&amp;);
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const <i>Type</i>&amp;);
+</pre><p></p>
+       <p>where <span class="code"><i>Type</i></span> is the name of the
+       class.&nbsp; </p>
+
+       <p>
+       The header file for our <span class="code">Student</span> class that includes
+       their declarations is:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ <span class="high">#include &lt;iostream&gt; // for std::ostream, std::istream</span>
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void read(<span class="high">std::istream&amp;</span>);
+     void display(<span class="high">std::ostream&amp; os</span>) const;
+ };
+
+ <span class="high">std::istream&amp; operator&gt;&gt;(std::istream&amp; is, Student&amp; s);</span>
+ <span class="high">std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Student&amp; s);</span>&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The implementation file for our upgraded <span class="code">Student</span>
+       class contains:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include "Student.h"
+ using namespace std;
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     *this = Student(n, nullptr, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::read(<span class="high">istream&amp; is</span>) {
+     int no;          // will hold the student number
+     int ng;          // will hold the number of grades
+     float grade[NG]; // will hold the grades
+
+     cout &lt;&lt; "Student Number : ";
+     is &gt;&gt; no;
+     cout &lt;&lt; "Number of Grades : ";
+     is &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         cout &lt;&lt; "Grade " &lt;&lt; i + 1 &lt;&lt; " : ";
+         is &gt;&gt; grade[i];
+     }
+
+     // construct a temporary Student
+     Student temp(no, grade, ng);
+     // if data is valid, the temporary object into the current object&nbsp;
+     if (temp.no != 0)
+         *this = temp;
+ }
+
+ void Student::display(<span class="high">ostream&amp; os</span>) const {
+     if (no &gt; 0) {
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ <span class="high">std::ostream&amp; operator&lt;&lt;(ostream&amp; os, const Student&amp; s) {&nbsp;
+     s.display(os);
+     return os;
+ }
+
+ std::istream&amp; operator&gt;&gt;(istream&amp; is, Student&amp; s) {
+     s.read(is);
+     return is;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The following client code uses our upgraded <span class="code">Student</span>
+       class accepts the input shown on the right and produces the results shown below:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Standard I/O Operators
+ // standardIO.cpp
+
+ #include "Student.h"
+
+ int main () {
+     Student harry;
+
+     std::cin &gt;&gt; harry;
+     std::cout &lt;&lt; harry;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+ Student Number : 1234&nbsp;
+ Number of Grades : 2
+ Grade 1 : 56.7
+ Grade 2 : 78.9
+
+ 1234:
+  56.70
+  78.90
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="fil" class="section">File I/O Operators</p>
+
+       <p>
+       The stream library does not predefine any file objects as instances of the file
+       stream classes.&nbsp; To create file objects, we need to define them ourselves and
+       connect them to a named file.&nbsp; A file object is an instance of one of the file
+       stream classes.&nbsp; When used with the insertion or extraction operators on a
+       connected file, a file object streams the data in formatted form.&nbsp;
+       </p>
+
+       <p class="ssection">File Connections</p>
+
+       <p>
+       We can connect a file object to a file for reading, writing or both.&nbsp;
+       The object's destructor closes the connection.&nbsp;
+       </p>
+
+       <p class="sssection">Input File Objects</p>
+
+       <p>
+       To create a file object for reading we define an instance of the
+       <span class="code">std::ifstream</span> class.&nbsp; This class includes a
+       no-argument constructor as well as one that receives the address of a C-style
+       null-terminated string containing the file name.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="45%" summary="file open function">
+        <tbody><tr>
+         <td>
+          <pre> // Create a File for Reading
+ // createFileReading.cpp
+
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     <span class="high">std::ifstream f("input.txt"); // connects fin to input.txt for reading&nbsp;</span>
+     // ...
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To connect a file to an existing file object, we
+       call the <span class="code">open()</span> member function
+       on the object.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="45%" summary="file open function">
+        <tbody><tr>
+         <td>
+          <pre> // Connect to a File for Reading
+ // connectFileReading.cpp
+
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     std::ifstream fin;     // defines a file object named fin&nbsp;
+     <span class="high">fin.open("input.txt"); // connects input.txt to fin</span>
+     // ...
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Output File Objects</p>
+
+       <p>
+       To create a file object for writing we define an instance of the
+       <span class="code">std::ofstream</span> class.&nbsp; This class includes a
+       no-argument constructor as well as one that receives the address of a C-style
+       null-terminated string containing the name of the file.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="45%" summary="file open function">
+        <tbody><tr>
+         <td>
+          <pre> // Writing to a File
+ // writeFile.cpp
+
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     <span class="high">std::ofstream fout("output.txt"); // connects fout to output.txt for writing&nbsp;</span>
+     // ...
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To connect a file to an existing file object, we
+       call the <span class="code">open()</span> member function
+       on the object.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="45%" summary="file open function">
+        <tbody><tr>
+         <td>
+          <pre> // Connect to a File for Writing
+ // connectFileWriting.cpp
+
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     std::ofstream fout;      // create a file object named fout&nbsp;
+     <span class="high">std::ofstream fout("output.txt"); // connects fout to output.txt for writing&nbsp;</span>
+     // ...
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Confirming a File Connection</p>
+
+       <p>
+       The <span class="code">is_open()</span> member function called on a file
+       object returns the current state of the object's connection to a file:</p>
+
+       <table width="45%" summary="negation on file object">
+        <tbody><tr>
+         <td>
+          <pre> #include &lt;iostream&gt;
+ #include &lt;fstream&gt;
+
+ std::ofstream fout("output.txt");  // connects output.txt to fout for output&nbsp;
+
+ if (<span class="high">!fout.is_open()</span>) {
+     std::cerr &lt;&lt; "File is not open" &lt;&lt; std::endl;
+ } else {
+     // file is open
+     // ...
+
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Streaming Fundamental Types</p>
+
+       <p>
+       The standard input/output library overloads the extraction and insertion
+       operators for each fundamental type for the file stream classes with a file objects
+       as left operands.&nbsp;
+       </p>
+
+       <p class="sssection">Reading From a File</p>
+
+       <p>
+       A file object reads from a file under format control using the extraction
+       operator in the same way as the standard input object (<span class="code">cin</span>)
+       reads using the extraction operator.&nbsp;
+       </p>
+       <p>
+       Consider a file with a single record: <span class="code">12 34 45 abc</span>&nbsp;
+       The output from the following program is shown on the right:</p>
+
+       <table width="95%" summary="f stream dot c p p">
+        <tbody><tr>
+         <td class="w80">
+          <pre> // Reading a File
+ // readFile.cpp
+
+ #include &lt;iostream&gt;
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     int i;
+
+     <span class="high">std::ifstream f("input.txt");</span>
+     if (f.is_open()) {
+         while (f) {
+             <span class="high">f &gt;&gt; i;</span>
+             if (f)
+                 std::cout &lt;&lt; i &lt;&lt; ' ';
+             else
+                 std::cout &lt;&lt; "\n**Bad input**\n";
+         }
+     }
+ }
+</pre>
+         </td>
+
+         <td class="w20">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 12 34 45
+
+ **Bad input**&nbsp;
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       The file stream class definition overload the <span class="code">bool</span>
+       conversion operator to return false if the object is not ready for further
+       streaming.&nbsp; A stream object is not ready for further streaming if it
+       has encountered an error and has not been cleared.&nbsp; the topic of
+       error states and clearing errors is covered later in the chapter entitled
+       <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#sta">Input and Output Refinements</a>.
+       </p>
+
+       <p class="sssection">Writing to a File</p>
+
+       <p>
+       A file object writes to a file under format control using the
+       insertion operator in the same way as the standard output objects
+       (<span class="code">cout</span>, <span class="code">cerr</span> and
+       <span class="code">clog</span>) write using the insertion operator.&nbsp;
+       </p>
+
+       <p>
+       For example, the contents of the file created by the following program
+       are shown on the right</p>
+
+       <table width="95%" summary="f stream dot c p p">
+        <tbody><tr>
+         <td class="w80">
+          <pre> // Writing to a File
+ // writeFile.cpp
+
+ #include &lt;iostream&gt;
+ <span class="high">#include &lt;fstream&gt;</span>
+
+ int main() {
+     int i;
+
+     <span class="high">std::ofstream f("output.txt");</span>
+     if (f.is_open()) {
+         <span class="high">f &lt;&lt; "Line 1" &lt;&lt; std::endl;</span>   // record 1
+         <span class="high">f &lt;&lt; "Line 2" &lt;&lt; std::endl;</span>   // record 2
+         <span class="high">f &lt;&lt; "Line 3" &lt;&lt; std::endl;</span>   // record 3
+     }
+ }
+</pre>
+         </td>
+
+         <td class="w20">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ Line 1
+ Line 2
+ Line 3&nbsp;
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="str" class="section">String Class <script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       The examples in these notes have been limited to input data
+       that fits within pre-allocated memory.&nbsp;  In the case of character string input,
+       the user determines the number of characters to enter and pre-allocation of
+       the required memory is not possible.&nbsp; A user entering more characters
+       than allocated memory can accept may cause a stream failure.&nbsp;
+       </p>
+
+       <p class="ssection">The Problem</p>
+
+       <p>
+       Consider the user inputting a comment on a student's transcript.&nbsp;
+       Since we only know how much memory to allocate for the comment after receiving
+       the complete text, we cannot allocate that memory at compile-time or run-time
+       before accepting the comment.&nbsp;
+       </p>
+
+       <p class="ssection">The Solution</p>
+
+       <p>
+       The standard library's <span class="code">string</span> class allocates the required
+       amount of memory dynamically during the input process itself.&nbsp;
+       A <span class="code">std::string</span> object can accept as many characters as
+       the user enters.&nbsp; The helper function <span class="code">std::getline()</span>
+       extracts the characters from the input stream.&nbsp; </p>
+       <p>
+       The prototype for this helper function is</p>
+       <pre class="defin"> std::istream&amp; getline(std::istream&amp;, std::string&amp;, char);
+</pre>
+       <p>
+       The first parameter receives a modifiable reference to the
+       <span class="code">std::istream</span> object, the second parameter
+       receives a modifiable reference to the <span class="code">std::string</span>
+       object and the third parameter receives the character delimiter for
+       terminating extraction (newline by default).&nbsp;</p>
+
+       <p>
+       The <span class="code">&lt;string&gt;</span> header file contains
+       the class definition with this prototype.&nbsp; The class definition
+       includes two member functions for converting its internal data into
+       a C-style null-terminated string:</p>
+
+       <ul>
+        <li><span class="code">std::string::length()</span> - returns the number of
+        characters in the string</li>
+
+        <li><span class="code">std::string::c_str()</span> - returns the address of the
+        C-style null-terminated version of the string&nbsp;</li>
+       </ul>
+       <p></p>
+
+       <p class="sssection">C-Style Example</p>
+
+       <p>
+       The following client code extracts an unknown number of characters from the standard
+       input stream, stores them in a C-style null-terminated string and displays the
+       character string on the standard output object in five steps:
+       </p>
+       <ol>
+       <li>define a <span class="code">string</span> object to accept the input</li>
+       <li>extract the input using the <span class="code">std::getline()</span> helper function</li>
+       <li>query the <span class="code">string</span> object for the memory required</li>
+       <li>allocate dynamic memory for the requisite C-style null-terminated string</li>
+       <li>copy the data from the <span class="code">string</span> object
+       to the allocated memory</li>
+       <li>deallocate the allocated memory</li>
+       </ol>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // String Class example
+ // string.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;string&gt;
+
+ int main( ) {
+     char* s;
+     <span class="high">std::string str;</span>
+
+     std::cout &lt;&lt; "Enter a string : ";
+     if (<span class="high">std::getline(std::cin, str)</span>) {
+         s = new char [<span class="high">str.length()</span> + 1];
+         std::strcpy(s, <span class="high">str.c_str()</span>);
+         std::cout &lt;&lt; "The string entered is : &gt;" &lt;&lt; s &lt;&lt; '&lt;' &lt;&lt; std::endl;&nbsp;
+         delete [] s;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Student Class Example</p>
+
+       <p>
+       Let us upgrade our <span class="code">Student</span> class to store a comment
+       using a <span class="code">string</span> object as a data member.&nbsp;
+       </p>
+
+       <p>
+       The header file for our <span class="code">Student</span> class contains:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ #include &lt;string&gt;
+
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+     <span class="high">std::string comment;</span>
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int<span class="high">, const std::string&amp;</span>);
+     void read(std::istream&amp;);
+     void display(std::ostream&amp;) const;
+ };
+
+ std::istream&amp; operator&gt;&gt;(std::istream&amp; is, Student&amp; s);
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Student&amp; s);&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file contains:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include "Student.h"
+ <span class="high">using namespace std;</span>
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     *this = Student(n, nullptr, 0, "");
+ }
+
+ Student::Student(int sn, const float* g, int ng_<span class="high">, const string&amp; c</span>) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+         <span class="high">comment = c;</span>
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::read(<span class="high">std::istream&amp; is</span>) {
+     int no;          // will hold the student number
+     int ng;          // will hold the number of grades
+     float grade[NG]; // will hold the grades
+     <span class="high">string comment;  // will hold comments</span>
+
+     cout &lt;&lt; "Student Number : ";
+     is &gt;&gt; no;
+     cout &lt;&lt; "Number of Grades : ";
+     is &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         cout &lt;&lt; "Grade " &lt;&lt; i + 1 &lt;&lt; " : ";
+         is &gt;&gt; grade[i];
+     }
+     is.ignore(); // extract newline
+     <span class="high">cout &lt;&lt; "Comments : ";
+     getline(is, comment, '\n');</span>
+
+     // construct a temporary Student
+     Student temp(no, grade, ng<span class="high">, comment</span>);
+     // if data is valid, the temporary object into the current object&nbsp;
+     if (temp.no != 0)
+         *this = temp;
+ }
+
+ void Student::display(<span class="high">std::ostream&amp; os</span>) const {
+     if (no &gt; 0) {
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+         <span class="high">os &lt;&lt; "Comments:\n" &lt;&lt; comment &lt;&lt; endl;</span>
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Student&amp; s) {&nbsp;
+     s.display(os);
+     return os;
+ }
+
+ std::istream&amp; operator&gt;&gt;(std::istream&amp; is, Student&amp; s) {
+     s.read(is);
+     return is;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The client code on the left receives the input on the right and produces the
+       output listed below:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // String Class
+ // string.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main ( ) {
+     Student harry;
+
+     <span class="high">std::cin &gt;&gt; harry;</span>
+     std::cout &lt;&lt; harry &lt;&lt; std::endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+ <span class="high">Student Number : 1234
+ Number of Grades : 2
+ Grade 1 : 56.7
+ Grade 2 : 78.9
+ Comments : See Coordinator&nbsp;</span>
+
+ 1234:
+  56.70
+  78.90
+ Comments:
+ See Coordinator
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>we associate our own classes with the <span class="code">iostream</span> classes
+        by overloading the extraction and insertion operators as helpers to those classes</li>
+
+        <li>the first parameter in the declaration of each overloaded operator is a modifiable
+        reference to the stream object</li>
+
+        <li>the return type of each overloaded operator is a modifiable reference to the stream
+        object, which enables cascading</li>
+
+        <li>the standard library includes overloaded extraction and insertion operators for file
+        objects as left operands and fundamental types as right operands</li>
+
+        <li>an input file object is an instance of an <span class="code">ifstream</span> class</li>
+
+        <li>an output file object is an instance of an <span class="code">ofstream</span> class</li>
+
+        <li>the <span class="code">string</span> class of the standard library manages the
+        memory requirements for storing a user-defined character string of any length</li>
+       </ul>
+
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h10.html">Custom I/O Operators</a>.</li>
+
+       </ul>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo_p.html" class="text3"><img src="./Encapsulation _ Input and Output Operators_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html#top" class="text3">Top&nbsp; <img src="./Encapsulation _ Input and Output Operators_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html" class="text3"><img src="./Encapsulation _ Input and Output Operators_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Helper Functions</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html" class="text3">Next: Inheritance&nbsp;&nbsp; <img src="./Encapsulation _ Input and Output Operators_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Input and Output Operators_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Encapsulation _ Input and Output Operators_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Encapsulation _ Input and Output Operators_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

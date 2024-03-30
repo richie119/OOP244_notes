@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/membe.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Encapsulation | The Current Object</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ The Current Object_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ The Current Object_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ The Current Object_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ The Current Object_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Encapsulation _ The Current Object_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ The Current Object_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ The Current Object_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe_p.html"><img src="./Encapsulation _ The Current Object_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Encapsulation _ The Current Object_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part C - Encapsulation</span>
+        <br>
+        <br>
+        <span class="texthead">The Current Object</span>
+        <br>
+        <br>
+        <span class="textagend">
+        Distinguish a member function's access to instance variables and client variables
+        <br>
+        Access the current object from within a member function</span>
+
+        <p class="quote">"Each member function knows what object it was invoked for and
+        can explicitly refer to it" (Stroustrup, 1997)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html#par">Member Function Parameters</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html#thi">this</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Once client code calls a member function on an object of its class and before that
+       function returns control to the client code, that member function may need to refer
+       to its host object.&nbsp; We refer to the host object from within a member function
+       as the <i>current object</i> for that function.&nbsp; In other words, the current
+       object is the region of memory that contains the data on which a member function
+       currently operates.&nbsp;
+       </p>
+       <p>
+       This chapter describes the mechanism by which a member function accesses its current
+       object and shows how to refer to that current object from within the function.&nbsp;</p>
+       <br>
+
+       <p id="par" class="section">Member Function Parameters</p>
+
+       <p>
+       Member functions receive information through parameters and return information through
+       a return value and possibly some of their parameters.&nbsp;
+       The parameters of any member function are of two distinct kinds:</p>
+
+       <ul>
+        <li>explicit - access the client code</li>
+
+        <li>implicit - access the instance variables</li>
+       </ul>
+
+       <p class="center"><img src="./Encapsulation _ The Current Object_files/current object.png" width="163" height="113" alt="member functions"></p>
+
+       <p>
+       Explicit parameters receive information from the client code and return
+       information to the client code.&nbsp; We define them explicitly in the
+       header of a member function.&nbsp; Their lifetime extends from entry to
+       the function to exit from the function.&nbsp; They have function scope.&nbsp;
+       </p>
+
+       <p>
+       Implicit parameters tie the member function to the current object.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Encapsulation _ The Current Object_files/implicit.png" alt="implicit and explicit parameters" width="306" height="109"></p>
+
+       <p>
+       The syntax of a normal member function call reflects this two-part mechanism.&nbsp;
+       The name of the object on which the client code invokes the function identifies the
+       implicit parameters, while the arguments that the client code passes to the function
+       initialize the explicit parameters.
+       </p>
+       <p>
+       Consider the constructors and calls to the <span class="code">display()</span> member
+       function in the following code snippet:</p>
+
+       <table width="90%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // ...
+
+ Student::Student(int s, const float* g, int n)&nbsp;
+ {
+     cout &lt;&lt; "Entering 3-arg constructor\n";
+     set(s, g, n);
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     float gj[] = {83.4f, 77.8f, 55.5f};
+     Student harry(1234, gh, 3),
+             josee(1235, gj, 3);
+     harry.display();
+     josee.display();
+ }
+</pre>
+         </td>
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Entering 3-arg constructor
+ Entering 3-arg constructor
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50
+ Entering destructor for 1235&nbsp;
+ Entering destructor for 1234
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The constructor for <span class="code">harry</span> receives data in its explicit
+       parameters and copies that data to the arguments in the call to the <span class="code">set()</span>
+       member function on the current object, which consists of the instance variables
+       for <span class="code">harry</span>.&nbsp;
+       The constructor for <span class="code">josee</span> receives data in its explicit
+       parameters and copies that data to the arguments in the call to the <span class="code">set()</span>
+       member function on the current object, which consists of the instance variables
+       for <span class="code">josee</span>.&nbsp;
+       </p>
+
+       <p>
+       The first client call to the <span class="code">display()</span> member function
+       accesses <span class="code">harry</span> through its implicit parameters.&nbsp;
+       The second client call accesses <span class="code">josee</span> through its implicit
+       parameters.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="thi" class="section">this</p>
+
+       <p>
+       The keyword <span class="code">this</span> returns the address of the current object.&nbsp;
+       That is, <span class="code">this</span> holds the address of the region of memory that
+       contains all of the data stored in the instance variables of current object.&nbsp;
+       <span class="code">*this</span> refers to the current object itself; that is, to the
+       complete set of its instance variables.&nbsp;</p>
+       <p>
+       We use the <span class="code">this</span> keyword within a member function to refer
+       to the complete set of instance variables that that member function is currently
+       accessing through its implicit parameters.
+       </p>
+       <p>
+       The figure below illustrates usage of the keyword.&nbsp; The top memory map shows
+       two member function and three <span class="code">Student</span> objects.&nbsp; The
+       question mark indicates that the data on which the member function logic operates
+       is unknown.&nbsp; The middle memory map identifies the data when the member functions
+       are called on object <span class="code">b</span>.&nbsp; The bottom memory map identifies
+       the data when the member functions are called on object <span class="code">a</span>.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Encapsulation _ The Current Object_files/this.png" alt="implicit and explicit parameters" width="311" height="221"></p>
+
+       <p>
+       For example, for the <span class="code">display()</span> member
+       function to return a copy of its host object, we write:&nbsp;</p>
+
+       <table width="90%" summary="">
+        <tbody><tr>
+         <td width="w70">
+          <pre> <span class="high">Student</span> Student::display() const {
+
+     // ...
+
+     <span class="high">return *this</span>;
+ }
+ int main() {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry(1234, gh, 3), backup;
+     backup = harry.display();
+     backup.display();
+ }
+</pre>
+         </td>
+         <td class="w30">
+          <pre class="result">
+
+
+ Entering 3-arg constructor
+ 1234:
+  89.40
+  67.80
+  45.50
+ Entering destructor for 1234
+ Entering destructor for 1234&nbsp;
+ Entering destructor for 1234
+ Entering destructor for 1234&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The keyword <span class="code">this</span> has no meaning outside
+       a member function.&nbsp;</p>
+
+       <p class="ssection">Reference to the Current Object</p>
+
+       <p>We can improve this definition of <span class="code">display()</span>
+       by returning an unmodifiable reference to the current object rather than
+       a copy of the object.&nbsp; This would improve performance if the object
+       was large, since copying all of its instance variables would be compute
+       intensive.&nbsp; Returning a reference only copies the object's address,
+       which is typically a 4-byte operation:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">const Student&amp;</span> Student::display() const {&nbsp;
+
+     // ...
+
+     <span class="high">return *this</span>;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">const</span> qualifier on the return type prevents
+       client code from placing the call to the member function on the left
+       side of an assignment operator and thereby enabling a change to the instance
+       variables themselves.&nbsp;
+       </p>
+
+       <p class="ssection">Assigning to the Current Object</p>
+
+       <p>
+       To copy the values of the instance variables of one object into those of
+       the current object, we dereference the keyword and use <span class="code">*this</span>
+       as the left operand in an assignment expression:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">*this =            </span>;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Example - Validated Input</p>
+
+       <p>
+       Let us introduce a member function to our <span class="code">Student</span> class
+       called <span class="code">read()</span> that
+       </p>
+       <ul>
+       <li>extracts data from standard input</li>
+       <li>stores that data in a temporary <span class="code">Student</span> object</li>
+       <li>copies the temporary object to the current object only if the temporary object is not empty</li>
+       <li>leaves the current object unchanged if the temporary object is empty&nbsp;</li>
+       </ul>
+       <p>
+       To avoid duplicating validation logic, we
+       </p>
+       <ul>
+       <li>construct a local <span class="code">Student</span> object passing the input data
+       to the three-argument constructor</li>
+       <li>let the internal logic determine whether to accept the data or place the
+       object in a safe empty state</li>
+       <li>assign the local object to the current object if the temporary object accepted the data</li>
+       </ul>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void Student::read() {
+
+     int no;          // will hold the student number
+     int ng;          // will hold the number of grades
+     float grade[NG]; // will hold the grades
+
+     cout &lt;&lt; "Enter student number : ";
+     cin &gt;&gt; no;
+     cout &lt;&lt; "Enter number of grades : ";
+     cin &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         cout &lt;&lt; "Enter student grade : ";
+         cin &gt;&gt; grade[i];
+     }
+
+     // construct the temporary object
+     Student temp(no, grade, ng);
+     // if data is valid, the student number is non-zero
+     if (temp.no != 0)
+         // copy the temporary object into the current object&nbsp;
+         <span class="high">*this = temp;</span>
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Since the temporary object (<span class="code">temp</span>) and the current
+       object are instances of the same class, this member function can access
+       each object's instance variables directly.
+       </p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>the current object is the current host object for the member function</li>
+        <li>a member function's parameters consist of implicit
+        and explicit parameters</li>
+        <li>a member function's explicit parameters receive information
+        from the client code</li>
+        <li>a member function's implicit parameters bind the function to
+        the instance variables of current object</li>
+        <li>the keyword <span class="code">this</span> holds the address
+        of the current object</li>
+        <li><span class="code">*this</span> refers to the current object itself</li>
+        <li>the keyword <span class="code">this</span> is meaningless
+        outside a member function</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h6.html">Overloading Constructors</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/membe_p.html" class="text3"><img src="./Encapsulation _ The Current Object_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html#top" class="text3">Top&nbsp; <img src="./Encapsulation _ The Current Object_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html" class="text3"><img src="./Encapsulation _ The Current Object_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Construction and Destruction</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html" class="text3">Next: Member Operators&nbsp;&nbsp; <img src="./Encapsulation _ The Current Object_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ The Current Object_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ The Current Object_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ The Current Object_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Encapsulation _ The Current Object_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Encapsulation _ The Current Object_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
