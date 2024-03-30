@@ -1,0 +1,981 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/deepc.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Encapsulation | Classes and Resources</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Classes and Resources_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Classes and Resources_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Classes and Resources_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Classes and Resources_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Encapsulation _ Classes and Resources_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc_p.html"><img src="./Encapsulation _ Classes and Resources_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part C - Encapsulation</span>
+        <br>
+        <br>
+        <span class="texthead">Classes and Resources</span>
+        <br>
+        <br>
+        <span class="textagend">Design classes with dynamically allocated resources to model the components of a programming solution
+        <br>
+        Define the copy constructor and assignment operator for a class with a resource</span>
+
+        <p class="quote">"Never allocate more than one resource in a single statement" (Sutter, Alexandrescu, 2005)</p>
+        <span class="textagend"><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#res">Resource Pointers</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#sha">Deep Copies and Assignments</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#cop">Copy Constructor</a>
+        <br>
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#ass">Assignment Operator</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#loc">Localization</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#noc">Copies Prohibited</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#exe">Exercise</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       In object-oriented programming, we design classes to behave independently of their client
+       applications.&nbsp; Wherever client code dictates the amount of memory that an object
+       requires, the memory that needs to be allocated is unknown at compile-time.&nbsp;
+       Only once the client has instantiated the object will the object know how much memory
+       the client requires.&nbsp; To review run-time memory allocation and deallocation see
+       the chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">Dynamic Memory</a>.&nbsp;
+       </p>
+       <p>
+       Memory that an object allocates at run-time represents a resource to its
+       class.&nbsp; Management of this resource requires additional logic that was
+       unnecessary in simpler designs.&nbsp; This additional logic ensures proper
+       handling of the resource and is often called deep copying and deep assignment.&nbsp;
+       </p>
+
+       <p>
+       This chapter describes how to implement deep copying and deep assignment logic.&nbsp;
+       The member functions that manage resources are the constructors, the assignment operator
+       and the destructor.&nbsp;
+       </p>
+       <br>
+
+       <p id="sym" class="section">Resource Instance Pointers</p>
+
+       <p>
+       A C++ object refers to a resource through a <em>resource instance pointer</em>.&nbsp;
+       This pointer holds the address of the resource.&nbsp; The address
+       lies outside the object's static memory.&nbsp;</p>
+
+       <p class="ssection">Case Study</p>
+
+       <p>
+       Let us upgrade our <span class="code">Student</span> class to accommodate a variable
+       number of grades.&nbsp; The client code specifies the number at run-time.&nbsp; The
+       array of grades is now a dynamically allocated resource.&nbsp;
+       We allocate</p>
+
+       <ul>
+        <li>static memory for the resource instance variable (<span class="code">grade</span>)</li>
+
+        <li>dynamic memory for the <span class="code">grade</span> array itself</li>
+       </ul>
+
+       <p>
+       In this section, we focus on the constructors and the destructor for our
+       <span class="code">Student</span> class.&nbsp; Let us assume that the client
+       does not copy or assign objects of this class.&nbsp; We shall cover the
+       copying and assignment logic in subsequent sections:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Resources - Constructor and Destructor
+ // resources.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ class Student {
+     int no;
+     float* grade;
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     ~Student();
+     void display() const;
+ };
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+     <span class="high">grade = nullptr;</span>
+ }
+
+ Student::Student(int sn) {
+     float g[] = {0.0f};
+     <span class="high">grade = nullptr;</span>
+     <span class="high">*this = Student(sn, g, 0);</span>
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_;
+         <span class="high">// allocate dynamic memory
+         if (ng &gt; 0) {
+             grade = new float[ng];</span>
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = g[i];
+         <span class="high">} else {
+             grade = nullptr;
+         }</span>
+     } else {
+         <span class="high">grade = nullptr;</span>
+         *this = Student();
+     }
+ }
+
+ Student::~Student() {
+     <span class="high">delete [] grade;</span>
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry(1234, gh, 3);
+     harry.display();
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 1234:
+  89.40&nbsp;
+  67.80
+  45.50
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The no-argument constructor places the object in a safe empty state.&nbsp;
+       The three-argument constructor allocates dynamic memory for the resource
+       only if the data received is valid.&nbsp; The pre-initialization of
+       <span class="code">grade</span> is a precaution that ensures no inadvertent
+       destruction of memory (see the assignment operator section below).&nbsp;
+       The destructor deallocates any memory that the constructor allocated.&nbsp;
+       Deallocating memory at the <span class="code">nullptr</span> address
+       has no effect.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="sha" class="section">Deep Copies and Assignments</p>
+
+       <p>
+       In designing a class with a resource, we expect the resource associated with one
+       object to be independent of the resource associated with another object.&nbsp;
+       That is, if we change the resource data in one object, we expect the resource data
+       in the other object to remain unchanged.&nbsp; In copying and assigning objects we
+       ensure resource independence through deep copying and deep assigning.&nbsp;
+       Deep copying and deep assigning involve copying the resource data.&nbsp; Shallow
+       copying and assigning involve copying the instance variables only and are only
+       appropriate for non-resource instance variables.
+       </p>
+       <p>
+       Implementing deep copying and assigning requires dynamic allocation and deallocation
+       of memory.&nbsp; The copying process includes not only the non-resource instance
+       variables but also the resource data itself.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Encapsulation _ Classes and Resources_files/deepCopy.png" alt="deep copy" width="360" height="120"></p>
+
+       <p>
+       In each deep copy, we allocate memory for the underlying resource and copy the
+       contents of the source resource into the destination memory.&nbsp;
+       We shallow copy the instance variables that are NOT resource instance variables.&nbsp;
+       For example, in our <span class="code">Student</span>
+       class, we shallow copy the student number and number of grades, but not the address
+       stored in the <span class="code">grade</span> pointer.</p>
+
+       <p>
+       Two special member functions manage allocations and deallocations
+       associated with deep copying and deep copy assigning:</p>
+
+       <ul>
+        <li>the copy constructor</li>
+
+        <li>the copy assignment operator</li>
+       </ul>
+
+       <p>
+       If we do not declare a copy constructor, the compiler inserts
+       code that implements a shallow copy.&nbsp; If we do not declare a copy
+       assignment operator, the compiler inserts code that implements a
+       shallow assignment.&nbsp;</p>
+
+       <br>
+
+       <p id="cop" class="section">Copy Constructor</p>
+
+       <p>
+       The copy constructor contains the logic for copying from a source object to a
+       <em>newly created</em> object of the same type.&nbsp; The compiler calls this
+       constructor when the client code</p>
+
+       <ol>
+        <li>creates an object by initializing it to an existing object</li>
+
+        <li>copies an object by value in a function call</li>
+
+        <li>returns an object by value from a function</li>
+       </ol>
+
+       <p class="ssection">Declaration</p>
+
+       <p>
+       The declaration of a copy constructor takes the form</p>
+       <pre class="defin"> <i>Type</i>(const <i>Type</i>&amp;);
+</pre>
+       <p>where <span class="code"><i>Type</i></span> is the name of the class.&nbsp; </p>
+
+       <p>
+       To define a copy constructor, we insert its declaration into the class.&nbsp;
+       For example, we insert the following into the definition
+       of our <span class="code">Student</span> class:&nbsp; </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ class Student {
+     int no;
+     float* grade;
+     int ng;
+ public:
+     Student();
+     Student(int, const char*);
+     <span class="high">Student(const Student&amp;);</span>
+     ~Student();
+     void display() const;&nbsp;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Definition</p>
+
+       <p>
+       The definition of a copy constructor contains logic to
+
+       </p><ol>
+        <li>perform a shallow copy on all non-resource instance
+        variables</li>
+
+        <li>allocate memory for each new resource</li>
+
+        <li>copy data from the source resource to the newly
+        created resource</li>
+       </ol>
+
+       <p>
+       For example, the following code implements a deep copy on objects of
+       our <span class="code">Student</span> class:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+ #include "Student.h"
+
+ // ...
+
+ <span class="high">Student::Student(const Student&amp; src) {
+
+     // shallow copies
+     no = src.no;
+     ng = src.ng;
+
+     // allocate dynamic memory for grades
+     if (src.grade != nullptr) {
+         grade = new float[ng];&nbsp;
+         // copy data from the source resource&nbsp;
+         // to the newly allocated resource
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = src.grade[i];
+     }
+     else {
+         grade = nullptr;
+     }
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Since the source data was validated on its original receipt from the client
+       code and privacy constraints have ensured that this data has not been corrupted
+       in the interim, we do not need to revalidate the data in the copy constructor
+       logic.
+       </p>
+
+       <br>
+
+       <p id="ass" class="section">Copy Assignment Operator</p>
+
+       <p>The copy assignment operator contains the logic for copying data
+       from an existing object to an <em>existing</em> object.&nbsp;
+       The compiler calls this member operator whenever for client code
+       expressions of the form</p>
+       <pre class="defin"> <i>identifier</i> = <i>identifier</i>
+</pre>
+       <p><span class="code"><i>identifier</i></span> refers to the name
+       of an object.&nbsp;
+       </p>
+
+       <p class="ssection">Declaration</p>
+
+       <p>The declaration of an assignment operator takes the form
+       </p><pre class="defin"> <i>Type</i>&amp; operator=(const <i>Type</i>&amp;);
+</pre>
+       <p>the left <span class="code"><i>Type</i></span> is the
+       return type and the right
+       <span class="code"><i>Type</i></span> is the type
+       of the source operand.&nbsp;
+
+       </p><p>
+       To define the copy assignment operator, we insert its declaration into
+       the class definition.&nbsp;
+       For example, we insert the following declaration into the definition of our
+       <span class="code">Student</span> class:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ class Student {
+     int no;
+     float* grade;
+     int ng;
+ public:
+     Student();
+     Student(int, const float*, int);
+     Student(const Student&amp;);
+     <span class="high">Student&amp; operator=(const Student&amp;);&nbsp;</span>
+     ~Student();
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Definition</p>
+
+       <p>
+       The definition of the copy assignment operator contains logic to:</p>
+
+       <ol>
+        <li>check for self-assignment</li>
+
+        <li>shallow copy the non-resource instance variables to destination
+        variables</li>
+
+        <li>deallocate any previously allocated memory for the resource associated with the current object</li>
+
+        <li>allocate a new memory for the resource associated with the current object</li>
+
+        <li>copy resource data from the source object to the newly allocated memory
+        of the current object</li>
+       </ol>
+       <p>
+       For example, the following code performs a deep copy assignment on objects
+       of our <span class="code">Student</span> class:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ // ...
+
+ <span class="high">Student&amp; Student::operator=(const Student&amp; source) {
+     // check for self-assignment
+     if (this != &amp;source) {
+         // shallow copy non-resource variables
+         no = source.no;
+         ng = source.ng;
+         // deallocate previously allocated dynamic memory&nbsp;
+         delete [] grade;
+         // allocate new dynamic memory, if needed
+         if (source.grade != nullptr) {
+             grade = new float[ng];
+             // copy the resource data
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = source.grade[i];
+         }
+         else {
+             grade = nullptr;
+         }
+     }
+     return *this;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To trap a self-assignment from the client code (<span class="code">a = a</span>),
+       we compare the address of the current object to the address of the source
+       object.&nbsp; If the addresses match, we skip the assignment
+       logic altogether.&nbsp; If we neglect to check for self-assignment, the
+       deallocation statement would release the memory holding the resource
+       data and we would lose access to the source resource resulting in our logic
+       failing at <span class="code">grade[i] = source.grade[i]</span>.&nbsp;</p>
+       <br>
+
+       <p id="loc" class="section">Localization</p>
+
+       <p>
+       The code in our definition of the copy constructor is identical to most of the
+       code in our definition of the assignment operator.&nbsp;
+       To avoid such duplication and thereby improve maintainability we can
+       localize the logic in a:
+       </p>
+       <ul>
+       <li>private member function - localize the common code in a private member function and
+       call that member function from both the copy constructor and the copy assignment operator</li>
+       <li>direct call - call the assignment operator directly from the copy constructor</li>
+       </ul>
+
+       <p class="ssection">Private Member Function</p>
+
+       <p>
+       The following solution localizes the common code in a private
+       member function named <span class="code">init()</span> and calls this
+       function from the copy constructor and the copy assignment operator:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">void Student::init(const Student&amp; source) {
+     no = source.no;
+     ng = source.ng;
+     if (source.grade != nullptr) {
+         grade = new float[ng];
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = source.grade[i];
+     }
+     else {
+         grade = nullptr;
+     }
+ }</span>
+
+ Student::Student(const Student&amp; source) {
+     <span class="high">init(source);</span>
+ }
+
+ Student&amp; Student::operator=(const Student&amp; source) {
+     if (this != &amp;source) {  // check for self-assignment
+         // deallocate previously allocated dynamic memory&nbsp;
+         delete [] grade;
+         <span class="high">init(source);</span>
+     }
+     return *this;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Direct Call</p>
+
+       <p>
+       The following solution initializes the resource instance
+       variable in the copy constructor to <span class="code">nullptr</span>
+       and calls the copy assignment operator directly:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student::Student(const Student&amp; source) {
+     <span class="high">grade = nullptr;
+     *this = source;</span> // calls assignment operator
+ }
+
+ Student&amp; Student::operator=(const Student&amp; source) {
+     if (this != &amp;source) {  // check for self-assignment
+         no = source.no;
+         ng = source.ng;
+         // deallocate previously allocated dynamic memory&nbsp;
+         delete [] grade;
+         // allocate new dynamic memory
+         if (source.grade != nullptr) {
+             grade = new float[ng];
+             // copy resource data
+             for (int = 0; i &lt; ng; i++)
+                 grade[i] = source.grade[i];
+         }
+         else {
+             grade = nullptr;
+         }
+     }
+     return *this;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Assigning <span class="code">grade</span> to <span class="code">nullptr</span>
+       in the copy constructor ensures that the assignment operator does not deallocate
+       any memory if called by the copy constructor.&nbsp;
+       </p>
+
+       <p class="ssection">Assigning Temporary Objects</p>
+
+       <p>
+       Assigning a temporary object to the current object requires additional code if the
+       object manages resources.&nbsp; To prevent the assignment operator from releasing
+       not-as-yet-acquired resources we initialize each resource instance variable to
+       an empty value (<span class="code">nullptr</span>).&nbsp;
+       </p>
+       <p>
+       For example, in the constructors for our <span class="code">Student</span> object,
+       we add the highlighted code:
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> class Student {
+     int no;
+     float* grade;
+     int ng;
+ public:
+     // ...
+ };
+
+ Student::Student() {
+    no = 0;
+    ng = 0;
+    grade = nullptr;
+ }
+
+ Student::Student(int n) {
+    float g[] = {0.0f};
+    <span class="high">grade = nullptr;</span>
+    *this = Student(n, g, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_;
+         // allocate dynamic memory
+         if (ng &gt; 0) {
+             grade = new float[ng];
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = g[i];
+         } else {
+             grade = nullptr;
+         }
+     } else {
+         <span class="high">grade = nullptr;</span>
+         *this = Student();
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="noc" class="section">Copies Prohibited</p>
+
+       <p>
+       Certain class designs require prohibiting client code from
+       copying or copy assigning any instance of a class.&nbsp; To prohibit copying and/or
+       copy assigning, we declare the copy constructor and/or the copy assignment operator
+       as deleted members of our class:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> class Student {
+     int no;
+     float* grade;
+     int ng;
+ public:
+     Student();
+     Student(int, const float*, int);
+     <span class="high">Student(const Student&amp; source) = delete;
+     Student&amp; operator=(const Student&amp; source) = delete;&nbsp;</span>
+     ~Student();
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The keyword <span class="code">delete</span> used in this context has no
+       relation to deallocating dynamic memory.
+       </p>
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a class with resources requires custom definitions of a copy
+        constructor, copy assignment operator and destructor</li>
+
+        <li>the copy constructor copies data from an existing object to
+        a newly created object</li>
+
+        <li>the copy assignment operator copies data from an existing object
+        to an existing object</li>
+
+        <li>initialization, pass by value, and return by value client code invokes the
+        copy constructor</li>
+
+        <li>the copy constructor and copy assignment operator should shallow copy
+        only the non-resource instance variables</li>
+
+        <li>the copy assignment operator should check for self-assignment</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h7.html">Class with a Resource</a></li>
+
+        <li>Complete the Workshop on <a href="https://ict.senecacollege.ca/~oop244/pages/workshops/w5.html">Class with a Resource</a></li>
+       </ul>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc_p.html" class="text3"><img src="./Encapsulation _ Classes and Resources_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#top" class="text3">Top&nbsp; <img src="./Encapsulation _ Classes and Resources_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html" class="text3"><img src="./Encapsulation _ Classes and Resources_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Member Operators</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html" class="text3">Next: Helper Functions&nbsp;&nbsp;
+      <img src="./Encapsulation _ Classes and Resources_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Encapsulation _ Classes and Resources_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Encapsulation _ Classes and Resources_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

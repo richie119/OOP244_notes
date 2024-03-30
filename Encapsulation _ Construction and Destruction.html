@@ -1,0 +1,1719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/ctors.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Encapsulation | Construction and Destruction</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Construction and Destruction_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Construction and Destruction_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Construction and Destruction_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Encapsulation _ Construction and Destruction_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Encapsulation _ Construction and Destruction_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors_p.html"><img src="./Encapsulation _ Construction and Destruction_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part C - Encapsulation</span>
+        <br>
+        <br>
+        <span class="texthead">Construction and Destruction</span>
+        <br>
+        <br>
+        <span class="textagend">Describe some basic features of a class
+        <br>
+        Introduce constructors and destructors as essential to encapsulation
+        <br>
+        Overload constructors to enhance client communication</span>
+
+        <p class="quote">"A class is a cohesive package that ...
+        describes the rules by which objects behave; these objects are
+        referred to as instances of that class." (Wikipedia,
+        2008)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#cla">Class Features</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#con">Constructor</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#des">Destructor</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#arr">Arrays</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#ove">Overloading</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#exe">Exercise</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Object-oriented languages encapsulate the state and logic of a type using
+       a <i>class</i>.&nbsp; A class describes the structure of the data that its objects hold
+       and the rules under which its member functions access and change that data.&nbsp; The
+       implementation of a well-encapsulated class has all details hidden within itself.&nbsp;
+       Client code communicates with the objects of the class solely through its public member
+       functions.&nbsp;
+       </p>
+
+       <p>
+       This chapter describes some basic features of classes and introduces the special
+       member functions that initialize and tidy up objects of a class.&nbsp; This chapter
+       covers the order of memory allocation and deallocation during object construction
+       and destruction as well as overloading of the special function that initializes
+       objects.&nbsp;</p>
+       <br>
+
+       <p id="cla" class="section">Class Features</p>
+
+       <p class="ssection">Instance of a Class</p>
+
+       <p>
+       Each object or instance of a class occupies its own region of memory.&nbsp; The data
+       for the object is stored in that region of memory.
+       </p>
+       <p>
+       A definition of an object takes the form</p>
+       <pre class="defin"> <i>Type identifier</i>;
+</pre>
+       <p><span class="code"><i>Type</i></span> is the name of the class.&nbsp;
+       <span class="code"><i>indentifier</i></span> is the name of the object.&nbsp;
+       </p>
+
+       <p>
+       Consider the following class definition
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     void set(int, const float*, int);&nbsp;
+     void display() const;
+ };</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To create an object of our <span class="code">Student</span> class
+       named <span class="code">harry</span>, we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student harry;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>To create five objects of our <span class="code">Student</span> class, we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student a, b, c, d, e;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The compiler allocates five regions in static memory, each of which holds
+       the data for one of the five objects.&nbsp; Each region stores the values of
+       three data members - <span class="code">no</span>, the array <span class="code">grade</span> and <span class="code">ng</span>.&nbsp; The compiler
+       stores the member function instructions separately and only once for all
+       objects of the class.</p>
+
+       <p class="center"><img src="./Encapsulation _ Construction and Destruction_files/instance.png" width="146" height="119" alt="instance"></p>
+
+       <p class="sssection">Instance Variables</p>
+
+       <p>We call the data members in the class definition the
+       object's <em>instance variables</em>.&nbsp;
+       Instance variables may be of</p>
+
+       <ul>
+        <li>fundamental type (<span class="code">int</span>,
+        <span class="code">double</span>, <span class="code">char</span>, etc.)</li>
+
+        <li>compound type
+        <ul>
+
+        <li>class type (<span class="code">struct</span> or
+        <span class="code">class</span>)</li>
+
+        <li>pointer type (to instances of data types - fundamental
+        or compound)</li>
+
+        <li>reference type (to instances of data types - fundamental
+        or compound)</li>
+        </ul>
+        </li>
+       </ul>
+
+       <p class="sssection">Logic</p>
+
+       <p>
+       The member function instructions apply to all objects of the class and there is no
+       need to allocate separate logic memory for each object.&nbsp; At run-time each call
+       to a member function on an object accesses the same code, but different instance
+       variables - those of the object on which the client code has called the member
+       function.&nbsp;
+       </p>
+       <p>
+       Consider the following client code.&nbsp; This code calls the same member
+       function (<span class="code">display()</span>) on five different <span class="code">Student</span>
+       objects and displays five different sets of information in the same format:
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student a, b, c, d, e;
+
+ // different data for each object - same logic
+
+ <span class="high">a.</span>display();  // displays the data stored in a
+ cout &lt;&lt; endl;
+ <span class="high">b.</span>display();  // displays the data stored in b
+ cout &lt;&lt; endl;
+ <span class="high">c.</span>display();  // displays the data stored in c
+ cout &lt;&lt; endl;
+ <span class="high">d.</span>display();  // displays the data stored in d&nbsp;
+ cout &lt;&lt; endl;
+ <span class="high">e.</span>display();  // displays the data stored in e
+ cout &lt;&lt; endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The memory allocated for member function code is shown on the left.&nbsp; The
+       memory allocated for the instance variables is shown on the right:
+       </p>
+
+       <p class="center"><img src="./Encapsulation _ Construction and Destruction_files/class memory.png" width="508" height="47" alt="memory"></p>
+
+       <p class="ssection">Class Privacy</p>
+
+       <p>
+       C++ compilers apply privacy at the class level.&nbsp; Any member function can
+       access any private member of its class, including any data member of any
+       instance of its class.&nbsp; In other words, privacy is not implemented
+       <em>at the individual object level</em>.&nbsp;
+       </p>
+       <p>
+       In the following example, we refer to private data members of a <span class="code">Student</span>
+       object within a member function called on a different <span class="code">Student</span>
+       object:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     <span class="high">void copyFrom(const Student&amp; src);</span>
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ // ...
+
+ void Student::copyFrom(const Student&amp; src) {&nbsp;
+     no = <span class="high">src.no</span>; // copy data from one object to another&nbsp;
+     ng = <span class="high">src.ng</span>; // copy data from one object to another&nbsp;
+     for (int i = 0; i &lt; NG; i++)
+         grade[i] = <span class="high">src.grade[i]</span>; // copy from one object to another&nbsp;
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main() {
+     Student harry, backup;
+     float grade[] = {78.9f, 67.5f, 45.5f, 64.35f};
+     harry.set(975, grade, 4);
+     backup.copyFrom(harry);
+     backup.display();
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 975:
+  78.90
+  67.50
+  45.50
+  64.35&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">copyFrom(const Student&amp; src)</span> member function
+       copies the values of the private data members of <span class="code">harry</span>
+       to the private data members of <span class="code">backup</span>.</p>
+
+       <!--<p>Complete Example: <a href=
+       "../content/classLevelPrivacy.cpp">classLevelPrivacy.cpp</a>.</p>-->
+       <br>
+
+       <p id="con" class="section">Constructor</p>
+
+       <p>
+       Complete encapsulation requires a mechanism for initializing data members at
+       creation-time.&nbsp; Without initialization at creation-time, an object's data
+       members contain undefined values until client code calls a modifier that
+       sets that data.&nbsp; Before any modifier call, client code can inadvertently
+       'break' the object by calling a member function that assumes valid data.&nbsp;
+       For instance, client code could call <span class="code">display()</span> before
+       ever calling <span class="code">set()</span>.&nbsp;
+       </p>
+
+       <p>
+       The following code generates the spurious output on the right</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Calling an Object with Uninitialized Data
+ // uninitialized.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ void Student::set(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         no = 0;
+         ng = 0;
+     }
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main() {
+     Student harry;
+     harry.display();
+
+     float grade[] = {78.9f, 67.5f, 45.55f};
+     harry.set(975, grade, 3);
+     harry.display();
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <span class="high">12052848&nbsp;</span>
+
+ 975:
+  78.90
+  67.50
+  45.55&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Initially <span class="code">harry</span>'s student number, grades and their number
+       are undefined.&nbsp; If the value stored in <span class="code">ng</span> is negative, the first call
+       to <span class="code">display()</span> outputs an unrecognizable student number and no grades.&nbsp;
+       After the call to <span class="code">set()</span>, the data values are defined and the subsequent call
+       to <span class="code">display()</span> produces recognizable results.</p>
+       <p>
+       To avoid undefined behavior or broken objects, we need to initialize each object to
+       an empty state at creation-time.&nbsp;
+       </p>
+
+       <p class="ssection">Definition</p>
+
+       <p>
+       The special member function that any object invokes at creation-time is
+       called its class' <i>constructor</i>.&nbsp; We use the default constructor to
+       execute any preliminary logic and set the object to an empty state.&nbsp;
+       </p>
+
+       <p>
+       The default constructor takes its name from the class itself.&nbsp;
+       The prototype for this no-argument constructor takes the form</p>
+       <pre class="defin"> <i>Type</i>();
+</pre>
+
+       <p><span class="code">Type</span> is the name of the class.&nbsp;
+       Its declaration does not include a return type.&nbsp;</p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       To define a default constructor for our <span class="code">Student</span>
+       class, we declare its prototype explicitly in the class definition:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     <span class="high">Student();</span>
+     void set(int, const float*, int);
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We define the constructor in the implementation file:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">Student::Student() {
+     no = 0;
+     ng = 0;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Default Behavior</p>
+
+       <p>If we don't declare a constructor in the class definition, the
+       compiler inserts a default no-argument constructor with an empty body:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student::Student() {
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Note that this default constructor leaves the instance variables uninitialized.&nbsp;
+       </p>
+
+       <p class="ssection">Understanding Order</p>
+
+       <p class="sssection">Construction</p>
+
+       <p>
+       The compiler assembles an object in the following order</p>
+
+       <ol>
+        <li>allocates memory for each instance variable in the order
+        listed in the class definition</li>
+
+        <li>executes the logic, if any, within the constructor's definition</li>
+       </ol>
+
+       <p class="sssection">Member Function Calls</p>
+
+       <p>
+       Since the constructor starts executing at instantiation, no
+       normal member function is called before the constructor.&nbsp;
+       Every normal member function is called after instantiation.</p>
+
+       <p class="center"><img src="./Encapsulation _ Construction and Destruction_files/ctor.png" width="249" height="60" alt="constructor"></p>
+
+       <p class="sssection">Multiple Objects</p>
+
+       <p>
+       The compiler creates multiple objects defined in a single declaration
+       in the order specified by the declaration.
+       </p>
+       <p>
+       For example, the following code generates the output on the right</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Constructors
+ // constructors.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;cstring&gt;
+ using namespace std;
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     <span class="high">Student();</span>
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ <span class="high">// initializes the data members
+ //
+ Student::Student() {
+     cout &lt;&lt; "In constructor" &lt;&lt; endl;&nbsp;
+     no = 0;
+     ng = 0;
+ }</span>
+
+ void Student::set(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         no = 0;
+         ng = 0;
+     }
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     <span class="high">Student harry, josee;</span>
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     float gj[] = {83.4f, 77.8f, 55.5f};
+     harry.set(1234, gh, 3);
+     josee.set(1235, gj, 3);
+     harry.display();
+     josee.display();
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ In constructor
+ In constructor&nbsp;
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The compiler assembles <span class="code">harry</span> and calls its constructor
+       first and assembles <span class="code">josee</span> and calls its constructor
+       afterwards.</p>
+
+       <p class="ssection">Safe Empty State</p>
+
+       <p>
+       Initializing an object's instance variables in a constructor ensures
+       that the object has a well-defined state from the <em>time of its creation</em>.&nbsp;
+       In the above example, we say that <span class="code">harry</span> and <span class="code">josee</span>
+       are in <em>safe empty state</em>s until the <span class="code">set()</span> member function
+       changes those states.&nbsp; If client code calls member functions on objects in safe empty
+       states, the objects do not break and behave as expected.&nbsp;</p>
+
+       <p>For example, the following client code produced the <span class="code">no data available</span>
+       message listed on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Safe Empty State
+ // safeEmpty.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main ( ) {
+     Student harry, josee;
+
+     <span class="high">harry.display();</span>
+     <span class="high">josee.display();</span>
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     float gj[] = {83.4f, 77.8f, 55.5f};
+     harry.set(1234, gh, 3);
+     josee.set(1235, gj, 3);
+     harry.display();
+     josee.display();
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+ In constructor
+ In constructor&nbsp;
+ <span class="high">no data available
+ no data available</span>
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The safe empty state is identical for all objects of the same class.
+       </p>
+       <br>
+
+       <p id="des" class="section">Destructor</p>
+
+       <p>
+       Complete encapsulation also requires a mechanism for tidying up at the end
+       of an object's lifetime.&nbsp; An object with dynamically allocated memory
+       needs to deallocate that memory before going out of scope.&nbsp; An object
+       that has written data to a file needs to flush the file's buffer and close
+       the file before going out of scope.&nbsp;
+       </p>
+
+       <p class="ssection">Definition</p>
+
+       <p>
+       The special member function that every object invokes before going out of scope
+       is called its class' <i>destructor</i>.&nbsp; We code all of the terminal logic
+       in this special member function.&nbsp;
+       </p>
+
+       <p>The destructor takes its name from the class itself, prefixing it with the
+       tilde symbol (<span class="code">~</span>).&nbsp; The prototype for a destructor takes the form</p>
+       <pre class="defin"> ~<i>Type</i>();
+</pre>
+
+       <p><span class="code"><i>Type</i></span> is the name of the
+       class.&nbsp; Destructors have no parameters or return values.&nbsp;</p>
+
+       <p>
+       An object's destructor
+       </p>
+       <ul>
+       <li>is called automatically</li>
+       <li>cannot be overloaded</li>
+       <li>should not be called explicitly</li>
+       </ul>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       To define the destructor for our <span class="code">Student</span>
+       class, we declare its prototype in the class definition:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     <span class="high">~Student();</span>
+     void set(int, const float*, int);&nbsp;
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We define the member function in the implementation file:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">Student::~Student() {
+    // insert our terminal code here&nbsp;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Default Behavior</p>
+
+       <p>
+       If we don't declare a destructor in the class definition,
+       the compiler inserts a destructor with an empty body:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student::~Student() {
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Understanding Order</p>
+
+       <p class="sssection">Member Function Calls</p>
+
+       <p>
+       An object's destructor starts executing only after every normal member function
+       has completed its execution.</p>
+
+       <p class="center"><img src="./Encapsulation _ Construction and Destruction_files/dtor.png" width="357" height="73" alt="constructor to destructor"></p>
+
+       <p>
+       Client code cannot call any member function on an object after the object has called
+       its destructor and gone out of scope.</p>
+
+       <p class="sssection">Destruction</p>
+
+       <p>
+       Object destruction proceeds in the following order</p>
+
+       <ol>
+        <li>execute the logic of the object's destructor</li>
+
+        <li>deallocate memory for each instance variable in
+        opposite order to that listed in the class definition</li>
+       </ol>
+
+       <p class="sssection">Multiple Objects</p>
+
+       <p>
+       The compiler destroys sets of objects in opposite order to that of their creation.
+       </p>
+       <p>
+       For example, the following code generates the output on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Constructors and Destructors
+ // destructors.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;cstring&gt;
+ using namespace std;
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     <span class="high">~Student();</span>
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ Student::Student() {
+     cout &lt;&lt; "In constructor" &lt;&lt; endl;&nbsp;
+     no = 0;
+     ng = 0;
+ }
+
+ <span class="high">// executed before object goes out of scope&nbsp;
+ //
+ Student::~Student() {
+    cout &lt;&lt; "In destructor for " &lt;&lt; no
+         &lt;&lt; endl;
+ }</span>
+
+ void Student::set(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         no = 0;
+         ng = 0;
+     }
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     <span class="high">Student harry, josee;</span>
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     float gj[] = {83.4f, 77.8f, 55.5f};
+     harry.set(1234, gh, 3);
+     josee.set(1235, gj, 3);
+     harry.display();
+     josee.display();
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ In constructor
+ In constructor
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50
+ <span class="high">In destructor for 1235&nbsp;
+ In destructor for 1234</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The compiler destroys <span class="code">josee</span> first followed by
+       <span class="code">harry</span>.</p>
+
+       <br>
+
+       <p id="arr" class="section">Construction and Destruction of Arrays</p>
+
+       <p>The order of construction and destruction of elements of an
+       array of objects follows the order described above.&nbsp;
+       </p>
+
+       <p>
+       The compiler creates the elements of an array one at a time sequentially
+       starting from the first element and ending with the last.&nbsp; Each object
+       calls the default constructor at creation-time.&nbsp; When the array goes out
+       of scope, the last element calls its destructor first and the first element
+       calls its destructor last.&nbsp;</p>
+
+       <p>
+       For example, the following code generates the output on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Constructors, Destructors and Arrays
+ // ctorsDtorsArrays.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;cstring&gt;
+ using namespace std;
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     ~Student();
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ Student::Student() {
+     cout &lt;&lt; "In constructor" &lt;&lt; endl;&nbsp;
+     no = 0;
+     ng = 0;
+ }
+
+ Student::~Student() {
+    cout &lt;&lt; "In destructor for " &lt;&lt; no
+         &lt;&lt; endl;
+ }
+
+ void Student::set(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         no = 0;
+         ng = 0;
+     }
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     <span class="high">Student a[3];
+     float g0[] = {89.4f, 67.8f, 45.5f};
+     float g1[] = {83.4f, 77.8f, 55.5f};
+     float g2[] = {77.8f, 83.4f, 55.5f};
+     a[0].set(1234, g0, 3);
+     a[1].set(1235, g1, 3);
+     a[2].set(1236, g2, 3);
+     for (int i = 0; i &lt; 3; i++)
+         a[i].display();</span>
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ In constructor
+ In constructor
+ In constructor
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50
+ 1236:
+  77.80
+  83.40
+  55.50
+ In destructor for 1236&nbsp;
+ In destructor for 1235
+ In destructor for 1234
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The destructor for element <span class="code">a[2]</span>
+       executes before the destructor for <span class="code">a[1]</span>, which
+       executes before the destructor for <span class="code">a[0]</span>.&nbsp;
+       The order of destruction is based on order of construction and
+       not on order of usage.&nbsp;</p>
+       <br>
+
+       <p id="ove" class="section">Overloading Constructors</p>
+
+       <p>
+       Overloading a class' constructor adds communication options for client code.&nbsp;
+       Client code can select the most appropriate set of arguments at creation
+       time.&nbsp;
+       </p>
+
+       <p>
+       For example, to let client code initialize a <span class="code">Student</span>
+       object with a student number and a set of grades, let us define a three-argument
+       constructor similar to our <span class="code">set()</span> function:&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Overloaded Constructor
+ // overload.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+ const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     <span class="high">Student(int, const float*, int);</span>
+     ~Student();
+     void set(int, const float*, int);
+     void display() const;
+ };
+
+ Student::Student() {
+     cout &lt;&lt; "In constructor" &lt;&lt; endl;&nbsp;
+     no = 0;
+     ng = 0;
+ }
+
+ <span class="high">Student::Student(int sn, const float* g, int ng_) {
+     cout &lt;&lt; "In 3-arg constructor" &lt;&lt; endl;&nbsp;
+     set(sn, g, ng_);
+ }</span>
+
+ Student::~Student() {
+    cout &lt;&lt; "In destructor for " &lt;&lt; no
+         &lt;&lt; endl;
+ }
+
+ void Student::set(int sn, const float* g, int ng_) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         no = 0;
+         ng = 0;
+     }
+ }
+
+ void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         cout.setf(ios::fixed);
+         cout.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             cout.width(6);
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         cout.unsetf(ios::fixed);
+         cout.precision(6);
+     } else {
+         cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ int main () {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     float gj[] = {83.4f, 77.8f, 55.5f};
+     Student harry(1234, gh, 3), josee(1235, gj, 3);
+     harry.display();
+     josee.display();
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ In 3-arg constructor
+ In 3-arg constructor
+ 1234:
+  89.40
+  67.80
+  45.50
+ 1235:
+  83.40
+  77.80
+  55.50
+ In destructor for 1235&nbsp;
+ In destructor for 1234
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       This new  constructor includes the validation logic by calling <span class="code">set()</span>.&nbsp;
+       The compiler calls only one constructor at creation-time.&nbsp;
+       In this example, the compiler does not call the default constructor.
+
+       </p><p class="sssection">No-argument constructor is not always implemented</p>
+
+       <p>If the class definition includes the prototype for a constructor with
+       some parameters but does not include the prototype for a no-argument default constructor,
+       the compiler DOES NOT insert an empty-body, no-argument default constructor.&nbsp; The
+       compiler only inserts an empty-body, no-argument default constructor if the class
+       definition does not declare ANY constructor.
+       </p>
+
+       <p>
+       If we define a constructor with some parameters, we typically also define a no-argument
+       default constructor.&nbsp; This is important in the creation of arrays of objects.&nbsp;
+       The creation of each element in the array requires a no-argument default constructor.</p>
+
+        <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>we refer to the data members of an object as its instance variables</li>
+
+        <li>privacy operates at the class level, not at the object level</li>
+
+        <li>the constructor is a special member function that an object invokes at creation time</li>
+
+        <li>the name of the constructor is the name of the class</li>
+
+        <li>the destructor is a special member function
+        that an object invokes at destruction time</li>
+
+        <li>the name of the destructor is the name of the class prefixed by a <span class="code">~</span></li>
+
+        <li>the constructor and destructor do not have return types</li>
+
+        <li>the compiler inserts an empty body constructor/destructor into any
+        class definition that does not declare a constructor/destructor</li>
+
+        <li> the compiler does not insert an empty-body, no-argument constructor
+        into a class definition that declares any form of constructor</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h5.html">Constructors and
+       Destructors</a></li>
+
+        <li>Complete the Workshop on <script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/workshop_4.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/w4.html">Constructors</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors_p.html" class="text3"><img src="./Encapsulation _ Construction and Destruction_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html#top" class="text3">Top&nbsp; <img src="./Encapsulation _ Construction and Destruction_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html" class="text3"><img src="./Encapsulation _ Construction and Destruction_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Dynamic Memory</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html" class="text3">Next: The Current Object&nbsp;&nbsp; <img src="./Encapsulation _ Construction and Destruction_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Encapsulation _ Construction and Destruction_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 02/06/2018 13:06&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Encapsulation _ Construction and Destruction_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Encapsulation _ Construction and Destruction_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
