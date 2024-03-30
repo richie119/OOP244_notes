@@ -1,0 +1,1105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/langu.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Introduction | Welcome to OO Programming</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Welcome to OO Programming_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Welcome to OO Programming_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Welcome to OO Programming_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Welcome to OO Programming_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Introduction _ Welcome to OO Programming_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu_p.html"><img src="./Introduction _ Welcome to OO Programming_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part A - Introduction</span>
+        <br>
+        <br>
+        <span class="texthead">Welcome to Object-Oriented</span>
+        <br>
+        <br>
+        <span class="textagend">Introduce complexity and
+        object-oriented programming<br>
+        Introduce namespaces for grouping an application's identifiers<br>
+        Write our first object-oriented program</span>
+
+        <p class="quote">"The technique of mastering complexity has
+        been known since ancient times:
+        <br>
+        divide et impera (divide and rule)" (Dijkstra, 1979).</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#com">Complexity</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#cla">Languages</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#nam">Namespaces</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#exa">First Examples</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Modern software applications are intricate, dynamic and complex.&nbsp;
+       The number of lines of code can exceed the hundreds of thousands or millions.&nbsp;
+       These applications evolve over time.&nbsp; Some take years
+       of programming effort to mature.&nbsp; Creating such applications
+       involves many developers with different levels of expertise.&nbsp; Their work
+       consists of smaller stand alone and testable sub-projects; sub-projects that
+       are transferrable, practical, upgradeable and possibly even usable within other future
+       applications.&nbsp;
+       The principles of software engineering suggest that each component should be highly
+       cohesive and that the collection of components should be loosely coupled.&nbsp;
+       Object-oriented languages provide the tools for implementing these principles.&nbsp;
+       </p>
+
+       <p>
+       C++ is an object-oriented programming language specifically designed to provide
+       a simple, comprehensive feature set for programming modern applications
+       without loss in performance.&nbsp;
+       C++ combines the efficiencies of the C language with the object-oriented features
+       necessary for the development of large applications.&nbsp;
+       </p>
+       <br>
+
+       <p id="com" class="section">Addressing Complexity</p>
+
+       <p>
+       Large applications are complex.&nbsp; We address their complexity by identifying the most
+       important features of the problem domain; that is, the area of expertise that needs to
+       be examined to solve the problem.&nbsp; We express the
+       features in terms of <em>data</em> and <em>activities</em>.&nbsp;
+       We identify the data objects and the activities on those objects as complementary
+       tasks.&nbsp;
+       </p>
+
+       <p>Consider a course enrollment system for a program in a college or university.&nbsp; Each
+       participant
+       </p>
+       <ul>
+       <li>enrolls in several face-to-face courses</li>
+       <li>enrolls in several hybrid courses</li>
+       <li>earns a grade in each course</li>
+       </ul>
+
+       <p>
+       The following structure diagram identifies the activities.&nbsp;
+       </p>
+       <p class="center"><img src="./Introduction _ Welcome to OO Programming_files/algorithmic.png" width="264" height="72" alt="algorithmic approach"></p>
+
+       <p>
+       If we switch our attention to the objects involved,
+       we find a Course and a Hybrid Course.&nbsp;
+       Focusing on a Course, we observe that it has a Course
+       Code.&nbsp; We lookup the Code in the institution's Calendar to
+       determine when that Course is offered.&nbsp;
+       </p>
+       <p>
+       We say that a Course <i>has a</i> Code and <i>uses
+       a</i> Grading Scheme and that a Hybrid Course is <i>a kind of</i> Course.&nbsp;
+       The diagram below shows these relationships between the objects in this problem
+       domain.&nbsp; The connectors identify the types of relationships.&nbsp; The
+       closed circle connector identifies a <i>has-a</i>
+       relationship, the open circle connector identifies a <i>uses-a</i> relationship and the
+       arrow connector identifies an <i>is-a-kind-of</i> relationship.</p>
+
+       <p class="center"><img src="./Introduction _ Welcome to OO Programming_files/class_relationships.png" width="254" height="72" alt="class relationships"></p>
+
+       <p>
+       In switching our attention from the activities in the structure chart to
+       the objects in the relationship diagram we have switched from a procedural
+       description of the problem to an object-oriented description.&nbsp;
+       </p>
+       <p>
+       These two complementary approaches to mastering complexity date at least as far back as
+       the ancient Greeks.&nbsp; Heraclitus viewed the world in terms of process, while
+       Democritus viewed the world in terms of discrete atoms.&nbsp;</p>
+
+       <p>
+       Learning to divide a complex problem into objects and to identify the
+       relationships amongst the objects is the subject matter of system analysis
+       and design courses.&nbsp; The material covered in this course introduces
+       some of the principal concepts of analysis and design along with the C++
+       syntax for implementing these concepts in code.&nbsp;
+       </p>
+       <br>
+
+       <p id="cla" class="section">Programming Languages</p>
+
+       <p>
+       <a href="http://www.levenez.com/lang/">Eric
+       Levenez</a> maintains a web page that lists the major
+       programming languages throughout the world.&nbsp; <a href="http://www.tiobe.com/tpci.htm">TIOBE Software</a> tracks the
+       most popular ones and long-term trends based on world-wide
+       availability of software engineers as calculated from Google,
+       Yahoo!, and MSN search engines.&nbsp; Many of these languages
+       are object orientated.&nbsp;</p>
+
+       <p>Java, C, C++, Python and C# are currently the five most popular languages.&nbsp;
+       Java, C, C++ and C# have much syntax in common: Java syntax is C-like, but not a
+       superset of C, C++ contains almost all of C as a subset, C# syntax is C++-like but
+       not a superset of C.&nbsp; Each is an <i>imperative</i> language; that is, a
+       language that specifies every step necessary to reach a desired state.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Introduction _ Welcome to OO Programming_files/superset.png" width="228" height="72" alt="C + + is a superset of C"></p>
+
+       <p>The distinguishing features of C, C++ and Java are:</p>
+
+       <ul>
+        <li>C has no object-oriented support.&nbsp; C leaves us no choice
+        but to design our programming solutions in terms of activity-oriented
+        structures.</li><br>
+
+        <!--<li>Objective-C is <span class="high">hybrid</span>.&#160; It
+        augments the C language with object-oriented features.&#160;
+        Objective-C lets us build our solutions partly from
+        activities and partly from objects.&#160; The main
+        function in any Objective-C program is a C function, which
+        is not object-oriented.&#160; Objective-C stresses
+        run-time logic.
+        </li><br />-->
+
+        <li>C++ is <span class="high">hybrid</span>.&nbsp;
+        It augments C with object-oriented features.&nbsp; C++ lets us build
+        our solutions partly from activities and partly from objects.&nbsp;
+        The main function in any C++ program is a C function, which is not
+        object-oriented.&nbsp; C++ stresses compile-time logic.
+        </li><br>
+
+        <li>Java is <span class="high">purely object-oriented</span>.&nbsp; It
+        excludes all non-object-oriented features.&nbsp; Java leaves us no
+        choice but to design our solutions using an object-oriented structures.&nbsp;</li><br>
+       </ul>
+
+       <p class="ssection">Features of C++</p>
+
+       <p>Using C++ to learn object-oriented programming has several advantages for a
+       student familiar with C.&nbsp; C++
+       is</p>
+
+       <ul>
+        <li>nearly a perfect superset of C</li>
+
+        <li>a multi-paradigm language</li>
+
+        <li style="list-style: none">
+         <ul>
+          <li>procedural (can focus on distinct activities)</li>
+
+          <li>object-oriented (can focus on distinct objects)</li>
+         </ul>
+        </li>
+
+        <li>realistic, efficient, and flexible enough for demanding
+        projects</li>
+
+        <li style="list-style: none">
+         <ul>
+          <li>large applications</li>
+          <li>game programming</li>
+          <li>operating systems</li>
+         </ul>
+        </li>
+
+        <li>clean enough for presenting basic
+        concepts</li>
+
+        <li>comprehensive enough for presenting advanced programming concepts</li>
+       </ul>
+
+       <p id="his" class="ssection">Type Safety</p>
+
+       <p>
+       Type safety in central to C++.</p>
+
+       <p>A type-safe language traps syntax errors at compile-time, diminishing
+       the amount of buggy code that escapes to the client.&nbsp;
+       C++ compilers use type rules to check syntax and generate errors
+       or warnings if any type rule has been violated.&nbsp;
+       </p>
+
+       <p>C compilers are more tolerant of type errors than C++ compilers.&nbsp;
+       For example, a C compiler will accept the following code, which may
+       cause a segmentation fault at run-time</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> #include &lt;stdio.h&gt;
+ <span class="high">void foo();</span>
+
+ int main(void)
+ {
+     foo(-25);
+ }
+ void foo(char x[])
+ {
+     printf("%s", x); <span class="high">/* ERROR */</span>
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ Segmentation Fault (coredump)
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The prototype for <span class="code">foo()</span> instructs the compiler to
+       omit checking for argument/parameter type mismatches.&nbsp; The argument in the
+       function call is an <span class="code">int</span> of negative value
+       (<span class="code">-25</span>) and the type received in the parameter is the
+       address of a <span class="code">char</span> array.&nbsp;
+       Since the parameter's value is an invalid address, printing from that address
+       causes a segmentation fault at run-time, but no error at compile-time.&nbsp;
+       </p>
+
+       <p>
+       We can fix this easily.&nbsp; If we include the parameter type in the prototype
+       as shown below, the compiler will check for an argument/parameter type mismatch
+       and issue an error message like that shown on the right:&nbsp;
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> #include &lt;stdio.h&gt;
+ void foo(<span class="high">char x[]</span>);
+
+ int main(void)
+ {
+     foo(-25);
+ }
+ void foo(char x[])
+ {
+     printf("%s", x);
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ Function argument assignment between
+ types "char*" and "int" is not allowed.
+
+
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Bjarne Stroustrup, in creating the C++ language, decided to close this loophole.&nbsp;
+       He mandated that in C++ all prototypes list their parameter types, which has forced all
+       C++ compilers to check for argument/parameter type mismatches at compile-time.&nbsp;</p>
+
+       <!--<p class="sssection">Shorter Parameter Lists</p>
+
+       <p>
+       Object-oriented languages produce shorter parameter lists.&nbsp; The only way for a
+       C function to access external data (other than through global variables) is
+       through its parameter list.&#160; Consider a program that receives data at its
+       lowest level and uses that data elsewhere at its lowest level.&#160; The diagram
+       below shows that the data must pass through every intermediate function as well
+       as the topmost function, even though none of the intermediate functions use that
+       data.&#160; The more data that passes passively through a function, the lengthier
+       is that functions parameter list.&#160;</p>
+
+       <p class="center"><img src="../images/parameter.png" width="350"
+       height="83" alt="large parameter lists" /></p>
+
+       <p>
+       The alternative is to make the two functions that access the data part of a common
+       object and have that object hold the data for them.&#160; This localizes the data
+       and produces noticeably shorter parameter lists.&nbsp; C++ provides the mechanism
+       for such local sharing.&#160;</p>
+
+       <p class="center"><img src="../images/shared.png" width="336"
+       height="130" alt="shared private data" /></p>-->
+       <br>
+
+       <p id="nam" class="section">Namespaces</p>
+
+       <p>
+       In applications written simultaneously by several developers, chances are high that
+       some developers will use the same identifier for different variables in the
+       application.&nbsp; If so, once they assemble their code, naming conflicts will arise.&nbsp;
+       We avoid such conflicts by developing each part of an application within its own
+       namespace and scoping variables within each namespace.&nbsp;
+       </p>
+       <p>
+       A <i>namespace</i> is a scope for the entities that it encloses.&nbsp; Scoping
+       rules avoid identifier conflicts across different namespaces.&nbsp;</p>
+
+       <p>
+       We define a namespace as follows
+       </p>
+       <pre class="defin"> namespace <i>identifier</i> {
+
+ }</pre>
+       <p>
+       The identifier after the <span class="code">namespace</span> keyword
+       is the name of the scope.&nbsp; The pair of braces encloses and defines
+       the scope.&nbsp;
+       </p>
+       <p>
+       For example, to define <span class="code">x</span>
+       in two separate namespaces (<span class="code">english</span> and <span class="code">french</span>),
+       we write
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> namespace english {
+
+     int x = 2;
+     // ...
+
+ }
+
+ namespace french {
+
+     int x = 3;
+     // ...
+
+ } </pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To access a variable defined within a namespace, we precede its identifier
+       with the namespace's identifier and separate them with a double colon
+       (<span class="code">::</span>).&nbsp;
+       We call this double colon the <i>scope resolution operator</i>.&nbsp;
+       </p>
+       <p>
+       For example, to increment the <span class="code">x</span> in namespace <span class="code">english</span>
+       and to decrement the <span class="code">x</span> in namespace <span class="code">french</span>, we
+       write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre>     <span class="high">english::</span>x++;
+     <span class="high">french::</span>x--;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Each prefix uniquely identifies each variable's namespace.</p>
+
+       <p>
+       Namespaces hide their entities.&nbsp; To expose an identifier to the current namespace, we insert
+       the <span class="code">using</span> declaration into our code before referring to the identifier.&nbsp;
+       </p>
+       <p>
+       For example, to expose one of the <span class="code">x</span>'s to the current namespace,
+       we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">using french::x;</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>After which, we can simply write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre>     x++;  // increments french::x but not english::x&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       To expose all of a namespace's identifiers, we insert the
+       <span class="code">using</span> directive into our code before referring to any of them.</p>
+
+       <p>
+       For example, to expose all of the identifiers within namespace <span class="code">english</span>,
+       we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">using namespace english;</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>Afterwards, we can write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre>     x++; // increments english::x but not french::x&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Exposing a single identifier or a complete namespace simply adds the identifier(s) to the
+       hosting namespace.&nbsp;
+       </p>
+       <p class="ssection">Common Usage</p>
+       <p>
+       By far the most common use of namespaces is for classifying
+       </p>
+       <ul>
+       <li>struct-like types</li>
+       <li>function types</li>
+       </ul>
+
+       <br>
+
+       <p id="exa" class="section">First Examples</p>
+
+       <p class="ssection">From C to C++ Syntax</p>
+
+       <p>
+       To compare C++ syntax with C syntax, consider a program that displays the following phrase
+       on the standard output device</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="result"> Welcome to Object-Oriented
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">C - procedural
+       code</p>
+
+       <p>The C source code for displaying this phrase is</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // A Language for Complex Applications
+ //  welcome.c
+ //
+ // To compile on linux: gcc welcome.c
+ // To run compiled code: a.out
+ //
+ // To compile on windows: cl welcome.c
+ // To run compiled code: welcome
+ //
+
+ #include &lt;stdio.h&gt;
+
+ int main(void)
+ {
+     printf("Welcome to Object-Oriented\n");&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The two functions - <span class="code">main()</span> and <span class="code">printf()</span> -
+       specify activities.&nbsp; These identifiers share
+       the global namespace.</p>
+
+       <p class="sssection">C++ - procedural
+       code</p>
+
+       <p>The procedural C++ source code for displaying the phrase
+       is</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // A Language for Complex Applications
+ // welcome.cpp
+ //
+ // To compile on linux:   g++ welcome.<span class="high">cpp</span>
+ //  To run compiled code: a.out
+ //
+ // To compile on windows:   cl welcome.<span class="high">cpp</span>
+ //  To run compiled code: welcome
+ //
+
+ <span class="high">#include &lt;cstdio&gt;
+ using namespace std;</span>
+
+ int main ( ) {
+     printf("Welcome to Object-Oriented\n");&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The file extension for
+       any C++ source code is <span class="code">.cpp</span>.
+       <span class="code">&lt;cstdio&gt;</span> is the C++ version
+       of the C header file <span class="code">&lt;stdio.h&gt;</span>.&nbsp;
+       This header file declares the prototype for <span class="code">printf()</span>
+       within the <span class="code">std</span> namespace.&nbsp; <span class="code">std</span>
+       denotes standard.&nbsp;
+       </p>
+
+       <p>The directive</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="high"> using namespace std;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       exposes all of the identifiers declared within the
+       <span class="code">std</span> namespace to the global namespace.&nbsp;
+       The libraries of standard C++ declare most of their identifiers within
+       the <span class="code">std</span> namespace.&nbsp;</p>
+
+       <p class="sssection">C++ - hybrid code</p>
+
+       <p>The object-oriented C++ source code for displaying our welcome phrase
+       is</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // A Language for Complex Applications
+ // welcome.cpp
+ //
+ // To compile on linux:  g++ welcome.<span class="high">cpp</span>
+ // To run compiled code: a.out
+ //
+ // To compile on windows:   cl welcome.<span class="high">cpp</span>
+ //  To run compiled code: welcome
+ //
+
+ <span class="high">#include &lt;iostream&gt;
+ using namespace std;</span>
+
+ int main ( ) {
+     <span class="high">cout &lt;&lt;</span> "Welcome to Object-Oriented" <span class="high">&lt;&lt; endl</span>;&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The object-oriented syntax consists of:</p>
+
+       <ol>
+        <li>
+        The directive
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> #include &lt;iostream&gt;
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         inserts the <span class="code">&lt;iostream&gt;</span>
+         header file into the source code.&nbsp;
+        The <span class="code">&lt;iostream&gt;</span> library
+        provides access to the standard input and output objects.&nbsp;
+        </li><br>
+
+        <li>The object
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> cout
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         represents the standard output device.&nbsp;
+        </li><br>
+
+        <li>The operator
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> &lt;&lt;
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         inserts whatever is on its right side
+         into whatever is on its left side.
+        </li><br>
+
+        <li>The manipulator
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> endl
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         represents an end of line character along with a
+         flushing of the output buffer.&nbsp;
+        </li>
+       </ol>
+       <p>
+       Note the absence of a formatting string.&nbsp; The <span class="code">cout</span>
+       object handles the output formatting itself.
+       </p>
+
+       <p>That is, the complete statement</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="high"> cout &lt;&lt; "Welcome to Object-Oriented" &lt;&lt; endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>inserts into the standard output stream the string <span class="code">"Welcome
+       to Object-Oriented"</span> followed by a newline character and a flushing of the
+       output buffer.</p>
+
+       <p class="ssection">First Input and Output Example</p>
+
+       <p>
+       The following object-oriented program accepts an integer value from
+       standard input and displays that value on standard output:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Input Output Objects
+ // inputOutput.cpp
+ //
+ // To compile on linux: g<span class="high">++</span> inputOutput.<span class="high">cpp</span>&nbsp;
+ // To run compiled code: a.out
+ //
+ // To compile on windows:   cl welcome.<span class="high">cpp</span>
+ // To run compiled code: welcome
+ //
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int i;
+
+     cout &lt;&lt; "Enter an integer : ";
+     <span class="high">cin &gt;&gt;</span> i;
+     cout &lt;&lt; "You entered " &lt;&lt; i &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Enter an integer : 65
+
+ You entered 65
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The object-oriented input statement includes:</p>
+
+       <ul>
+        <li>The object
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> cin
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         represents the standard input device.&nbsp;
+        </li><br>
+
+        <li>The extraction operator
+
+         <table width="45%" summary="">
+          <tbody><tr>
+           <td>
+            <pre class="high"> &gt;&gt;
+</pre>
+           </td>
+          </tr>
+         </tbody></table>
+
+         extracts the data identified on its right side from the object on its left-hand
+         side.&nbsp;
+        </li>
+       </ul>
+       <p>
+       Note the absence of a formatting string.&nbsp; The <span class="code">cin</span>
+       object handles the input formatting itself.
+       </p>
+
+       <p>That is, the complete statement </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="high"> cin &gt;&gt; i;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       extracts an integer value from the input stream and stores that value in the
+       variable named <span class="code">i</span>
+       </p>
+
+       <p>
+       The type of the variable <span class="code">i</span> defines the rule
+       for converting the text characters in the input stream into byte data in memory.&nbsp;
+       Note the absence of the address of operator on <span class="code">i</span> and the
+       absence of the conversion specifier, each of which is present in the C language.</p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>object-oriented languages are designed for solving
+        large, complex problems</li>
+
+        <li>object-oriented programming focuses on the objects
+        in a problem domain</li>
+
+        <li>C++ is a hybrid language that can
+        focus on activities as well as objects</li>
+
+        <li>C++ provides improved type safety relative to C</li>
+
+        <li><span class="code">cout</span> is the library object that
+        represents the standard output device</li>
+
+        <li><span class="code">cin</span> is the library object that
+        represents the standard input device</li>
+
+        <li><span class="code">&lt;&lt;</span> is the operator that
+        inserts data into the object on its left-side operand</li>
+
+        <li><span class="code">&gt;&gt;</span> is the operator that
+        extracts data from the object on its left-side operand</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Read Wikipedia on the <a href="http://en.wikipedia.org/wiki/C%2B%2B_%28programming_language%29">
+        C++ Programming Language</a></li>
+
+        <li>Read this interview with <a href="http://www.linuxjournal.com/article.php?sid=7099">Bjarne Stroustrup</a>
+
+         <p class="quote">"Be adventurous in your experimentation and
+         somewhat more cautious in your production code. On my home
+         pages, I have a "Technical and Style FAQ" that gives many
+         practical hints and examples. However, to really develop
+         significant new skills, one must read articles and books. I
+         think of C++ as a multi-paradigm programming language. That
+         is, C++ is a language that supports several effective
+         programming techniques, where the best solution to a
+         real-world programming problem often involves a combination of
+         these techniques. Thus, I encourage people to learn data
+         abstraction (roughly, programming using abstract classes),
+         object-oriented programming (roughly, programming
+         using class hierarchies) and generic programming
+         (roughly, programming using templates). Furthermore, I
+         encourage people to look for combinations of these techniques
+         rather than becoming fanatical about one of these paradigms
+         because it happens to be a great solution to a few problems.
+         <br>
+         <br>
+         It is important to remember that a programming language is
+         only a tool. Once you master the basic concepts of a language,
+         such as C++, it is far more important to gain a good
+         understanding of an application area and of the problem you
+         are trying to solve than it is to study the minute technical
+         details of C++. Good luck, and have fun with C++! "</p>
+
+         <p>Extract from the <a href="http://www.linuxjournal.com/article.php?sid=7099">Linux
+         Journal</a>: Interview with Bjarne Stroustrup
+         <br>
+         Posted on Thursday, August 28, 2003 by Aleksey Dolya</p>
+        </li>
+
+        <li>Install Visual Studio on your local computer</li>
+
+        <li>Ensure that your remote Linux account is operational</li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/langu_p.html" class="text3"><img src="./Introduction _ Welcome to OO Programming_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html#top" class="text3">Top&nbsp; <img src="./Introduction _ Welcome to OO Programming_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/index.html" class="text3"><img src="./Introduction _ Welcome to OO Programming_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Table of Contents</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html" class="text3">Next: Object Terminology&nbsp;&nbsp; <img src="./Introduction _ Welcome to OO Programming_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Introduction _ Welcome to OO Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Introduction _ Welcome to OO Programming_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Introduction _ Welcome to OO Programming_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/compi.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Introduction | Modular Programming</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Modular Programming_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Modular Programming_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Modular Programming_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Introduction _ Modular Programming_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Introduction _ Modular Programming_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Modular Programming_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Modular Programming_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi_p.html"><img src="./Introduction _ Modular Programming_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Introduction _ Modular Programming_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part A - Introduction</span>
+        <br>
+        <br>
+        <span class="texthead">Modular Programming</span>
+        <br>
+        <br>
+        <span class="textagend">Partition source code into modular solution
+        <br>
+        Compile modules on Linux and Windows platforms</span>
+
+        <p class="quote">"Decide which modules you want; partition the
+        program so that data is hidden within modules" (Stroustrup, 1997)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#mod">Modules</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#com">Stages of Compilation</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#exa">Example</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#uni">Unit Tests</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#deb">Debugging</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       A modular design consists of a set of <i>modules</i>, which are developed
+       and tested separately.&nbsp;  Modular programming implements modular designs
+       and is supported by both procedural and object-oriented languages.&nbsp;
+       The C programming language supports modular design through library modules composed
+       of functions.&nbsp; The <span class="code">stdio</span> module provides
+       input and output support, while hiding its implementation details; typically,
+       the implementation for <span class="code">scanf()</span> and <span class="code">printf()</span>
+       ships in binary form with the compiler.&nbsp; The <span class="code">stdio.h</span> header
+       file provides the interface, which is all that we need to complete our source code.&nbsp;
+       </p>
+       <!--<p>
+       Object-oriented languages provide class support for client applications through modules.&nbsp;
+       Each module contains the definitions and implementations for a set of related classes.&nbsp;
+       For example, the C++ <span class=code>iostream</span> module contains the definitions and
+       implementations for the <span class=code>cout</span> and <span class=code>cin</span>
+       objects.&nbsp; The language provides access to them through the <span class=code>iostream</span>
+       header file.
+       </p>-->
+
+       <p>This chapter describes how to create a module in an object-oriented languages
+       using C++, how to compile the source code for each module separately and how to
+       link the compiled code into a single executable binary.&nbsp;
+       The chapter concludes with an example of a unit test on a module.</p>
+       <br>
+
+       <p id="mod" class="section">Modules</p>
+
+       <p>A well-designed module is a highly cohesive unit that couples loosely
+       to other modules.&nbsp; The module addresses one aspect of the programming
+       solution and hides as much detail as practically possible.&nbsp; A compiler
+       translates the module's source code independently of the source code for
+       other modules into its own unit of binary code.&nbsp;
+       </p>
+       <p>
+       Consider the schematic of the Transaction application shown below.&nbsp; The
+       <span class="code">main</span> module accesses the <span class="code">Transaction</span>
+       module.&nbsp; The <span class="code">Transaction</span> module accesses the
+       <span class="code">iostream</span> module.&nbsp; The <span class="code">Transaction</span>
+       module defines the transaction functions used by the application.&nbsp;
+       The <span class="code">iostream</span> module defines the
+       <span class="code">cout</span> and <span class="code">cin</span> objects used by
+       the application.</p>
+
+       <p class="center"><img src="./Introduction _ Modular Programming_files/modularity.png" width="168" height="204" alt="modularity"></p>
+
+       <p>
+       To translate the source code of any module the compiler only needs certain external
+       information.&nbsp; This information includes the names used within the module but
+       defined outside the module.&nbsp;
+       To enable this in C++, we store the source code for each module in two separate
+       files:</p>
+
+       <ul>
+        <li>a header file - defines the class and declares the function prototypes</li>
+
+        <li>an implementation file - defines the functions and contains all of the logic</li>
+       </ul>
+
+       <p>
+       The file extension <span class="code">.h</span> (or <span class="code">.hpp</span>)
+       identifies the header file.&nbsp; The file extension <span class="code">.cpp</span>
+       identifies the implementation file.&nbsp;
+       </p>
+       <p>
+       Note, however, that the names of the header files for the standard C++ libraries do not include
+       a file extension (consider for example, the <span class="code">&lt;iostream&gt;</span> header
+       file for the <span class="code">cout</span> and <span class="code">cin</span> objects).&nbsp;
+       </p>
+
+       <p class="ssection">Example</p>
+
+       <p>
+       The implementation file for the <span class="code">main</span> module includes the
+       header files for itself (<span class="code">main.h</span>) and the
+       <span class="code">Transaction</span> module (<span class="code">Transaction.h</span>).&nbsp;
+       The <span class="code">main.h</span> file contains definitions specific to the <span class="code">main</span>
+       module and the <span class="code">Transaction.h</span> file contains definitions specific
+       to the <span class="code">Transaction</span> module.
+       </p>
+       <p>
+       The implementation file for the <span class="code">Transaction</span> module includes
+       the header files for itself (<span class="code">Transaction.h</span>) and the
+       <span class="code">iostream</span> module.&nbsp;
+       The <span class="code">Transaction.h</span> file contains definitions specific to
+       the <span class="code">Transaction</span> module and the
+       <span class="code">iostream</span> file contains definitions specific
+       to the <span class="code">iostream</span> module.
+       </p>
+       <p>
+       An implementation file can include several header files but DOES NOT include any
+       other implementation file.&nbsp; Note the absence of any direct connections between
+       the implementation files.
+       </p>
+
+       <p class="center"><img src="./Introduction _ Modular Programming_files/header.png" width="168" height="235" alt="header"></p>
+
+       <p>
+       We compile each implementation (<span class="code">*.cpp</span>) file separately and
+       only once.&nbsp; We do not compile header (<span class="code">*.h</span>)
+       files.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Introduction _ Modular Programming_files/compile_modules.png" width="130" height="35" alt="header"></p>
+
+       <p>
+       A compiled version of <span class="code">iostream</span>'s
+       implementation file is part of the system library.
+       </p>
+       <br>
+
+       <p id="com" class="section">Stages of Compilation</p>
+
+       <p>
+       Comprehensive compilation consists of three independent but sequential stages
+       (as shown in the figure below):</p>
+
+       <ol>
+        <li>Preprocessor - interprets all directives creating a single translation unit for
+        the compiler - (inserts the contents of all <span class="code">#include</span> header
+        files), (substitutes all<span class="code">#define</span> macros)
+        </li>
+
+        <li>Compiler - compiles each translation unit separately and
+        creates a corresponding binary version</li>
+
+        <li>Linker - assembles the various binary units
+        along with the system binaries to create one complete executable binary</li>
+       </ol>
+
+       <p class="center"><img src="./Introduction _ Modular Programming_files/compile_link.png" width="278" height="177" alt="compile and link"></p>
+
+       <br>
+
+       <p id="exa" class="section">A Modular Example</p>
+
+       <p>
+       Consider a trivial accounting application that accepts journal transactions
+       from the standard input device and displays them on the standard
+       output device.&nbsp; For presentation simplicity, the application does not
+       perform any intermediate calculation.&nbsp;
+       </p>
+
+       <p>
+       The application design consists of two modules:</p>
+
+       <ul>
+        <li><span class="code">Main</span> - supervises the processing of each transaction</li>
+
+        <li><span class="code">Transaction</span> - defines the input and output logic for a single transaction</li>
+       </ul>
+
+       <p class="ssection">Transaction Module</p>
+
+       <p>
+       The transaction module defines a structure and functions for a single transaction
+       </p>
+       <ul>
+        <li><span class="code">Transaction</span> - holds the information for a single transaction in memory</li>
+       </ul>
+
+       <p>
+       The related functions are global functions
+       </p>
+
+       <ul>
+        <li><span class="code">enter()</span> - accepts transaction
+        data from the standard input device</li>
+
+        <li><span class="code">display()</span> - displays
+        transaction data on the standard output device</li>
+       </ul>
+
+       <p class="sssection">Transaction.h</p>
+
+       <p>The header file for our <span class="code">Transaction</span> module
+       defines our Transaction type and declares the prototypes for
+       our two functions:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // Transaction.h
+
+ struct Transaction {
+     int acct;      // account number
+     char type;     // credit 'c' debit 'd'
+     double amount; // transaction amount
+ };
+
+ void enter(struct Transaction* tr);
+ void display(const struct Transaction* tr);&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>Note the UML naming convention and the extension on the name of the header file.&nbsp;</p>
+
+       <p class="sssection">Transaction.cpp</p>
+
+       <p>The implementation file for our <span class="code">Transaction</span> module
+       defines our two functions.&nbsp;
+       This file includes the system header file for access to the <span class="code">cout</span>
+       and <span class="code">cin</span> objects and the header file for access to the
+       Transaction type.&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // Transaction.cpp
+
+ #include &lt;iostream&gt; // for cout, cin
+ #include "Transaction.h"  // for Transaction
+ using namespace std;
+
+ // prompts for and accepts Transaction data
+ //
+ void enter(struct Transaction* tr) {
+
+     cout &lt;&lt; "Enter the account number : ";
+     cin  &gt;&gt; tr-&gt;acct;
+     cout &lt;&lt; "Enter the account type (d debit, c credit) : ";
+     cin  &gt;&gt; tr-&gt;type;
+     cout &lt;&lt; "Enter the account amount : ";
+     cin  &gt;&gt; tr-&gt;amount;
+ }
+
+ // displays Transaction data
+ //
+ void display(const struct Transaction* tr) {
+
+     cout &lt;&lt; "Account " &lt;&lt; tr-&gt;acct;
+     cout &lt;&lt; ((tr-&gt;type == 'd') ? " Debit $" : " Credit $") &lt;&lt; tr-&gt;amount;&nbsp;
+     cout &lt;&lt; endl;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Note the <span class="code">.cpp</span> extension on the name of this implementation file&nbsp;</p>
+
+       <p class="ssection">Main Module</p>
+
+       <p>The main module defines a <span class="code">Transaction</span> object
+       and accepts input and displays data for each of three transactions.&nbsp;</p>
+
+       <p class="sssection">main.h</p>
+
+       <p>The header file for our <span class="code">Main</span> module <span class="code">#define</span>s the number of transactions:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // main.h
+
+ #define NO_TRANSACTIONS 3
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">main.cpp</p>
+
+       <p>The implementation file for our <span class="code">Main</span> module
+       defines the <span class="code">main()</span>
+       function.&nbsp; We <span class="code">#include</span> the
+       header file to provide the definition of the Transaction type:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // main.cpp
+
+ #include "main.h"
+ <span class="high">#include "Transaction.h"</span>
+
+ int main() {
+     int i;
+     struct Transaction tr;
+
+     for (i = 0; i &lt; NO_TRANSACTIONS; i++) {&nbsp;
+         enter(&amp;tr);
+         display(&amp;tr);
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Command Line Compilation</p>
+
+       <p class="sssection">Linux</p>
+
+       <p>To compile our application on a Linux platform at the command line, we enter the following</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> g++ -o accounting main.cpp Transaction.cpp&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">-o</span> option identifies the name
+       of the executable.&nbsp; The names of the two implementation
+       files complete the command.</p>
+
+       <p>To run the executable, we enter</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> accounting
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Legacy Linux</p>
+
+       <p>
+       To compile an application that includes a C++11 feature on a legacy Linux installation,
+       we may need to specify the standard option.&nbsp; For example, to access C++11 features
+       on the GCC 4.6 installation on our matrix cluster, we write
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> g++ -o accounting -std=c++0x main.cpp Transaction.cpp&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Options for versions 4.7 and later include <span class="code">c++11</span>
+       and <span class="code">gnu++11</span>.
+       </p>
+
+       <p class="sssection">Visual Studio</p>
+
+       <p>
+       To compile our application at the command-line on a Windows platform
+       using the Visual Studio compiler, we enter the command
+       (To open the Visual Studio command prompt window, we press
+       <span class="code">Start &gt; All Programs</span> and
+       search for the prompt in the <span class="code">Visual Studio Tools</span>
+       sub-directory.&nbsp;)</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> cl /Fe accounting main.cpp Transaction.cpp&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">/Fe</span> option identifies the name
+       of the executable.&nbsp; The names of the two implementation
+       files follow this option.</p>
+
+       <p>To run the executable, we enter</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> accounting
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">IDE Compilation</p>
+
+       <p>Integrated Development Environments (IDEs) are software development applications
+       that integrate features for coding, compiling, testing and debugging source code
+       in different languages.&nbsp; The IDE used in this course is Microsoft's Visual Studio.</p>
+
+       <p class="sssection">Build and Execute</p>
+
+       <p>The following steps build and execute a modular application in
+       Visual Studio 2013 or newer:</p>
+       <ul>
+       <li>Start Visual Studio</li>
+       <li>Select New Project</li>
+       <li>Select Visual C++ -&gt; Win32 -&gt; Console Application</li>
+       <li>Enter Transaction Example as the Project Name | Select OK</li>
+       <li>Press Next</li>
+       <li>Check Empty Project | Press Finish</li>
+       <li>Select Project -&gt; Add New Item</li>
+       <li>Select Header .h file | Enter Transaction as File Name | Press OK</li>
+       <li>Select Project -&gt; Add New Item</li>
+       <li>Select Implementation .cpp file | Enter Transaction as File Name | Press OK</li>
+       <li>Select Project -&gt; Add New Item</li>
+       <li>Select Header .h file | Enter main as File Name | Press OK</li>
+       <li>Select Project -&gt; Add New Item</li>
+       <li>Select Implementation .cpp file | Enter main as File Name | Press OK</li>
+       <li>Select Build | Build Solution</li>
+       <li>Select Debug | Start without Debugging</li>
+       </ul>
+       <p>
+       The input prompts and the results of execution appear in a Visual Studio command prompt window.
+       </p>
+
+       <br>
+
+       <p id="uni" class="section">Unit Tests</p>
+
+       <p>
+       Unit testing is integral to modular programming.&nbsp; A <i>unit test</i>
+       is a code snippet that tests a single assumption in a module or work unit of
+       a complete application.&nbsp; Each <i>work unit</i> is a single logical component
+       with a simple interface.&nbsp; Functions and classes are typical examples.&nbsp;
+       </p>
+       <p>
+       We use unit tests to examine the work units in an application and rerun the tests
+       after each upgrade.&nbsp; We store the test suite in a separate module.
+       </p>
+
+       <p class="ssection">Calculator Example</p>
+
+       <p>
+       Consider a <span class="code">Calculator</span> module that raises an integer to the
+       power of an integer exponent and determines the integer exponent to which an integer
+       base has been raised to obtain a given result.&nbsp; The header file for the
+       <span class="code">Calculator</span> module includes the prototypes for these two
+       work units:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Calculator.h
+ // ...
+ int power(int, int);
+ int exponent(int, int);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The suite of unit tests for this module checks if the implementations return the
+       expected results.&nbsp; The header file for the <span class="code">Tester</span>
+       module contains:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Tester.h
+
+ int testSuite(int BASE, int EXPONENT, int RESULT);&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file for the <span class="code">Tester</span>
+       module contains:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Tester.cpp
+
+ #include&lt;iostream&gt;
+ using namespace std;
+ #include "Calculator.h"
+
+ int testSuite(int BASE, int EXPONENT, int RESULT) {
+     int passed = 0;
+     int result;
+     result = power(BASE, EXPONENT);
+     if (result == RESULT) {
+         cout &lt;&lt; "Raise to Power Test Passed" &lt;&lt; endl;&nbsp;
+         passed++;
+     }
+     else {
+         cout &lt;&lt; "Raise to Power Test Failed" &lt;&lt; endl;
+     }
+     result = exponent(RESULT, BASE);
+     if (result == EXPONENT) {
+         cout &lt;&lt; "Find Exponent Test Passed" &lt;&lt; endl;
+         passed++;
+     }
+     else {
+         cout &lt;&lt; "Find Exponent Test Failed" &lt;&lt; endl;
+     }
+     return passed;
+ }</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       A first attempt at implementing the <span class="code">Calculator</span>
+       module might look like:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Calculator.cpp
+
+ #include "Calculator.h"
+
+ int power(int base, int exp) {
+     int i, result = 1;
+     for (i = 0; i &lt; exp; i++)
+         result *= base;
+     return result;
+ }
+
+ int exponent(int result, int base) {&nbsp;
+     int exp = 0;
+     while(result &gt;= base) {
+         exp++;
+         result /= base;
+     }
+     return exp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following test main produces the results shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Test Main
+ // testmain.cpp
+
+ #include&lt;iostream&gt;
+ using namespace std;
+ #include "Tester.h"
+
+ int main() {
+     int passed = 0;
+     <span class="high">passed += testSuite(5, 3, 125);
+     passed += testSuite(5, -3, 0.008);</span>
+     cout &lt;&lt; passed &lt;&lt; " Tests Passed" &lt;&lt; endl;&nbsp;
+ }</pre>
+         </td>
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+ Raise to Power Test Passed
+ Find Exponent Test Passed
+ <span class="high">Raise to Power Test Failed&nbsp;
+ Find Exponent Test Failed</span>
+ 2 Tests Passed
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The tester shows that this implementation does not handle negative-valued bases
+       correctly and needs upgrading.&nbsp;
+       </p>
+
+       <p class="ssection">Good Programming Practice</p>
+
+       <p>
+       It is good programming practice to write the suite of unit tests for
+       the work units in a module as soon as we have defined the header file
+       and before coding the bodies of the work units.&nbsp;
+       As we complete implementation details, we continue testing our module
+       to ensure that it produces the results that we expect and to identity
+       the work that needs to be done.
+       </p>
+
+       <br>
+
+       <p id="deb" class="section">Debugging Techniques</p>
+
+       <p class="ssection">Programming Errors</p>
+       <p>
+       Programming errors that require debugging skills are of two kinds:
+       </p>
+       <ul>
+       <li>syntactic</li>
+       <li>semantic</li>
+       </ul>
+       <p class="sssection">Syntactic Errors</p>
+       <p>
+       Syntactic errors are errors that break the rules of the programming language.&nbsp;
+       The most common syntactic errors in C++ language programs are:
+       </p>
+       <ul>
+       <li>missing semi-colon after a struct or class definition</li>
+       <li>unnecessary semi-colon terminator in a <span class="code">#define</span> directive</li>
+       <li>undeclared variable name or missing header file</li>
+       <li>mismatched parentheses</li>
+       <li>left-side of an assignment expression is not a defined memory location</li>
+       <li>return statement is missing</li>
+       </ul>
+
+       <p class="sssection">Semantic Errors</p>
+       <p>
+       Semantic errors are errors that fail to implement the intent and meaning of the
+       program designer.&nbsp;
+       The more common semantic errors are:
+       </p>
+       <ul>
+       <li>= instead of ==</li>
+       <li>iteration without a body (<span class="code">for/while</span> followed by a semi-colon)</li>
+       <li>uninitialized variable</li>
+       <li>infinite iteration</li>
+       <li>incorrect operator order in a compound expression</li>
+       <li>dangling else</li>
+       <li>off-by-one iteration</li>
+       <li>integer division and truncation</li>
+       <li>mismatched data types</li>
+       <li>&amp; instead of &amp;&amp;</li>
+       </ul>
+       <p class="ssection">Idenfiying Errors</p>
+       <p class="sssection">Syntactic Errors</p>
+       <p>
+       Techniques for identifying syntactic errors include
+       </p>
+       <ul>
+       <li>IDE intellisense</li>
+       <li>compiler error messages (compiler output)</li>
+       <li>comparing error messages from different compilers - some
+       are more cryptic than others</li>
+       <li>reading code statements (walkthroughs)</li>
+       </ul>
+       <p class="sssection">Semantic Errors</p>
+       <p>
+       Techniques for identifying semantic errors include:
+       </p>
+       <ul>
+       <li>vocalization - use your sense of hearing to identify the error (compound conditions)</li>
+       <li>intermediate output - <span class="code">cout</span> statements at critical stages</li>
+       <li>walkthrough tables</li>
+       <li>interactive debugging using</li>
+       <ul>
+       <li>Visual Studio IDE - integrated debugger for Windows OSs</li>
+       <li>Eclipse IDE - integrated debugger for Linux OSs</li>
+       <li><span class="code">gdb</span> - GNU debugger for <span class="code">gcc</span></li>
+       </ul>
+       </ul>
+       <p class="sssection">IDE Tracing Example</p>
+
+       <p>The following steps trace through the execution of our Transaction application
+       using the Visual Studio IDE debugger</p>
+       <ul>
+       <li>Select the file named <span class="code">main.cpp</span></li>
+       <li>Move the cursor to the left-most column of the <span class="code">for</span> statement
+       in the <span class="code">main()</span> function and left-click | This places a red dot in that column,
+       which identifies a breakpoint</li>
+       <li>Move the cursor to the left-most column of the closing brace for the function
+       and left-click | This places a red dot in the column, which identifies another breakpoint</li>
+       <li>Select Debug -&gt; Start Debugging | Execution should pause at the first executable statement</li>
+       <li>Observe the values under the Locals tab in the Window below the source code</li>
+       <li>Press F10 and answer the three input prompts</li>
+       <li>Select the source code Window</li>
+       <li>Observe the values under the Locals tab in the Window below the source code</li>
+       <li>Press F10 3 times and note the value of <span class="code">i</span></li>
+       <li>Press F5, note where execution pauses and observe the value of <span class="code">i</span></li>
+       <li>Press F5 again to exit</li>
+       </ul>
+       <p>
+       The keystrokes for the various debugging options are listed next
+       to the sub-menu items under the Debug menu.
+       </p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a module consists of a header file and an implementation
+        file</li>
+
+        <li>a module's header file declares the names that
+        are exposed to client modules</li>
+
+        <li>a module's implementation file defines
+        the module's logic</li>
+
+        <li>a module's implementation file needs the header files of
+        those modules that define classes or functions used in the implementation file</li>
+
+        <li>the three stages of creating an executable are
+        preprocessing, compiling, and linking</li>
+
+        <li>it is good practice to write the suite of unit tests for each module
+        of an application before coding
+        the module's implementation</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Upgrade the Calculator module to pass all of the tests and add further tests
+        to improve robustness</li>
+
+        <li>Complete the Workshop on <script type="text/javascript" src="./Introduction _ Modular Programming_files/workshop_1.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/w1.html">Compiling&nbsp;Modules</a></li>
+
+        <li>Read Wikipedia on <a href="http://en.wikipedia.org/wiki/Modular_programming">Modular
+        Programming</a></li>
+       </ul>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/compi_p.html" class="text3"><img src="./Introduction _ Modular Programming_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html#top" class="text3">Top&nbsp; <img src="./Introduction _ Modular Programming_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html" class="text3"><img src="./Introduction _ Modular Programming_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Object Terminology</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html" class="text3">Next: Types, Overloading and References&nbsp;&nbsp; <img src="./Introduction _ Modular Programming_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Modular Programming_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Introduction _ Modular Programming_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Introduction _ Modular Programming_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Introduction _ Modular Programming_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Introduction _ Modular Programming_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
