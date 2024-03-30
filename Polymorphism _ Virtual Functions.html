@@ -1,0 +1,976 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/inclu.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Polymorphism | Virtual Functions</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Virtual Functions_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Virtual Functions_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Virtual Functions_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Virtual Functions_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Polymorphism _ Virtual Functions_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu_p.html"><img src="./Polymorphism _ Virtual Functions_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part E - Polymorphism</span>
+        <br>
+        <br>
+        <span class="texthead">Virtual Functions</span>
+        <br>
+        <br>
+        <span class="textagend">Design polymorphic objects to amplify the reusability
+        of code
+        <br>
+        Distinguish monomorphic and polymorphic objects
+        <br>
+        Describe the difference between early binding and dynamic dispatch
+        <br>
+        </span>
+
+        <p class="quote">"Respecting the inclusion relationship implies substitutability - operations
+        that apply to entire sets should apply to any of their subsets as well." (Sutter, Alexandrescu, 2005)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#typ">Types</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#inc">Function Bindings</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#obj">Polymorphic Objects</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#eff">Reusability Flexibility</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Object-oriented languages support selection of behavior across related types through
+       polymorphism.&nbsp;  <i>Polymorphism</i> is the third principal concept
+       that these languages implement (alongside encapsulation and
+       inheritance).&nbsp; Polymorphism refers to the multiplicity of meanings
+       attached to a single identifier.&nbsp; Polymorphic stands for 'of many
+       forms'.&nbsp; A polymorphic language selects an operation on an object
+       based on the type associated with the object.&nbsp;
+       </p>
+
+       <p>
+       Virtual functions are an example of inclusion polymorphism.&nbsp;
+       Object-oriented languages implement inclusion polymorphism through
+       member functions in a hierarchy.&nbsp; The type of a
+       polymorphic object can change throughout its lifetime to any type
+       in the same inheritance hierarchy.&nbsp;
+       We distinguish between the static and dynamic type associated
+       with a polymorphic object.&nbsp; Its static type is the type
+       of the object's hierarchy, its dynamic type is the object's actual
+       type.&nbsp;
+       </p>
+
+       <p>
+       This chapter describes how C++ implements inclusion polymorphism.&nbsp;
+       The chapter describes the concept of types, the options for binding a function
+       call to its definition and how polymorphic objects are implemented in C++.
+       </p>
+       <br>
+
+       <p id="typ" class="section">Types</p>
+
+       <p>
+       Raw memory stores information in the form of bit strings.&nbsp; These bit strings
+       represent variables, objects, addresses, instructions, constants, etc.&nbsp;
+       Without knowing <i>what</i> a bit string represents, the compiler cannot
+       interpret the bit string.&nbsp; By associating a type with a region
+       of memory, we tell the compiler how to interpret the bit string in that
+       region of memory.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Polymorphism _ Virtual Functions_files/bit_string.png" width="516" height="46" alt="bit string in memory"></p>
+
+       <p>
+       For example, if we associate a region of memory with a <span class="code">Student</span>
+       and define the structure of a <span class="code">Student</span>, the compiler knows that
+       the first 4 bytes holds an <span class="code">int</span> stored in equivalent binary form,
+       the next 12 bytes holds an array of 3 <span class="code">float</span>s and the
+       remaining 4 bytes hold an <span class="code">int</span>.&nbsp;
+       </p>
+
+       <p class="ssection">C++ Pointers</p>
+
+       <p>
+       C++ implements a polymorphic object using pointer syntax.&nbsp; The pointer type
+       identifies the static type of the inheritance hierarchy to which the object
+       belongs.&nbsp; This static type is known at compile time.&nbsp; The pointer
+       holds the address of the polymorphic object.&nbsp;
+       </p>
+       <p>
+       To dereference the object's address, the compiler needs to know its dynamic
+       type.&nbsp; The dynamic type is the referenced type of the object.&nbsp;
+       Initially, we specify the dynamic type at object creation time through
+       the constructor that we invoke.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Polymorphism _ Virtual Functions_files/static and dynamic types.png" width="516" height="82" alt="static and dynamic types"></p>
+
+       <p>
+       In the following example, we instantiate a
+       <span class="code">Person*</span> object by dynamically allocating memory
+       once for a <span class="code">Person</span> type and one for a
+       <span class="code">Student</span>
+       type.
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void show(const Person*);
+
+ // Polymorphic Objects
+
+ Person  jane("Jane");
+ float g[] = {54.6f, 67.7f, 89.6f};
+ Student john("John", 1234, g, 3);
+
+ <span class="high">Person* pJane = &amp;jane;
+ Person* pJohn = &amp;john;</span>
+
+ // possibly different behaviors
+ show(pJohn);
+ show(pJane);
+ ...
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       By implementing different behaviors for different types in the same hierarchy,
+       we enable different execution paths in <span class="code">show()</span> for
+       different dynamic types.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="inc" class="section">Function Bindings</p>
+
+       <p>
+       The compiler binds a function call to a function definition using an object's
+       type.&nbsp; The object's type determines the member function to call in the
+       inheritance hierarchy.&nbsp;
+       </p>
+       <p>
+       The binding of a member function can take either of two forms:</p>
+
+       <ul>
+        <li>early binding - based on the object's static type</li>
+
+        <li>dynamic dispatch - based on the object's dynamic type</li>
+       </ul>
+
+       <p class="ssection">Early Binding</p>
+
+       <p>
+       Consider the following definition of our <span class="code">Student</span> class
+       from the chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#con">Functions in a Hierarchy</a>:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Early Binding
+ // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file is also the same as in the chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#con">Functions in a Hierarchy</a>:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that this hierarchy has two distinct definitions of the member
+       function named <span class="code">display()</span>.
+       </p>
+
+       <p>
+       The <span class="code">main()</span> function listed below defines a
+       global function named <span class="code">show()</span>.&nbsp; This client
+       code calls that global function twice, first for a <span class="code">Student</span>
+       object and second for a <span class="code">Person</span> object.&nbsp; The
+       global function <span class="code">show()</span> in turn calls the
+       <span class="code">display</span> member function on <span class="code">p</span>.&nbsp;
+       The compiler binds the call to this member function to its
+       <span class="code">Person</span> version.&nbsp; C++ applies this convention
+       irrespective of the argument type in the call to <span class="code">show()</span>.&nbsp;
+       That is, the compiler uses the <i>parameter type</i> in definition of
+       <span class="code">show()</span> to determine the kind of binding to implement.&nbsp;
+       We call this binding an <i>early binding</i>.&nbsp;
+       </p>
+       <p>
+       The client program produces the output shown on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Function Bindings
+ // functionBindings.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ <span class="high">void show(const Person&amp; p) {
+     p.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+ }</span>
+
+ int main() {
+     Person jane("Jane Doe");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+
+     harry.display(std::cout);
+     jane.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+     <span class="high">show(harry);
+     show(jane);</span>
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Jane Doe
+ Harry
+ Jane Doe
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Early binding occurs at compile time and is the most efficient binding
+       of a member function call to that function's definition.&nbsp;
+       Early binding is the default in C++.</p>
+
+       <p>
+       Note that shadowing does not occur inside the global function <span class="code">show()</span>.&nbsp; <span class="code">show()</span> has no way of knowing which version of
+       <span class="code">display()</span> to select aside from the type of its
+       parameter <span class="code">p</span>.&nbsp; The statements
+       <span class="code">harry.display()</span> and <span class="code">jane.display()</span>
+       in the <span class="code">main()</span> function demonstrate shadowing.&nbsp; The call
+       to <span class="code">display()</span> on <span class="code">harry</span> shadows
+       the base version of <span class="code">display()</span>.
+       </p>
+
+       <p class="ssection">Dynamic Dispatch</p>
+
+       <p>
+       The output in the above example omits the details for the <span class="code">Student</span>
+       part of <span class="code">harry</span>.&nbsp; To output these details, we need
+       to postpone the binding of the call to <span class="code">display()</span> until
+       run-time when the executable code is aware of the dynamic type of object
+       <span class="code">p</span>.&nbsp; We refer to this postponement as <i>dynamic
+       dispatch</i>.&nbsp;
+       </p>
+       <p>
+       C++ provides the keyword <span class="code">virtual</span> for dynamic dispatching.&nbsp;
+       If this keyword is present, the compiler inserts code that binds
+       the call to most derived version of the member function based on the dynamic
+       type.&nbsp;
+       </p>
+
+       <p>
+       For example, the keyword <span class="code">virtual</span> in the following class definition
+       instructs the compiler to postpone calling the <span class="code">display()</span>
+       member function definitions until run-time:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Dynamic Dispatch
+ // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     <span class="high">virtual</span> void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that the implementation file and the client program have not changed.&nbsp;
+       Because the keyword is present, the compiler overrides the early binding of
+       <span class="code">display()</span> so that the <span class="code">show()</span>
+       function will call the most derived version of <span class="code">display()</span>
+       for the type of the argument passed to it.&nbsp; The following client code
+       (identical to that above) then produces the output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Function Bindings
+ // functionBindings.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ void show(const Person&amp; p) {
+     p.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+ }
+
+ int main() {
+     Person jane("Jane Doe");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+
+     harry.display(std::cout);
+     jane.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+     show(harry);
+     show(jane);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Jane Doe
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+
+ Jane Doe
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Each call to <span class="code">show()</span> passes a reference to an object of
+       different dynamic type:
+       </p>
+       <ul>
+       <li><span class="code">show(harry)</span> passes an unmodifiable
+       reference to a <span class="code">Student</span></li>
+       <li><span class="code">show(jane)</span> passes an unmodifiable
+       reference to a <span class="code">Person</span></li>
+       </ul>
+       <p>
+       In each case, the executable code binds at run time the version of
+       <span class="code">display()</span> that is the most derived version
+       for the dynamic type referenced by the parameter in <span class="code">show()</span>.&nbsp;</p>
+
+       <p>
+       Note that if we pass the argument to the <span class="code">show()</span>
+       function by value instead of by reference, the <span class="code">show()</span>
+       function would still call the most derived version of <span class="code">display()</span>,
+       but that most derived version would be for the <span class="code">Person</span>
+       version, since the copied object would be a <span class="code">Person</span>
+       in all cases.&nbsp;</p>
+
+       <p class="sssection">Overriding Dynamic Dispatch</p>
+
+       <p>To override dynamic dispatch with early binding,
+       we resolve the scope explicitly:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void show(const Person&amp; p) {
+     p.<span class="high">Person::</span>display(std::cout);&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Documentation</p>
+
+       <p>
+       Some programmers include the qualifier <span class="code">virtual</span> in derived class declarations as a form of
+       documentation.&nbsp; This improves readability but has no
+       syntactic effect.&nbsp;
+       </p>
+       <p>
+       We can identify a member function as <span class="code">virtual</span> even if no derived class exists.&nbsp;
+       This clarifies the intent of the original developer for
+       subsequent developers of the hierarchy</p>
+
+       <br>
+
+       <p id="obj" class="section">Polymorphic Objects</p>
+
+       <p>
+       A polymorphic object is an object that can change its dynamic type throughout
+       its lifetime.&nbsp; Its static type identifies the hierarchy of types to which the
+       object belongs.&nbsp; Its dynamic type identifies the rule for interpreting
+       the bit string in the region of memory currently allocated for the object.&nbsp;
+       </p>
+       <p>
+       We specify the static type of a polymorphic object through </p>
+
+       <ul>
+        <li>a pointer declaration</li>
+
+        <li>a receive-by-address parameter</li>
+
+        <li>a receive-by-reference parameter</li>
+       </ul>
+       <p>
+       For example, the highlighted code specifies the static type
+       pointed to by <span class="code">person</span>:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Polymorphic Objects - Static Type&nbsp;
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ void show(const <span class="high">Person*</span> p) {
+     // ...
+ }
+
+ void show(const <span class="high">Person&amp;</span> p) {
+     // ...
+ }
+
+ int main() {
+     <span class="high">Person* p = nullptr;</span>
+
+     // ...
+
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We specify the dynamic type of a polymorphic object by allocating memory
+       dynamically using the appropriate constructor from the inheritance hierarchy.&nbsp;
+       </p>
+
+       <p>
+       The highlighted code in the example below identifies the dynamic type.&nbsp;
+       The results produced by this code are listed on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Polymorphic Objects - Dynamic Type
+ // dyanmicType.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ void show(const Person&amp; p) {
+     p.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+ }
+
+ int main() {
+     Person* p = nullptr;
+
+     p = new <span class="high">Person("Jane Doe")</span>;
+     show(*p);
+     delete p;
+
+     float g[] = {89.4f, 67.8f, 45.5f};
+     p = new <span class="high">Student("Harry", 1234, g, 3)</span>;
+     show(*p);
+     delete p;
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Jane Doe
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>In the <span class="code">main()</span> function:
+       </p>
+       <ul>
+       <li><span class="code">p</span> initially points to nothing (holds the null address).&nbsp; The object's dynamic
+       type is undefined.&nbsp;</li>
+       <li>after the first allocation, <span class="code">p</span> points to a
+       <span class="code">Student</span> type (dynamic type).&nbsp;</li>
+       <li>after the second allocation, <span class="code">p</span>
+       points to a <span class="code">Person</span> type (the new
+       dynamic type).&nbsp;</li>
+       </ul>
+       <p>
+       The static and dynamic types are related to one another through the hierarchy.&nbsp;
+       </p>
+       <p>
+       Note that we only need one <span class="code">show()</span> function to
+       display both dynamic types.&nbsp; </p>
+
+       <p>
+       <span class="code">p</span> holds the address a polymorphic object throughout
+       its lifetime.&nbsp; That address may change with deallocations and fresh allocations of memory.&nbsp;
+       The dynamic type may be of any type in the <span class="code">Person</span> hierarchy.&nbsp;
+       </p>
+       <p>
+       <span class="code">show()</span> is a polymorphic function.&nbsp; Its
+       parameter receives an unmodifiable reference to any type
+       in the <span class="code">Person</span> hierarchy.&nbsp;</p>
+
+       <p class="sssection">Good Design</p>
+
+       <p>
+       It is good programming practice to dynamically dispatch the destruction
+       of any object in an inheritance hierarchy as <span class="code">virtual</span>.&nbsp;
+       If an object of a derived class acquires a resource, typically the destructor
+       of that class releases the resource.&nbsp; To ensure that any object in the
+       hierarchy calls the destructor of its most derived class at destruction time,
+       we declare the base class destructor <span class="code">virtual</span>.&nbsp;
+       Since the destructor of any derived class automatically calls the destructor
+       of its immediate base class, all destructors in the object's hierarchy will
+       be called in turn.&nbsp;</p>
+
+       <p>Good design codes the destructor in a base
+       class as <span class="code">virtual</span>, even if no class is
+       currently derived from that base class.&nbsp; The presence
+       of a <span class="code">virtual</span> base class destructor
+       ensures that the most derived destructor will be called if and
+       when a class is derived from the base class without requiring an
+       upgrade to the definition of the base class.</p>
+
+       <br>
+
+       <p id="eff" class="section">Reusability and Flexibility</p>
+
+       <p>
+       Implementing inclusion polymorphism improves reusability and
+       flexibility of code.&nbsp;
+       </p>
+       <p>
+       Virtual functions reduce code size considerably.&nbsp; Our
+       <span class="code">show()</span> function works on references of any type
+       within the <span class="code">Person</span> hierarchy.&nbsp; We only
+       define member functions (<span class="code">display()</span>) for
+       those classes that require specialized processing.&nbsp; </p>
+       <p>
+       Consider a client application that uses our hierarchy.&nbsp; During the
+       life cycle of the hierarchy, we may add several classes.&nbsp; Our original
+       client code, without any alteration, will selects the most derived version
+       of the member function for each upgrade of the hierarchy.&nbsp; We will only
+       need to add client code to create objects of new derived classes.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>polymorphism refers to the multiplicity of logic associated with the same name.&nbsp;</li>
+
+        <li>static type is the type of the object's hierarchy and is available at compile-time</li>
+
+        <li>dynamic type is the type of the object referenced and may change with different calls to the same function</li>
+
+        <li>early binding of a call to a member function's definition occurs at compile-time</li>
+
+        <li>the keyword virtual on a member function's declaration specifies dynamic dispatch</li>
+
+        <li>a polymorphic object's pointer type identifies the object's static type</li>
+
+        <li>a polymorphic object's constructor identifies the object's dynamic type</li>
+
+        <li>declare a base class destructor virtual even if there are no derived classes</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h16.html">Virtual Functions</a>.&nbsp;</li>
+        <li>Read the notes on static and dynamic typing in <a href="http://en.wikipedia.org/wiki/Datatype#Type_checking">Wikipedia</a>,</li>
+
+        <li>Read the notes on polymorphism in <a href="http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming">
+        Wikipedia</a>,</li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu_p.html" class="text3"><img src="./Polymorphism _ Virtual Functions_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html#top" class="text3">Top&nbsp; <img src="./Polymorphism _ Virtual Functions_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html" class="text3"><img src="./Polymorphism _ Virtual Functions_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Functions in a Hierarchy</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html" class="text3">Next: Abstract Base Classes&nbsp;&nbsp; <img src="./Polymorphism _ Virtual Functions_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Virtual Functions_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Polymorphism _ Virtual Functions_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Polymorphism _ Virtual Functions_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

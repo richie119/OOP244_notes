@@ -1,0 +1,986 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/abstr.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Polymorphism | Abstract Base Classes</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Abstract Base Classes_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Abstract Base Classes_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Abstract Base Classes_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Abstract Base Classes_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Polymorphism _ Abstract Base Classes_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr_p.html"><img src="./Polymorphism _ Abstract Base Classes_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part E - Polymorphism</span>
+        <br>
+        <br>
+            <span class="texthead">
+            Abstract Base Classes</span>
+            <br>
+            <br>
+            <span class="textagend">Design polymorphic objects to amplify the
+            reusability of code
+            <br>
+            </span>
+            Introduce pure virtual functions
+            <br>
+            Demonstrate a unit test of an interface
+            <br>
+            
+
+            <p class="quote">
+            "Program to an interface, not an implementation"<br> (Gamma, Helm, Johnson, Vlissides, 1994).
+            </p>
+            <span class="textagend">
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#pur">Pure Virtual Function</a> |
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#abc">Abstract Base Class</a> |
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#aop">Array of Pointers</a> |
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#uni">Unit Testing</a> |
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#sum">Summary</a> |
+            <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#exe">Exercises</a></span>
+            </div>
+            <br>
+            <br>
+
+            <p>
+            Object-oriented languages use interfaces to define the single identifier to multiple
+            meanings that polymorphism provides.&nbsp; Separating the interface from its various
+            implementations promotes low coupling between the client code and an object's class
+            hierarchy.&nbsp; The interface specifies what any object in the hierarchy offers to
+            a client, while each implementation specifies how the interface provides what it has
+            offered to its clients.&nbsp; This separation of concerns is central to software
+            engineering.&nbsp; The interface effectively hides the hierarchy from its clients.&nbsp;
+            We can upgrade the hierarchy by adding derived classes without having to change the
+            client code.&nbsp; We can upgrade the client code without having to change the hierarchy.&nbsp;
+            </p>
+            <p>
+            C++ supports the distinction between an interface and its implementations through abstract
+            and concrete classes.&nbsp; An abstract class is a base class that defines an interface,
+            while a concrete class is a derived class that implements that interface.&nbsp; The
+            abstract class identifies the member functions that the class hierarchy exposes to
+            its clients and is the gateway to testing the derived classes in its own inheritance
+            hierarchy.&nbsp; Each concrete class gives a specific meaning to the interface.
+            </p>
+            <p>
+            This chapter describes pure virtual functions, which are the principal components
+            of an abstract base class.&nbsp; The chapter shows how to define an abstract class
+            and use it with an array of pointers in client code.&nbsp; This chapter concludes with
+            an example of a unit test on an abstract base class.&nbsp;
+            </p>
+
+            <br>
+
+            <p id="pur" class="section">Pure Virtual Function</p>
+            <p>
+            The principal component of an abstract base class is a <i>pure virtual member
+            function</i>.&nbsp; <i>Pure</i> refers to the lack of any implementation detail.&nbsp;
+            That is, a pure virtual function is a signature without a definition.&nbsp;
+            The client code only requires access to the signature.&nbsp;
+            </p>
+
+            <p class="ssection">Declaration</p>
+
+            <p>
+            The declaration of a pure virtual function takes the form
+            </p>
+            <pre class="defin"> virtual <i>Type identifier</i>(<i>parameters</i>) = 0;</pre>
+            <p>
+            The assignment to 0 identifies the virtual function as pure.&nbsp;
+            A pure function must be a virtual member function.
+            </p>
+            <p class="sssection">Example</p>
+
+            <p>
+            We define the pure virtual function for the signature <span class="code">display(std::ostream&amp;) const</span> using&nbsp;
+            </p>
+           <table width="45%" summary="">
+            <tbody><tr>
+             <td>
+              <pre>     virtual void display(std::ostream&amp;) const<span class="high"> = 0</span>;&nbsp;
+</pre>
+             </td>
+            </tr>
+           </tbody></table>
+
+            <p class="ssection">Implementations</p>
+
+            <p>
+            A pure virtual member function typically has multiple definitions within its
+            hierarchy.&nbsp; Each definition has the same signature as the pure
+            virtual function but a different meaning.&nbsp; That is, it provides the client
+            with the implementation that suits a specific dynamic type.&nbsp;
+            </p>
+
+           <p class="center"><img src="./Polymorphism _ Abstract Base Classes_files/pure virtual function.png" width="386" height="278" alt="pure virtual memory"></p>
+
+            <p>
+            Note that the separation between the client and the hierarchy's implementation
+            is crisp.&nbsp; The client code does not need any access to the variety of
+            implementations available within the hierarchy.&nbsp; The implementation code
+            has no access to the client codes that use the hierarchy.
+            </p>
+            <br>
+
+            <p id="abc" class="section">Abstract Classes</p>
+            <p>
+            An abstract class is a class that contains or inherits a pure virtual
+            function.&nbsp; Because the class provides no implementation(s)
+            for its pure virtual function(s), the compiler cannot instantiate the
+            class.&nbsp; Any attempt to create an instance of an abstract base
+            class generates a compiler error.&nbsp;
+            </p>
+
+            <p class="ssection">Definition
+            </p><p>
+            The definition of any abstract base class contains or inherits at least one
+            pure virtual member function.&nbsp; The class definition contains the declaration
+            of the pure virtual function.&nbsp; We call an abstract base class without any
+            data members a <i>pure interface</i>.&nbsp;
+            </p>
+
+            <p class="sssection">Example
+            </p><p>
+            Let us define an abstract base class named <span class="code">iPerson</span>
+            for our <span class="code">Person</span> hierarchy and use this class
+            to expose the hierarchy's <span class="code">display()</span> function
+            to any client code.&nbsp;
+            </p>
+            <p class="center"><img src="./Polymorphism _ Abstract Base Classes_files/iPerson.png" width="228" height="192" alt="pure virtual memory"></p>
+
+            <p>
+            The <span class="code">iPerson.h</span> header file defines our abstract class:
+            </p>
+
+            <table width="45%" summary="">
+             <tbody><tr>
+              <td>
+               <pre> // Abstract Base Class for the Person Hierarchy&nbsp;
+ // iPerson.h
+
+ #include &lt;iostream&gt;
+
+ class iPerson {
+   public:
+     <span class="high">virtual void display(std::ostream&amp;) const = 0;&nbsp;</span>
+ };
+</pre>
+              </td>
+             </tr>
+            </tbody></table>
+
+            <p>
+            We derive our <span class="code">Person</span> hierarchy from
+            this interface.&nbsp; The header file that defines our <span class="code">Person</span>
+            and <span class="code">Student</span> class includes the
+            header file that defines our abstract base class:</p>
+
+            <table width="45%" summary="">
+             <tbody><tr>
+              <td>
+               <pre> // Late Binding
+ // Student.h
+
+ #include &lt;iostream&gt;
+ <span class="high">#include "iPerson.h"</span>
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person<span class="high"> : public iPerson</span> {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+              </td>
+             </tr>
+            </tbody></table>
+
+            <p>
+            The class definitions for the <span class="code">Person</span> and
+            <span class="code">Student</span> classes inform the compiler that
+            each concrete class implements its own version of the <span class="code">display()</span>
+            member function.&nbsp;
+            </p>
+
+            <br>
+
+            <p id="aop" class="section">Array of Pointers</p>
+
+            <p>
+            A systematic technique for accessing objects of different dynamic type within the
+            same hierarchy is through an array of pointers of their static type.&nbsp; The
+            executable code dereferences each pointer at run time based on its object's
+            dynamic type.&nbsp;
+            </p>
+
+            <p class="ssection">Person Example
+            </p><p>
+            The following code demonstrates the use of an array of pointers to
+            <span class="code">Person</span> objects.&nbsp; The objects pointed to
+            by the array elements may be of differing dynamic type, but are of the same
+            static type.&nbsp; The <span class="code">CreatePerson()</span> global function
+            creates a <span class="code">Person</span> object and returns its address.&nbsp;
+            </p>
+
+            <p class="sssection">Client Code
+            </p><p>
+            The following client code manages <span class="code">Person</span> objects
+            through the array of pointers <span class="code">p</span>.&nbsp; The output
+            generated for the input provided is listed on the right:
+            </p>
+
+            <table width="95%">
+            <tbody><tr>
+            <td>
+            <pre> // Array of Pointers
+ // array_of_pointers.cpp
+
+ #include &lt;iostream&gt;
+ #include "iPerson.h"
+
+ const int NP = 5;
+
+ int main() {
+     <span class="high">iPerson* p[NP];</span>
+     for (int i = 0; i &lt; NP; i++)
+         <span class="high">p[i]</span> = nullptr;
+
+     int n = 0;
+     bool quit = false;
+     do {
+         <span class="high">iPerson* ptemp = CreatePerson();&nbsp;</span>
+         if (ptemp != nullptr) {
+             <span class="high">p[n++]</span> = ptemp;
+         } else {
+             quit = true;
+         }
+     } while(n &lt; NP &amp;&amp; !quit);
+
+     for (int j = 0; j &lt; n; j++) {
+         <span class="high">p[j]</span>-&gt;display(std::cout);
+         std::cout &lt;&lt; std::endl;
+     }
+
+     for (int j = 0; j &lt; n; j++)
+         delete <span class="high">p[j]</span>;
+ }</pre></td>
+            <td>
+            <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Type (0,1,2) : 1
+ Name: Jane Doe
+ Type (0,1,2) : 2
+ Name: Harry
+ Student Number : 1234
+ Number of Grades : 3
+ Grade 1 : 45.6
+ Grade 2 : 67.8
+ Grade 3 : 89.5
+ Type (0,1,2) : 0
+ Jane Doe
+ Harry 1234:
+  45.60
+  67.80
+  89.50
+
+
+
+</pre>
+            </td>
+            </tr>
+            </tbody></table>
+
+            <p class="sssection">Interface
+            </p><p>
+            The interface to a <span class="code">Person</span> object
+            includes the prototype for a global function that creates the
+            object:
+            </p>
+
+            <table width="45%" summary="">
+             <tbody><tr>
+              <td>
+               <pre> // Abstract Base Class for the Person Hierarchy&nbsp;
+ // iPerson.h
+
+ #include &lt;iostream&gt;
+
+ class iPerson {
+   public:
+     <span class="high">virtual void display(std::ostream&amp;) const = 0;&nbsp;</span>
+ };
+
+ <span class="high">iPerson* CreatePerson();</span>
+</pre>
+              </td>
+             </tr>
+            </tbody></table>
+
+            <p class="sssection">Concrete Class Definitions
+            </p><p>
+            The concrete class definitions specify the various implementations of
+            the <span class="code">iPerson</span> interface:
+            </p>
+
+            <table width="45%">
+            <tbody><tr>
+            <td>
+            <pre> // Person and Student Concrete Classes
+ // Student.h
+
+ #include "iPerson.h"
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person : public iPerson {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     <span class="high">void display(std::ostream&amp;) const;</span>
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     <span class="high">void display(std::ostream&amp;) const;</span>
+ };
+
+ <span class="high">iPerson* CreatePerson();</span>
+</pre></td></tr></tbody></table>
+
+            <p>
+            The prototype for <span class="code">CreatePerson()</span> is repeated
+            for documentation.
+            </p>
+
+            <p class="sssection">Implementations
+            </p><p>
+            Each concrete class that declares the <span class="code">display()</span>
+            member function in its definition defines its own version of the
+            <span class="code">display()</span> function.&nbsp; The implementation file
+            also defines the global <span class="code">CreatePerson()</span> function:
+            </p>
+
+            <table width="45%">
+            <tbody><tr>
+            <td>
+            <pre> // Person Hierarchy - Implementation
+ // person.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;cstring&gt;
+ #include "Student.h"
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     std::strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ <span class="high">void Person::display(std::ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }</span>
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     *this = Student("", n, nullptr, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ <span class="high">void Student::display(std::ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(std::ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; std::endl;
+         }
+         os.unsetf(std::ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; std::endl;
+     }
+ }
+
+ iPerson* CreatePerson() {
+     iPerson* p = nullptr;
+     int type, no, ng;
+     float grade[NG];
+     char name[NC+1];
+     bool repeat;
+
+     do {
+         std::cout &lt;&lt; "Type (0,1,2) : ";
+         std::cin &gt;&gt; type;
+         std::cin.ignore();
+         repeat = false;
+         switch(type) {
+             case 0:
+                 break;
+             case 1:
+                 std::cout &lt;&lt; "Name: ";
+                 std::cin.getline(name, NC+1);
+                 p = new Person(name);
+                 break;
+             case 2:
+                 std::cout &lt;&lt; "Name: ";
+                 std::cin.getline(name, NC+1);
+                 std::cout &lt;&lt; "Student Number : ";
+                 std::cin &gt;&gt; no;
+                 std::cout &lt;&lt; "Number of Grades : ";
+                 std::cin &gt;&gt; ng;
+                 if (ng &gt; NG) ng = NG;
+                 for (int i = 0; i &lt; ng; i++) {
+                     std::cout &lt;&lt; "Grade " &lt;&lt; i + 1 &lt;&lt; " : ";
+                     std::cin &gt;&gt; grade[i];
+                     std::cin.ignore();
+                 }
+                 p = new Student(name, no, grade, ng);
+                 break;
+             default:
+                 repeat = true;
+                 std::cout &lt;&lt; "Invalid type. Try again\n";
+         }
+     } while(repeat);
+
+     return p;
+ }</span>
+</pre></td></tr></tbody></table>
+
+            <p>
+            Multiple definitions would be unnecessary if the definitions of
+            <span class="code">display()</span> were identical.
+            </p>
+            <br>
+
+            <p id="uni" class="section">Unit Tests on an Interface</p>
+
+            <p>
+            Good programming practice suggests that we code unit tests for an interface
+            rather than a specific implementation.&nbsp; This practice requires that the
+            interface does not change during the life cycle of the software.&nbsp; With
+            a constant interface we can perform unit tests at every upgrade throughout an
+            object's lifecycle without changing the test code.&nbsp;
+            </p>
+
+            <p class="ssection">Example
+            </p><p>
+            To illustrate a unit test on the interface of a hierarchy, consider a module
+            of <span class="code">Sorter</span> classes.&nbsp; The number of implementations
+            changes throughout the life cycle.
+            </p>
+            <p>
+            The <span class="code">Sorter</span> module contains all of the implemented
+            algorithms.&nbsp; The interface and the tester module remain unchanged.&nbsp;
+            With every upgrade to the <span class="code">Sorter</span> module, we execute
+            the unit tester on the interface.&nbsp;
+            </p>
+            <p class="sssection">Sorter Module
+            </p><p>
+            Each <span class="code">Sorter</span> class sorts in a different way.&nbsp;
+            The interface to the hierarchy exposes the <span class="code">sort()</span>
+            and <span class="code">name()</span> member functions of each class.&nbsp;
+            </p>
+            <p>
+            The header file for the interface contains:
+            </p>
+            <table width="45%">
+            <tbody><tr>
+            <td>
+            <pre> // Sorter Interface
+ // iSorter.h
+
+ class iSorter {
+   public:
+     virtual void sort(float*, int) = 0;
+     virtual const char* name() const = 0;&nbsp;
+ };
+
+ iSorter* CreateSorter(int);
+ int noOfSorters();
+</pre></td></tr></tbody></table>
+
+            <p>
+            The header file for the <span class="code">Sorter</span> concrete classes
+            contains:
+            </p>
+
+            <table width="45%">
+            <tbody><tr>
+            <td>
+            <pre> // Sorter Concrete Classes
+ // Sorter.h
+
+ #include "iSorter.h"
+
+ class SelectionSorter : public iSorter {&nbsp;
+   public:
+     void sort(float*, int);
+     const char* name() const;
+ };
+
+ class BubbleSorter : public iSorter {
+   public:
+     void sort(float*, int);
+     const char* name() const;
+ };
+
+ iSorter* CreateSorter(int);
+ int noOfSorters();
+</pre></td></tr></tbody></table>
+            <p>
+            The implementation file for the <span class="code">Sorter</span> module
+            defines the <span class="code">sort()</span> and <span class="code">name()</span>
+            member functions for the <span class="code">SelectionSorter</span> class and the
+            <span class="code">BubbleSorter</span> class as well as the global
+            <span class="code">CreateSorter()</span> and <span class="code">noOfSorters()</span>
+            functions:
+            </p>
+            <table width="45%">
+            <tbody><tr>
+            <td>
+            <pre> // Sorter Hierarchy - Implementation
+ // Sorter.cpp
+
+ #include "Sorter.h"
+
+ void SelectionSorter::sort(float* a, int n) {&nbsp;
+     int i, j, max;
+     float temp;
+
+     for (i = 0; i &lt; n - 1; i++) {
+         max = i;
+         for (j = i + 1; j &lt; n; j++)
+             if (a[max] &gt; a[j])
+                 max = j;
+         temp = a[max];
+         a[max] = a[i];
+         a[i] = temp;
+     }
+ }
+
+ const char* SelectionSorter::name() const {
+     return "Selection Sorter";
+ }
+
+ void BubbleSorter::sort(float* a, int n) {
+     int i, j;
+     float temp;
+
+     for (i = n - 1; i &gt; 0; i--) {
+         for (j = 0; j &lt; i; j++) {
+             if (a[j] &gt; a[j+1]) {
+                 temp = a[j];
+                 a[j] = a[j+1];
+                 a[j+1] = temp;
+             }
+         }
+     }
+ }
+
+ const char* BubbleSorter::name() const {
+     return "Bubble Sorter";
+ }
+
+ iSorter* CreateSorter(int i) {
+     iSorter* sorter = nullptr;
+     switch (i) {
+         case 0:
+             sorter = new SelectionSorter();
+             break;
+         case 1:
+             sorter = new BubbleSorter();
+             break;
+     }
+     return sorter;
+ }
+
+ int noOfSorters() {
+     return 2;
+ }</pre></td></tr></tbody></table>
+
+            <p class="sssection">Unit Tester
+            </p><p>
+            The unit tester generates the test data and reports the test results:
+            </p>
+            <table width="95%">
+            <tbody><tr>
+            <td width="60%">
+            <pre> // Test Main for the iSorter Interface
+ // Test_Main.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;ctime&gt;
+ #include "iSorter.h"
+
+ void populate(float* a, int n) {
+     srand(time(nullptr));
+     float f = 1.0f / RAND_MAX;
+     for (int i = 0; i &lt; n; i++)
+         a[i] = rand() * f;
+ }
+
+ void test(iSorter* sorter, float* a, int n) {
+     sorter-&gt;sort(a, n);
+     bool sorted = true;
+     for (int i = 0; i &lt; n - 1; i++)
+         if (a[i] &gt; a[i+1]) sorted = false;
+     if (sorted)
+         std::cout &lt;&lt; sorter-&gt;name()
+          &lt;&lt; " is sorted" &lt;&lt; std::endl;
+     else
+         std::cout &lt;&lt; sorter-&gt;name()
+          &lt;&lt; " is not sorted" &lt;&lt; std::endl;&nbsp;
+ }
+
+ int main() {
+     int n;
+     std::cout &lt;&lt; "Enter no of elements : ";
+     std::cin &gt;&gt; n;
+     float* array = new float[n];
+
+     for (int i = 0; i &lt; noOfSorters(); i++) {
+         iSorter* sorter = CreateSorter(i);
+         populate(array, n);
+         test(sorter, array, n);
+         delete sorter;
+     }
+
+     delete [] array;
+ }</pre></td><td width="40%">
+                    <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Enter no of elements : 200&nbsp;
+ Selection Sorter is sorted
+ Bubble Sorter is sorted
+
+
+ </pre></td></tr></tbody></table>
+
+            <p>
+            Note that we do not need to change this test code if we derive another class
+            from the <span class="code">iSorter</span> interface.
+            </p>
+            <br>
+
+            <p id="sum" class="section">Summary</p>
+            <ul>
+            <li>a pure virtual function is a member function declaration without an implementation</li>
+
+            <li>an abstract base class contains or inherits at least one pure virtual function
+            </li>
+
+            <li>an interface is an abstract base class with no data members</li>
+
+            <li>good programming practice performs unit tests on an interface rather than any specific implementation</li>
+            </ul>
+            <br>
+
+            <p id="exe" class="section">Exercises</p>
+            <ul>
+            <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h17.html">Abstract Base Classes</a></li>
+            <li>Complete the Workshop on <a href="https://ict.senecacollege.ca/~oop244/pages/workshops/w9.html">Pure Virtual Functions</a></li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr_p.html" class="text3"><img src="./Polymorphism _ Abstract Base Classes_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html#top" class="text3">Top&nbsp; <img src="./Polymorphism _ Abstract Base Classes_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html" class="text3"><img src="./Polymorphism _ Abstract Base Classes_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Virtual Functions</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html" class="text3">Next: Templates&nbsp;&nbsp; <img src="./Polymorphism _ Abstract Base Classes_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Abstract Base Classes_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Polymorphism _ Abstract Base Classes_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Polymorphism _ Abstract Base Classes_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

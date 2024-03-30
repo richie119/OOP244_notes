@@ -1,0 +1,1228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/param.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Polymorphism | Templates</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Templates_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Templates_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Templates_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Templates_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Polymorphism _ Templates_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Templates_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Templates_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param_p.html"><img src="./Polymorphism _ Templates_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Polymorphism _ Templates_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part E - Polymorphism</span>
+        <br>
+        <br>
+        <span class="texthead">
+        Templates</span>
+        <br>
+        <br>
+        <span class="textagend">Design polymorphic objects to amplify the
+        reusability of code
+        <br>
+        Introduce function and class templates
+        <br>
+        Introduce constrained casting to improve type safety
+        <br>
+        </span>
+
+        <p class="quote">
+        "Templates are of great utility to programmers in C++, especially when combined with multiple inheritance and operator overloading. " Wikipedia (2013).
+        </p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#tem">Function Templates</a> |
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#cla">Class Templates</a> |
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#cas">Constrained Casts</a> |
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#sum">Summary</a> |
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#exe">Exercises</a></span>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <p>
+        Polymorphism is not restricted to related types in object-oriented languages.&nbsp;
+        Many languages also support selection across unrelated types.&nbsp;
+        This polymorphism, which perfects the separation of interfaces from implementations,
+        is called <i>parametric</i> or <i>generic</i> polymorphism.&nbsp; In parametric
+        polymorphism the type and the logic executed on that type are independent of one
+        another.&nbsp; Different clients can access the same logic using different totally
+        unrelated types.&nbsp;
+        </p>
+        <p>
+        The C++ language implements parametric polymorphism using template syntax.&nbsp; The
+        compiler generates the implementation for each client type at compile-time from the
+        template defined by the developer.&nbsp;
+        </p>
+        <p>
+        This chapter describes how to implement parametric polymorphism using template syntax
+        with reference to functions and classes.&nbsp; This chapter also describes the
+        templated keywords available for casting values from one type to another.&nbsp;
+        </p>
+        <br>
+
+        <p id="tem" class="section">Function Template</p>
+
+        <p class="ssection">Template Syntax</p>
+        <p>
+        A template definition resembles that of a global function with
+        the parentheses replaced by angle brackets.&nbsp; A template header takes the form
+        </p>
+        <pre class="defin"> template&lt;<i>Type identifier</i>[, ...]&gt;</pre>
+        <p>
+        The keyword <span class="code">template</span> identifies the subsequent code
+        block as a template.&nbsp; The less-than greater-than angle bracket pair
+        (<span class="code">&lt;</span> <span class="code">&gt;</span>) encloses the
+        parameter definitions for the template.&nbsp; The ellipsis denotes more
+        comma-separated parameters.&nbsp;
+        <span class="code"><i>identifier</i></span> is a placeholder for the argument
+        specified by the client.&nbsp;
+        </p>
+        <p>
+        Each parameter declaration consists of a type and an identifier.&nbsp;
+        <span class="code"><i>Type</i></span> may be any of
+        </p><ul>
+        <li><span class="code">typename</span> - to identify a type (fundamental or compound)</li>
+        <li><span class="code">class</span> - to identify a type (fundamental or compound)</li>
+        <li><span class="code">int</span>, <span class="code">long</span>,
+        <span class="code">short</span>, <span class="code">char</span> - to identify
+        a non-floating-point fundamental type</li>
+        <li>a template parameter</li>
+        </ul>
+        <p></p>
+        <p>
+        The following examples are equivalent to one another:
+        </p>
+        <table width="45%">
+        <tbody><tr>
+        <td>
+        <pre> template &lt;typename T&gt;
+
+ // ... template body follows here
+
+     T value; // value is of type T&nbsp;
+
+</pre></td>
+        <td>
+        <pre> template &lt;class T&gt;
+
+ // ... template body follows here
+
+     T value; // value is of type T&nbsp;
+
+</pre></td>
+        </tr>
+        </tbody></table>
+        <p>
+        The compiler replaces <span class="code">T</span> with the
+        argument specified by the client code.
+        </p>
+
+        <p class="ssection">Complete Definition</p>
+        <p>
+        Consider the following function that swaps values in two different memory locations.&nbsp;
+        This code is defined using references to two <span class="code">int</span> variables:
+        </p>
+        <table width="45%">
+        <tbody><tr>
+        <td>
+        <pre> void swap(int&amp; a, int&amp; b) {
+     int c;
+     c = a;
+     a = b;
+     b = c;
+ }</pre></td>
+        </tr>
+        </tbody></table>
+        <p>
+        The template for all functions that swap values in this way
+        follows from replacing the specific type <span class="code">int</span>
+        with the type variable <span class="code">T</span> and inserting the
+        template header:
+        </p>
+        <table width="45%">
+        <tbody><tr>
+        <td>
+        <pre> // Template for swap
+ // swap.h
+
+ <span class="high">template&lt;typename T&gt;</span>
+ void swap(<span class="high">T</span>&amp; a, <span class="high">T</span>&amp; b) {
+     <span class="high">T</span> c;
+     c = a;
+     a = b;
+     b = c;
+ }</pre></td>
+        </tr>
+        </tbody></table>
+        <p>
+        We place template definitions in header files; in this case, in <span class="code">swap.h</span>.&nbsp;
+        </p>
+
+        <p class="ssection">Calling a Templated Function</p>
+        <p>
+        A call to a templated function determines the specialization
+        that the compiler generates.&nbsp;
+        The compiler binds the call to that specialization.&nbsp;
+        </p>
+        <p>
+        For example, to call the <span class="code">swap()</span> function for two
+        <span class="code">double</span>s and two <span class="code">long</span>s,
+        we write the following and leave the remaining work to the compiler:
+        </p>
+        <table width="95%">
+        <tbody><tr>
+        <td width="50%">
+        <pre> // Calling a Templated Function
+ // swap.cpp
+
+ #include &lt;iostream&gt;
+ #include "swap.h" // template definition&nbsp;
+
+ int main() {&nbsp;
+     double a = 2.3;
+     double b = 4.5;
+     long   d = 78;
+     long   e = 567;
+
+     <span class="high">swap(a, b)</span>; // compiler generates
+                 // swap(double, double)
+
+     std::cout &lt;&lt; "Swapped values are " &lt;&lt;&nbsp;
+          a &lt;&lt; " and " &lt;&lt; b &lt;&lt; std::endl;&nbsp;
+
+     <span class="high">swap(d, e)</span>; // compiler generates
+                 // swap(long, long)
+
+     std::cout &lt;&lt; "Swapped values are " &lt;&lt;
+          d &lt;&lt; " and " &lt;&lt; e &lt;&lt; std::endl;&nbsp;
+ }</pre></td>
+            <td width="50%">
+            <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Swapped values are 4.5 and 2.3&nbsp;
+
+
+
+
+
+ Swapped values are 567 and 78
+
+ </pre></td></tr></tbody></table>
+        <p>
+        If the arguments in each call are unambiguous in their type, the compiler
+        can specialize the template appropriately.&nbsp; If the arguments are ambiguous,
+        the compiler reports an error.
+        </p>
+        <!--<p class="ssection">Ambiguous Calls</p>
+        <p>
+        If the arguments in a function call are ambiguous, we must specify
+        the template argument(s) explicitly.&nbsp; For example,
+        </p>
+        <table width="95%">
+        <tr>
+        <td width="50%">
+        <pre>
+ // Ambiguous Arguments
+ // swap.cpp
+
+ #include &lt;iostream&gt;
+ #include "swap.h"
+
+ int main() {&nbsp;
+     double a = 2.3;
+     double b = 4.5;
+     long   d = 78;
+     long   e = 5;
+
+     <span class=high>swap&lt;double&gt;(a, d)</span>;
+
+     std::cout &lt;&lt; "Swapped values are " &lt;&lt;&nbsp;
+          a &lt;&lt; ", " &lt;&lt; d &lt;&lt; std::endl;&nbsp;
+
+     <span class=high>swap&lt;long&gt;(b, e)</span>;
+
+     std::cout &lt;&lt; "Swapped values are " &lt;&lt;
+          b &lt;&lt; ", " &lt;&lt; e &lt;&lt; std::endl;&nbsp;
+ }</pre></td><td width="50%">
+                    <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Swapped values are 78, 2.3&nbsp;
+
+
+
+
+ Swapped values are 5, 4.5
+
+ </pre></td></tr></table>-->
+        <br>
+
+
+        <!--<p id="spe" class="section">Explicit Specialization</p>
+        <p>
+        A template definition may have exceptions for certain arguments.&nbsp; We
+        define separate specializations for each exception not covered by the
+        template definition.&nbsp;
+        </p>
+        <p class="ssection">Example</p>
+        <p>
+        The following template definition return the maximum of two arguments and applies
+        to any fundamental type:&nbsp;
+        </p>
+        <table width="45%">
+        <tr>
+        <td>
+        <pre>
+ // Maximum Function
+ // maximum.h
+
+ template&lt;typename T&gt;
+ T maximum(T a, T b) {
+     return a > b ? a : b;
+ }</span></pre></td></tr></table>
+        <p>
+        To accomodate the <span class=code>const char*</span>
+        type, we specialize the template explicitly.&nbsp; An explicit
+        specialization has an empty paramter list:
+        </p>
+        <table width="45%">
+        <tr>
+        <td>
+        <br />
+        <pre>
+ // Maximum Function
+ <span class=high>// + explicit specialization for const char*</span>
+ // maximum.h
+
+ template&lt;typename T&gt;
+ T maximum(T a, T b) {
+     return a > b ? a : b;
+ }
+
+ <span class=high>template&lt;&gt; // explicit specialization - empty parameter list
+ const char* maximum&lt;const char*&gt;(const char* a, const char* b) {
+     char* largest = a;
+     bool done = false;
+     for (int i = 0; !done && a[i] != '\0' && b[i] != '\0'; i++) {&nbsp;
+         done = a[i] != b[i];
+         if (b[i] > a[i]) largest = b;
+     }
+     return largest;
+ }</span></pre></td></tr></table>
+        <p>
+        We place explicit specializations after their general template definition.&nbsp;
+        </p>
+        <p>
+        The compiler binds the second call to <span class=code>maximum</span> to the
+        explicit specialization for the <span class=code>const char*</span> type:
+        <table width="95%">
+        <tr>
+        <td width="50%">
+        <pre>
+ // Maximum of Two Strings
+ // maximum.cpp
+
+ #include &lt;iostream&gt;
+ #include "maximum.h"
+
+ int main() {
+     double a = 2.3;
+     double b = 4.5;
+     const char d[4] = "abc";
+     const char e[4] = "def";
+
+     double c = <span class=high>maximum(a, b)</span>;
+
+     std::cout &lt;&lt; "Greater of " &lt;&lt;&nbsp;
+          a &lt;&lt; ", " &lt;&lt; b &lt;&lt;
+          " is " &lt;&lt; c &lt;&lt; std::endl;&nbsp;
+
+     const char* f = <span class=high>maximum(d, e)</span>;&nbsp;
+
+     std::cout &lt;&lt; "Greater of " &lt;&lt;
+          d &lt;&lt; ", " &lt;&lt; e &lt;&lt;
+          " is " &lt;&lt; f &lt;&lt; std::endl;&nbsp;
+ }</pre></td><td width="50%">
+                    <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Greater of 2.3, 4.5 is 4.5&nbsp;
+
+
+
+
+
+ Greater of abc, def is def
+
+
+ </pre></td></tr></table>
+        </p>
+        <br />-->
+
+       <p id="cla" class="section">Class Template</p>
+
+       <p>
+       The syntax for class templates is similar to that for function templates.&nbsp;
+       </p>
+       <p>
+       The following template defines <span class="code">Array</span>
+       classes of specified size in static memory.&nbsp; The template
+       parameters are the type (<span class="code">T</span>) of each element in the array
+       and the number of elements in the array (<span class="code">N</span>):</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Template for Array Classes
+ // Array.h
+
+ <span class="high">template &lt;class T, int N&gt;</span>
+ class Array {
+     <span class="high">T</span> a[<span class="high">N</span>];
+ public:
+     <span class="high">T</span>&amp; operator[](int i) { return a[i]; }&nbsp;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       For the following code, the
+       compiler generates the class definition for an array of element type <span class="code">int</span>
+       and size <span class="code">5</span> from the <span class="code">Array</span>
+       template definition.&nbsp; The output from executing this client program is shown
+       on the right:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Class Template
+ // Template.cpp
+
+ #include &lt;iostream&gt;
+ #include "Array.h"
+
+ int main() {
+     Array<span class="high">&lt;int, 5&gt;</span> a, b;
+
+     for (int i = 0; i &lt; 5; i++)
+         a[i] = i * i;
+
+     b = a;
+
+     for (int i = 0; i &lt; 5; i++)
+         std::cout &lt;&lt; b[i] &lt;&lt; ' ';
+     std::cout &lt;&lt; std::endl;
+}
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 0 1 4 9 16
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="cas" class="section">Constrained Casts</p>
+
+       <p>
+       Constrained casts improve type safety.&nbsp;
+       Type safety is an important feature of any strongly typed language.&nbsp;
+       Bypassing the type system introduces ambiguity to the language itself and
+       is best avoided.&nbsp; Casting a value from one type to another type
+       circumvents the type system's type checking facilities.&nbsp; It is good
+       programming practice to implement casts only where absolutely unavoidable
+       and localize them as much as possible.&nbsp;
+       </p>
+       <p>
+       C++ supports constrained type casting through template syntax using one of
+       the following keywords:
+       </p>
+       <ul>
+       <li><span class="code">static_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span></li>
+       <li><span class="code">reinterpret_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span></li>
+       <li><span class="code">const_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span></li>
+       <li><span class="code">dynamic_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span></li>
+       </ul>
+       <p>
+       <span class="code"><i>Type</i></span> specifies the destination type.&nbsp; <span class="code"><i>expression</i></span>
+       refers to the value to be cast to the destination type.
+       </p>
+
+       <p class="ssection">Related Types</p>
+
+       <p>The <span class="code">static_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       keyword converts the expression from its evaluated type to the specified type.&nbsp;
+       By far, this is the most common form of constrained cast.
+       </p>
+       <p>
+       For example, to cast <span class="code">minutes</span> to a
+       <span class="code">float</span> type,
+       we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Cast to a Related Type
+ // static_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ int main() {
+     double hours;
+     int minutes;
+
+     std::cout &lt;&lt; "Enter minutes : ";
+     std::cin &gt;&gt; minutes;
+     hours = <span class="high">static_cast&lt;double&gt;</span>(minutes)/ 60;  // int and float are related&nbsp;
+     std::cout &lt;&lt; "In hours, this is " &lt;&lt; hours;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">static_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       performs limited type checking.&nbsp; It rejects conversions between
+       pointer and non-pointer types.&nbsp;
+       </p>
+       <p>
+       For example, the following constrained cast generates a compile-time error:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> #include &lt;iostream&gt;
+
+ int main() {
+     int x = 2;
+     int* p;
+
+     p = <span class="high">static_cast&lt;int*&gt;</span>(x);  // FAILS: unrelated types&nbsp;
+
+     std::cout &lt;&lt; p;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Some static casts are portable across different platforms.&nbsp;</p>
+
+       <p class="ssection">Unrelated Types</p>
+
+       <p>The <span class="code">reinterpret_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       keyword converts the expression from its evaluated type to an
+       unrelated type.&nbsp; This cast may produce a value that has the
+       same bit pattern as the evaluated expression.&nbsp;
+       </p>
+       <p>
+       For example, to cast an <span class="code">int</span> type to a pointer to an <span class="code">int</span>
+       type, we write:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Cast to an Unrelated Type
+ // reinterpret_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ int main( ) {
+     int x = 2;
+     int* p;
+
+     p = <span class="high">reinterpret_cast&lt;int*&gt;</span>(x);  // int and int* are unrelated&nbsp;
+
+     std::cout &lt;&lt; p;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">reinterpret_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       performs minimal type checking.&nbsp; It rejects
+       conversions between related types.&nbsp;
+       </p>
+       <p>
+       For example, the following constrained cast generates a compile-time error:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> #include &lt;iostream&gt;
+
+ int main( ) {
+     int x = 2;
+     double y;
+
+     y = <span class="high">reinterpret_cast&lt;double&gt;</span>(x);  // FAILS types are related&nbsp;
+
+     std::cout &lt;&lt; y;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Few reinterpret casts are portable.&nbsp; Uses include</p>
+       <ul>
+       <li>evaluating raw data</li>
+       <li>recovering data where types are unknown</li>
+       <li>quick and messy calculations</li>
+       </ul>
+
+       <p class="ssection">Unmodifiable Types</p>
+
+       <p>The <span class="code">const_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       keyword removes the <span class="code">const</span> status
+       from an expression.
+
+       </p><p>
+       A common use case for this constrained cast is a function written by another programmer
+       that does not receive a <span class="code">const</span> parameter but should receive one.&nbsp;
+       If we cannot call the function with a <span class="code">const</span> argument,
+       we temporarily remove the <span class="code">const</span> status and hope
+       that the function is truly read only.&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Strip const status from an Expression
+ // const_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ void foo(int* p) {
+     std::cout &lt;&lt; *p &lt;&lt; std::endl;
+ }
+
+ int main( ) {
+     const int x = 3;
+     const int* a = &amp;x;
+     int* b;
+
+     // foo expects int* and not const int*
+     b = <span class="high">const_cast&lt;int*&gt;</span>(a);  // remove const status&nbsp;
+     foo(b);
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">const_cast&lt;<i>Type</i>&gt;(<i>expression</i>)</span>
+       performs minimal type checking.&nbsp; It rejects
+       conversions between different types.&nbsp;
+       </p>
+       <p>
+       For example, the following code generates a compile-time error:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> #include &lt;iostream&gt;
+
+ int main( ) {
+     const int x = 2;
+     double y;
+
+     y = <span class="high">const_cast&lt;double&gt;</span>(x); // FAILS&nbsp;
+
+     std::cout &lt;&lt; y;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Inherited Types</p>
+
+       <p>The <span class="code">dynamic_cast&lt;Type&gt;(expression)</span> keyword converts
+       the value of an expression from its type to another type
+       within the same class hierarchy and performs some type checking.&nbsp;
+       </p>
+       <p class="sssection">Downcasts</p>
+
+       <p><span class="code">dynamic_cast&lt;Type&gt;(expression)</span>
+       rejects a downcast from a base class pointer to a derived class pointer
+       if a mismatch occurs or the object cannot be derived from the expression
+       type.&nbsp; The result of a dynamic cast must be tested to ensure that the
+       conversion was successful.
+       </p>
+       <p>
+       For example:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Downcast within the Hierarchy
+ // downcast.cpp
+
+ #include &lt;iostream&gt;
+
+ class Base {
+   public:
+     virtual void display() const { std::cout &lt;&lt; "Base\n"; }&nbsp;
+ };
+ class Derived : public Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Derived\n"; }&nbsp;
+ };
+
+ int main( ) {
+     Base* b1 = new Base;
+     Base* b2 = new Derived;
+     Derived* d1 = <span class="high">dynamic_cast&lt;Derived*&gt;(b1)</span>;
+     Derived* d2 = <span class="high">dynamic_cast&lt;Derived*&gt;(b2)</span>;&nbsp;
+
+     <span class="high">if (d1 != nullptr)</span>
+         d1-&gt;display();
+     else
+         std::cerr &lt;&lt; "d1 is not derived" &lt;&lt; std::endl;
+
+     <span class="high">if (d2 != nullptr)</span>
+         d2-&gt;display();
+     else
+         std::cerr &lt;&lt; "d2 is not derived" &lt;&lt; std::endl;
+
+     delete b1
+     delete d2;
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ d1 is not derived&nbsp;
+ Derived
+
+
+
+
+
+
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Upcasts</p>
+
+       <p><span class="code">dynamic_cast&lt;Type&gt;(expression)</span>
+       rejects an upcast from a derived class pointer to a base class pointer
+       if a mismatch occurs or the object is not derived from the expression
+       type.&nbsp; The result of a dynamic cast must be tested to ensure that the
+       conversion was successful.
+       </p>
+
+       <p>
+       For example, to cast a derived class pointer to a base object <span class="code">d</span>
+       to a pointer to its base class part, we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Upcast within the Hierarchy
+ // upcast.cpp
+
+ #include &lt;iostream&gt;
+
+ class Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Base\n"; }&nbsp;
+ };
+ class Derived : public Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Derived\n"; }
+ };
+
+ int main( ) {
+     Base* b;
+     Derived* d = new Derived;
+
+     b = <span class="high">dynamic_cast&lt;Base*&gt;</span>(d);  // in the same hierarchy&nbsp;
+     if (b != nullptr)
+         b-&gt;display();
+     else
+         std::cerr &lt;&lt; "Mismatch" &lt;&lt; std::endl;
+     d-&gt;display();
+     delete d;
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Base
+ Derived&nbsp;
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that here the <span class="code">display()</span> member function is
+       not <span class="code">virtual</span>.&nbsp; If it were, both calls to it
+       would produce the same result.
+       </p>
+
+       <p class="sssection">Compile-Time Checking</p>
+
+       <p><span class="code">dynamic_cast&lt;Type&gt;(expression)</span>
+       performs some compile-time type checking.&nbsp; It rejects conversions from a
+       base class pointer to a derived class pointer if the object is
+       monomorphic; that is, if the base class is not a polymorphic type.&nbsp;
+       </p>
+       <p>
+       For example, the following constrained cast generates a compile-time error:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> // Dynamic Cast - Compile Time Checking
+ // dynamic_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ class Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Base\n"; }&nbsp;
+ };
+ class Derived : public Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Derived\n"; }&nbsp;
+ };
+
+ int main( ) {
+     Base* b = new Base;
+     Derived* d;
+
+     d = <span class="high">dynamic_cast&lt;Derived*&gt;</span>(b);  // FAILS&nbsp;
+     b-&gt;display();
+     d-&gt;display();
+     delete d;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that a <span class="code">static_cast</span> works here and may
+       produce the result shown on the right.&nbsp; However, the <span class="code">Derived</span>
+       part of the object would then be incomplete.&nbsp; <span class="code">static_cast</span>
+       does not check if the object is complete, leaving the responsibility to the programmer.
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Static Cast - Compile Time Checking
+ // static_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ class Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Base\n"; }
+ };
+ class Derived : public Base {
+   public:
+     void display() const { std::cout &lt;&lt; "Derived\n"; }&nbsp;
+ };
+
+ int main( ) {
+     Base* b = new Base;
+     Derived* d;
+
+     d = <span class="high">static_cast&lt;Derived*&gt;</span>(b);  // OK&nbsp;
+     b-&gt;display();
+     d-&gt;display();
+     delete d;
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Base
+ Derived&nbsp;
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Note that if <span class="code">display()</span> is declared <span class="code">virtual</span>
+       the output may be the same for both calls to <span class="code">display()</span>.
+       </p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a template header consists of the keyword <span class="code">template</span> followed by the template parameters</li>
+
+        <li>the compiler generates the template specialization based on the argument types in the function call</li>
+
+        <li>avoid type casting that completely bypasses the language's type-checking facilities</li>
+
+        <li>if type casting is necessary, use one of the four type cast keywords (usually <span class="code">static_cast</span>)</li>
+       </ul>
+       <br>
+
+        <p id="exe" class="section">Exercises</p>
+        <p>
+        </p><ul>
+        <li>
+        Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h18.html">Function Templates</a>.
+        </li>
+        <li>
+        Complete the Workshop on <a href="https://ict.senecacollege.ca/~oop244/pages/workshops/w10.html">Function Templates</a>.
+        </li>
+        <li>Read the Wikipedia article on <a href="http://en.wikipedia.org/wiki/Template_%28programming%29">Templates</a></li>
+        </ul>
+        <p></p>
+        <br>
+        <br>
+        <br>
+        </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/param_p.html" class="text3"><img src="./Polymorphism _ Templates_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#top" class="text3">Top&nbsp; <img src="./Polymorphism _ Templates_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html" class="text3"><img src="./Polymorphism _ Templates_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Abstract Base Classes</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html" class="text3">Next: Overview of Polymorphism&nbsp;&nbsp; <img src="./Polymorphism _ Templates_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Templates_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Templates_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Templates_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Polymorphism _ Templates_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Polymorphism _ Templates_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

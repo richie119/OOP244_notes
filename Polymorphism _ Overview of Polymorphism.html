@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Polymorphism | Overview of Polymorphism</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Overview of Polymorphism_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Overview of Polymorphism_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Overview of Polymorphism_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Polymorphism _ Overview of Polymorphism_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Polymorphism _ Overview of Polymorphism_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc_p.html"><img src="./Polymorphism _ Overview of Polymorphism_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part E - Polymorphism</span>
+        <br>
+        <br>
+        <span class="texthead">Overview of Polymorphism</span>
+        <br>
+        <br>
+        <span class="textagend">Code a complete program using polymorphic objects
+        to solve a systems or business problem
+        <br>
+        Describe the four different categories of polymorphism
+        <br>
+        </span>
+
+        <p class="quote">"A type provides a protective covering
+        that hides the underlying representation and constrains the
+        way objects may interact with other objects" (Cardelli, Wegner, 1985)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#pol">Languages</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#typ">Type Systems</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#his">Categories</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Polymorphism was perfected in object-oriented languages, but has roots
+       in procedural languages.&nbsp; Polymorphism relies on a language's type
+       system to distinguish different meanings for the same identifier.&nbsp;
+       This ambiguity introduces flexibility and enables reusability of code.
+       </p>
+
+       <p>
+       This chapter describes the difference between monomorphic and polymorphic
+       languages and the use of a type system to ensure consistency.&nbsp; This
+       chapter also identifies the categories of polymorphism supported by
+       object-oriented languages and reviews how C++ implements each category.
+       </p>
+       <br>
+
+       <p id="pol" class="section">Languages</p>
+
+       <p>
+       Programming languages evolved from untyped origins through monomorphic languages
+       to polymorphic ones.&nbsp; Untyped languages support words of one fixed size.&nbsp;
+       Assembly languages and BCPL are examples.&nbsp; Typed languages support
+       regions of memory of different sizes distinguished by their type.&nbsp;
+       Typed languages can be monomorphic or polymorphic.&nbsp; In a monomorphic
+       language the type of an object, once declared, cannot change throughout the
+       object's lifetime.&nbsp; Polymorphic languages relax this relation between
+       the object's type and a region of memory by introducing some ambiguity.&nbsp;
+       The type of a polymorphic object may change during its lifetime.&nbsp;
+       This ambiguity brings object descriptions closer to natural language usage.</p>
+       <p>
+       Monomorphic languages require separate code for each type of object.&nbsp;
+       For instance, a monomorphic language requires the programmer to code a
+       separate <span class="code">sort()</span> function for each data type, even
+       though the logic is identical across all types.&nbsp; Polymorphic languages,
+       on the other hand, let the programmer code the function once.&nbsp; The
+       language applies the programming solution to any type.</p>
+       <p>
+       The C++ language assumes that an object is monomorphic by default, but lets
+       the programmer override this default by explicitly identifying the object
+       as polymorphic.&nbsp;
+       </p>
+       <br>
+
+       <p id="typ" class="section">Type Systems</p>
+
+       <p>
+       A type system introduces consistency into a programming language.&nbsp; It is the
+       first line of defense against coding relationships between unrelated entities.&nbsp;
+       Typically, the entities in the expressions that we code have some relation to
+       one another.&nbsp; The presence of a type system enables the compiler to check whether
+       such relations follow well-defined sets of rules.&nbsp; Each type in a type system
+       defines its own set of admissible operations in forming expressions.&nbsp;
+       The compiler rejects all operations outside this set.&nbsp; Breaking the type
+       system exposes the underlying bit strings and introduces uncertainty in how to
+       interpret the contents of their regions of memory.&nbsp;
+       </p>
+
+       <p>
+       A strongly typed language enforces type consistency at compile-time and
+       only postpones type-checking to run-time for polymorphic objects.&nbsp;
+       </p>
+       <p>
+       The C++ language is a <i>strongly typed</i> language.&nbsp; It checks for
+       type consistency on monomorphic objects at compile-time and on polymorphic
+       objects at run-time.&nbsp;
+       </p>
+
+       <p class="ssection">Role of Polymorphism</p>
+
+       <p>
+       A polymorphic language provides the rules for extending the language's
+       type system.&nbsp; Compilers apply their language's type system to identify
+       possible violations of that system.&nbsp; Not all type differences between
+       entities are necessarily errors.&nbsp; Those differences that the language
+       allows expose its polymorphism.&nbsp; That is, the polymorphic features of
+       a language represent the admissible set of differences between types that
+       the language as a polymorphic language supports.</p>
+
+       <br>
+
+       <p id="his" class="section">Categories</p>
+
+       <p>
+       The polymorphic features that an object-oriented language supports can be
+       classified into four categories.&nbsp; The C++ language supports all
+       of these categories.
+       </p>
+
+       <p class="ssection">Classifications</p>
+
+       <p>
+       Christopher Strachey (1967) introduced the concept of polymorphism
+       informally into procedural programming languages by distinguishing
+       functions</p>
+
+       <ul>
+        <li>that work differently on different argument types
+        </li>
+
+        <li>that work uniformly on a range of argument types&nbsp;</li>
+       </ul>
+       <p>He defined the former as <em>ad-hoc</em> polymorphism and the latter as
+       <em>parametric</em> polymorphism:
+
+       </p><p class="quote">"Ad-Hoc polymorphism is obtained when a function works, or
+       appears to work, on several different types (which may not
+       exhibit a common structure) and may behave in unrelated ways for
+       each type.&nbsp; Parametric polymorphism is obtained when a
+       function works uniformly on a range of types; these types
+       normally exhibit some common structure." (Strachey, 1967)</p>
+
+       <p class="center"><img src="./Polymorphism _ Overview of Polymorphism_files/polymorphism.png" width="128" height="47" alt="polymorphism"></p>
+
+       <p>Cardelli and Wegner (1985) expanded Strachey's distinction to accommodate
+       object-oriented languages.&nbsp; They distinguished functions</p>
+
+       <ul>
+        <li>that work on a <em>finite</em> set of different and potentially unrelated types
+
+        <ul>
+        <li>coercion</li>
+
+        <li>overloading</li>
+        </ul>
+        </li>
+        <li>that work on a potentially <em>infinite</em> number of types across
+        some common structure
+        <ul>
+        <li>inclusion</li>
+
+        <li>parametric</li>
+       </ul>
+       </li>
+
+       </ul>
+
+       <p class="center"><img src="./Polymorphism _ Overview of Polymorphism_files/cardelli wegner.png" width="265" height="82" alt="adhoc polymorphism"></p>
+
+       <p>
+       Inclusion polymorphism is specific to object-oriented languages.
+       </p>
+
+       <p class="ssection">Ad-Hoc Polymorphism</p>
+
+       <p>Ad-hoc polymorphism is <em>apparent</em> polymorphism.&nbsp;
+       Its polymorphic character disappears at closer scrutiny.&nbsp;
+       </p>
+
+       <p class="sssection">Coercion</p>
+
+       <p><em>Coercion</em> addresses differences between argument types in a
+       function call and the parameter types in the function's definition.&nbsp;
+       Coercion allows convertible changes in the argument's type to match
+       the type of the corresponding function parameter.&nbsp; It is a semantic
+       operation that avoids a type error.&nbsp;
+       </p>
+       <p>
+       If the compiler encounters a mismatch between the type of an argument
+       in a function call and the type of the corresponding parameter, the
+       language allows conversion from the type of the argument to the type
+       of the corresponding parameter.&nbsp; The compiler inserts the code
+       necessary to perform the coercion.&nbsp; The function definition
+       itself only ever executes on one type - the type of its parameter.&nbsp;
+       </p>
+
+       <p>Coercion has two possible variations</p>
+
+       <ul>
+        <li>narrow the argument type (narrowing coercion)</li>
+
+        <li>widen the argument type (promotion)</li>
+       </ul>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Ad-Hoc Polymorphism - Coercion
+ // coercion.cpp
+
+ #include &lt;iostream&gt;
+
+ // One function definition:
+
+ void display(int a) {
+     std::cout &lt;&lt; "One argument (" &lt;&lt; a &lt;&lt; ')';&nbsp;
+ }
+
+ int main( ) {
+
+     display(10);
+     std::cout &lt;&lt; std::endl;
+     display(12.6); // narrowing
+     std::cout &lt;&lt; std::endl;
+     display('A'); // promotion
+     std::cout &lt;&lt; std::endl;
+ }
+</pre>
+         </td>
+
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+ One argument (10)
+
+ One argument (12)
+
+ One argument (65)
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Coercion eliminates type mismatch or missing function definition
+       errors.&nbsp; C++ implements coercion at compile time.&nbsp; If the
+       compiler recognizes a type mismatch that is a candidate for coercion,
+       the compiler inserts the conversion code immediately before the function
+       call.&nbsp;</p>
+
+       <p>
+       Most programming languages support some coercion.&nbsp;
+       For instance, C narrows and promotes argument types in function
+       calls so that the same function will accept a limited variety of
+       argument types.&nbsp;
+       </p>
+
+       <p class="sssection">Overloading</p>
+
+       <p>
+       <i>Overloading</i> addresses variations in a function's signature.&nbsp;
+       Overloading allows binding of function calls with the same identifier
+       but different argument types to function definitions with correspondingly
+       different parameter types.&nbsp; It is a syntactic abbreviation that
+       associates the same function identifier with a variety of function
+       definitions by distinguishing the bindings based on function signature.&nbsp;
+       The same function name can be used with a variety of unrelated argument types.&nbsp;
+       Each set of argument types has its own function definition.&nbsp; The compiler
+       binds the function call to the matching function definition.&nbsp;
+       </p>
+       <p>
+       Unlike coercion, overloading does not involve any common logic shared by
+       the function definitions for functions with the same identifier.&nbsp;
+       Uniformity is a coincidence rather than a rule.&nbsp; The definitions may
+       contain totally unrelated logic.&nbsp; Each definition works only on its set
+       of types.&nbsp; The number of overloaded functions is limited by the number
+       of definitions implemented in the source code.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Ad-Hoc Polymorphism - Overloading
+ // overloading.cpp
+
+ #include &lt;iostream&gt;
+
+ // Two function definitions:
+
+ void display() {
+     std::cout &lt;&lt; "No arguments";
+ }
+
+ void display(int a) {
+     std::cout &lt;&lt; "One argument (" &lt;&lt; a &lt;&lt; ')';&nbsp;
+ }
+
+ int main( ) {
+
+     display();
+     std::cout &lt;&lt; std::endl;
+     display(10);
+     std::cout &lt;&lt; std::endl;
+ }
+</pre>
+         </td>
+
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ No arguments
+
+ One argument (10)
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Overloading eliminates multiple function definition errors.&nbsp;
+       C++ implements overloading at compile time by renaming each identically
+       named function as a function with its own distinct identifier:
+       the language mangles the original identifier with the parameter types to
+       generate an unique name.&nbsp; The linker uses the mangled name to bind
+       the function call to the appropriate function definition.&nbsp;
+       </p>
+
+       <p>
+       Note that a procedural language like the C language does not admit
+       overloading and requires a unique name for each function definition.&nbsp;
+       </p>
+
+       <p class="ssection">Universal Polymorphism</p>
+
+       <p>Universal polymorphism is <em>true</em> polymorphism.&nbsp; Its
+       polymorphic character survives at closer scrutiny.&nbsp;
+       </p>
+       <p>
+       Unlike ad-hoc polymorphism, universal polymorphism imposes no restriction
+       on the admissible types.&nbsp;
+       The same function (logic) applies to a potentially
+       unlimited range of different types.&nbsp;
+       </p>
+
+       <p class="sssection">Inclusion</p>
+
+       <p>
+       <i>Inclusion polymorphism</i> addresses the multiplicity of definitions available
+       for a function call.&nbsp; Inclusion polymorphism allows the multiplicity of
+       member function definitions by selecting the definition from the set of
+       definitions based on the object's type.&nbsp; The type is a type that
+       belongs to an inheritance hierarchy.&nbsp; The term <i>inclusion</i> refers
+       to the base type including the derived types within the hierarchy.&nbsp;
+       All member function definitions share the same name throughout the hierarchy.
+       </p>
+
+       <!--<p>
+       Inclusion polymorphism distinguishes an object's dynamic type from its static
+       type and postpones the binding of a call to a member function until the object's
+       dynamic type is known.&nbsp; A polymorphic object can support multiple definitions
+       that augment its static core.&nbsp; Each definition is associated with a different
+       dynamic type but the same static type.&nbsp; C++ binds a call to the definition
+       that is associated with the object's dynamic type at run-time.&#160;
+       </p>-->
+
+       <p>
+       In the figure below, both a <span class="code">HybridCourse</span> and a
+       <span class="code">Course</span> belong to the same hierarchy.&nbsp;
+       A <span class="code">HybridCourse</span> uses one mode of delivery while
+       a <span class="code">Course</span> uses another mode.&nbsp; That is, a
+       <span class="code">mode()</span> query on a <span class="code">Course</span>
+       object reports a different result from a <span class="code">mode()</span>
+       query on a <span class="code">HybridCourse</span> object.&nbsp; </p>
+
+       <p class="center"><img src="./Polymorphism _ Overview of Polymorphism_files/differentBehavior.png" width="256" height="120" alt="different behavior polymorphism">
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <img src="./Polymorphism _ Overview of Polymorphism_files/identicalBehavior.png" width="256" height="120" alt="identical behavior polymorphism"></p>
+
+       <p>
+       Operations that are identical for all types within the hierarchy require
+       only one member function definition.&nbsp; The <span class="code">assessments()</span>
+       query on a <span class="code">HybridCourse</span> object invokes the same
+       function definition as a query on the <span class="code">Course</span> object.&nbsp;
+       Defining a query for the <span class="code">HybridCourse</span> class would
+       only duplicate existing code and is unnecessary.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Universal Polymorphism - Inclusion
+ // inclusion.cpp
+
+ #include &lt;iostream&gt;
+ #include "Course.h"
+ using std::cout;
+ using std::endl;
+
+ int main( ) {
+     Course abc123("Intro to OO")
+     HybridCourse abc124("Intro to OO*");
+     cout &lt;&lt; abc123.assessments() &lt;&lt; endl;
+     cout &lt;&lt; abc123.mode() &lt;&lt; endl;
+     cout &lt;&lt; abc124.assessments() &lt;&lt; endl;&nbsp;
+     cout &lt;&lt; abc124.mode() &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ Intro to OO 12 assessments
+ Intro to OO lecture-lab mode&nbsp;
+ Intro to OO* 12 assessments
+ Intro to OO* online-lab mode
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Inclusion polymorphism eliminates duplicate logic across a hierarchy
+       without generating missing function definition errors.&nbsp;
+       C++ implements inclusion polymorphism at run-time using virtual tables.
+       </p>
+
+       <p class="sssection">Parametric</p>
+
+       <p>
+       <i>Parametric (or generic) polymorphism</i> addresses differences
+       between argument types in a function call and the parameter types in the
+       function's definition.&nbsp; Parametric polymorphism allows function definitions
+       that share identical logic independently of type.&nbsp; Unlike coercion, the
+       logic is common to all possible types, without restriction.&nbsp;
+       The types do not need to be related in any way.&nbsp; For example, a function that
+       sorts <span class="code">int</span>s uses the same logic as a function that sorts
+       <span class="code">Student</span>s.&nbsp; If we have already written a function
+       to sort <span class="code">int</span>s, we only need to ensure that the
+       <span class="code">Student</span> class includes a comparison operator
+       identical to that used by the <span class="code">sort</span> function.
+       </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Universal Polymorphism - Parametric
+ // parametric.cpp
+
+ #include &lt;iostream&gt;
+
+ <span class="high">template&lt;typename T&gt;
+ void sort(T* a, int n) {
+     int i, j;
+     T temp;
+
+     for (i = n - 1; i &gt; 0; i--) {
+         for (j = 0; j &lt; i; j++) {
+             if (a[j] &gt; a[j+1]) {
+                 temp = a[j];
+                 a[j] = a[j+1];
+                 a[j+1] = temp;
+             }
+         }
+     }
+ }</span>
+
+ class Student {
+     int no;
+     // other data - omitted here
+   public:
+     Student(int n = 0) : no(n) {}
+     <span class="high">bool operator&gt;(const Student&amp; rhs) const {
+         return no &gt; rhs.no;
+     }</span>
+     void display(std::ostream&amp; os) const {
+         os &lt;&lt; no &lt;&lt; std::endl;
+     }
+ };
+
+ int main( ) {
+     int m[] = {189, 843, 321};
+     Student s[] = {Student(1256), Student(1267), Student(1234)};&nbsp;
+
+     <span class="high">sort(m, 3)</span>;
+     for (int i = 0; i &lt; 3; i++)
+         std::cout &lt;&lt; m[i] &lt;&lt; std::endl;
+
+     <span class="high">sort(s, 3)</span>;
+     for (int i = 0; i &lt; 3; i++)
+         s[i].display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 189
+ 321
+ 843
+ 1234
+ 1256
+ 1267&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Parametric polymorphism eliminates duplicate logic across all types
+       without generating a missing function definition error.&nbsp;
+       C++ implements parametric polymorphism at compile-time using template
+       syntax.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a polymorphic language allows type differences that a monomorphic type system would report as type errors.&nbsp;</li>
+
+        <li>polymorphic features are classified into four distinct categories.&nbsp;</li>
+
+        <li>ad-hoc polymorphism is only apparent - its polymorphic character disappears at
+        closer scrutiny</li>
+
+        <li>coercion modifies an argument's type to suit the parameter type in the function definition</li>
+
+        <li>overloading associates the same function name with different and unrelated function definitions</li>
+
+        <li>universal polymorphism is true polymorphism - its polymorphic character survives at
+        closer scrutiny</li>
+
+        <li>inclusion polymorphism selects a member function definition within an inheritance hierarchy based on an object's dynamic type</li>
+
+        <li>parametric polymorphism generates identical logic to match any object's type</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h15.html">Ad-Hoc Polymorphism</a></li>
+
+        <li>Read Wikipedia on <a href="http://en.wikipedia.org/wiki/Type">Typing</a></li>
+
+        <li>Read Wikipedia on <a href="http://en.wikipedia.org/wiki/Type-safety">Type-Safety</a></li>
+
+        <li>Read Wikipedia on <a href="http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming">
+         Polymorphism</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc_p.html" class="text3"><img src="./Polymorphism _ Overview of Polymorphism_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html#top" class="text3">Top&nbsp; <img src="./Polymorphism _ Overview of Polymorphism_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html" class="text3"><img src="./Polymorphism _ Overview of Polymorphism_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Templates</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html" class="text3">Next: Input and Output Refinements&nbsp;&nbsp; <img src="./Polymorphism _ Overview of Polymorphism_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Polymorphism _ Overview of Polymorphism_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Polymorphism _ Overview of Polymorphism_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Polymorphism _ Overview of Polymorphism_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
