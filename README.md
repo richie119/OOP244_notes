@@ -1,4 +1,5 @@
-# OOP244_notes_Introduction to Object Oriented Programming (C++)
+Introduction to Object Oriented Programming (C++)
+========
 
 # Table of contents
 
