@@ -1,0 +1,1456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/rudim.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Foundations | Types, Overloading and References</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Types, Overloading and References_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Types, Overloading and References_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Types, Overloading and References_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Types, Overloading and References_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Foundations _ Types, Overloading and References_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/classroom_a.js"></script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/classroom_b.js"></script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim_p.html"><img src="./Foundations _ Types, Overloading and References_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part B - Foundations</span>
+        <br>
+        <br>
+        <span class="texthead">Types, Overloading and References</span>
+        <br>
+        <br>
+        <span class="textagend">
+        Review types, declarations, definitions and scoping
+        <br>
+        Introduce overloading and function signatures
+        <br>
+        Introduce pass by reference and compare it to pass by address
+        </span>
+
+        <p class="quote">"Correctness, simplicity, and clarity comes first"
+        (Sutter, Alexandrescu, 2005)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#typ">Types</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#dec">Declarations</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#sco">Scope</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#fun">Overloading</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#ref">References</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#arr">Array of Pointers</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#key">Keywords</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Object-oriented languages inherit from their non-object-oriented predecessors
+       the concepts of variable declarations, data types, data structures, logic
+       constructs, and modular programming.&nbsp; The C++ language inherits these
+       features from the C language (see <script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/classroom_a.js"></script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+       for a detailed exposition).&nbsp;
+       </p>
+
+       <p>
+       This chapter elaborates on these inherited concepts and introduces
+       the new concepts of references and overloading, which the C++ language adds
+       to its C core.&nbsp; This chapter concludes with a section on arrays of
+       pointers, which is important later in the design of polymorphic objects.</p>
+
+       <br>
+
+       <p id="typ" class="section">Types</p>
+
+       <p>
+       The built-in types of the C++ language are called its <i>fundamental type</i>s.&nbsp; The
+       C++ language, like C, admits struct types constructed from these fundamental
+       types and possibly other struct types.&nbsp; The C++ language standard refers to
+       struct types as <i>compound type</i>s.&nbsp; (The C language refers to struct
+       types as derived types.)
+       </p>
+
+       <p class="ssection">Fundamental Types</p>
+
+       <p>
+       The fundamental types of C++ include:&nbsp;
+       </p>
+       <ul>
+       <li>Integral Types (store data exactly in equivalent binary form and can be signed or unsigned)
+       <ul>
+       <li><span class="code">bool</span> - not available in C</li>
+       <li class="code">char</li>
+       <li class="code">int - short, long, long long</li>
+       </ul>
+       </li>
+       <li>Floating Point Types (store data to a specified precision - can store very small and very large values)
+       <ul>
+       <li class="code">float</li>
+       <li class="code">double - long double</li>
+       </ul>
+       </li>
+       
+       </ul>
+
+       <p class="sssection">bool</p>
+
+       <p>
+       The <span class="code">bool</span> type stores a logical
+       value: <span class="code">true</span> or
+       <span class="code">false</span>.&nbsp;
+       </p>
+       <p>
+       The <span class="code">!</span> operator reverses that value:
+       <span class="code">!true</span> is <span class="code">false</span>
+       and <span class="code">!false</span> is <span class="code">true</span>.&nbsp;
+       </p>
+       <p>
+       <span class="code">!</span> is self-inverting on
+       <span class="code">bool</span> types, but not self-inverting on
+       other types.
+       </p>
+
+       <p class="sssection">bool to int</p>
+
+       <p>
+       Conversions from <span class="code">bool</span> type to any integral type and
+       vice versa require care.&nbsp;
+       <span class="code">true</span> promotes to an <span class="code">int</span>
+       of value 1, while <span class="code">false</span> promotes to an <span class="code">int</span> of value 0.&nbsp; Applying the
+       <span class="code">!</span> operator to an
+       <span class="code">int</span> value other than 0 produces
+       a value of 0, while applying the <span class="code">!</span>
+       operator to an <span class="code">int</span> value of 0
+       produces a value of 1.&nbsp; Note that the following
+       code snippet displays 1 (not 4)</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td width="half">
+          <pre>     int x = 4;
+     cout &lt;&lt; !!x;
+</pre>
+         </td>
+         <td width="half">
+          <pre class="result">
+ 1&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>Both C and C++ treat the integer value <span class="code">0</span> as false and any other value as true.</p>
+
+       <p class="ssection">Compound Types</p>
+
+       <p>
+       A <i>compound type</i> is a type composed of other types.&nbsp; A struct
+       is a compound type.&nbsp; An object-oriented class is also a compound type.&nbsp;
+       To identify a compound type we use the keywords <span class="code">struct</span>
+       or <span class="code">class</span>.&nbsp; We cover the syntax for classes in the
+       following chapter.&nbsp;
+       </p>
+       <p>
+       For example,
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // Transaction.h
+
+ <span class="high">struct</span> Transaction {
+     int acct;      // account number
+     char type;     // credit 'c' debit 'd'&nbsp;
+     double amount; // transaction amount
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The C++ language requires the keyword identifying a compound type only in the
+       declaration of that type.&nbsp;
+       The language does not require the keyword <span class="code">struct</span> or
+       <span class="code">class</span> in a function prototype or an object definition.&nbsp;
+       Note the code snippets listed on the left.&nbsp; Recall that the C language requires
+       the keyword <span class="code">struct</span> throughout the code as listed on the
+       right.
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example - C++
+ // Transaction.h
+
+ struct Transaction {
+     int acct;
+     char type;     &nbsp;
+     double amount;
+ };
+ void enter(Transaction*);
+ void display(const Transaction*);&nbsp;
+ // ...
+
+ int main() {
+     Transaction tr;
+     // ...
+ }
+</pre>
+         </td>
+         <td>
+          <pre> // Modular Example - C
+ // Transaction.h
+
+ struct Transaction {
+     int acct;
+     char type;     &nbsp;
+     double amount;
+ };
+ void enter(<span class="high">struct</span> Transaction*);
+ void display(const <span class="high">struct</span> Transaction*);&nbsp;
+ // ...
+
+ int main() {
+     <span class="high">struct</span> Transaction tr;
+     // ...
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">auto Keyword</p>
+
+       <p>
+       The <span class="code">auto</span> keyword was introduced in
+       the C++11 standard.&nbsp; This keyword deduces the object's type directly from its
+       initializer's type.&nbsp; We must provide the initializer in any
+       <span class="code">auto</span> declaration.&nbsp;
+       </p>
+       <p>
+       For example,
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre>     auto x = 4;   // x is an int that is initialized to 4
+     auto y = 3.5; // y is a double that is initialized to 3.5&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       <span class="code">auto</span> is quite useful: it simplifies our coding by using
+       information that the compiler already has.&nbsp;
+       </p>
+       <br>
+
+       <p id="dec" class="section">Declarations and Definitions</p>
+
+       <p>
+       Modular programming can result in multiple definitions.&nbsp; To avoid
+       conflicts or duplication, we need to design our header and implementation
+       files accordingly.&nbsp; The C++ language distinguishes between declarations
+       and definitions and stipulates the one-definition rule.
+       </p>
+
+       <p class="ssection">Declarations</p>
+
+       <p>
+       A declaration associates an entity with a type, telling the compiler
+       how to interpret the entity's identifier.&nbsp;
+       The entity may be a variable, an object or a function.&nbsp;
+       </p>
+       <p>
+       For example, the prototype
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> int add(int, int);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       declares <span class="code">add()</span> to be a function that receives two
+       <span class="code">int</span>s and returns an <span class="code">int</span>.&nbsp;
+       This declaration does not specify what the function does; it does not specify
+       the function's meaning.&nbsp;
+       </p>
+       <p>
+       For example, the <i>forward declaration</i>
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> struct Transaction;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       declares <span class="code">Transaction</span> to be of structure type.&nbsp;
+       A forward declaration is like a function prototype: it tells the compiler
+       how to interpret the entity's identifier.&nbsp; It tells the compiler that
+       the entity is a valid type, but does not specify the entity's meaning.
+       </p>
+       <p>
+       Although a declaration does not necessarily specify meaning, it may specify it.&nbsp;
+       Specifying a meaning is an optional part of any declaration.&nbsp;
+       </p>
+
+       <p class="ssection">Definitions</p>
+
+       <p>A definition is a declaration that associates a meaning with an identifier.&nbsp;
+       </p>
+
+       <p>
+       For example, the following definitions attach meanings to <span class="code">Transaction</span>
+       and to <span class="code">display()</span>:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> struct Transaction {
+     int acct;      // account number
+     char type;     // credit 'c' debit 'd'&nbsp;
+     double amount; // transaction amount
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void display(const Transaction* tr) { // definition of display
+
+     cout &lt;&lt; "Account " &lt;&lt; tr-&gt;acct &lt;&lt; endl;
+     cout &lt;&lt; (tr-&gt;type == 'd' ? " Debit $" : " Credit $") &lt;&lt; endl;&nbsp;
+     cout &lt;&lt; tr-&gt;amount &lt;&lt; endl;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       In C++, each definition is an executable statement.&nbsp;
+       We may embed it amongst other executable statements.&nbsp;
+       </p>
+       <p>
+       For example, we may place a definition within an initializer:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> for (<span class="high">int</span> i = 0; i &lt; n; i++)
+   //...
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">One Definition Rule</p>
+
+       <p>
+       In the C++ language, a definition may only appear once within its scope.&nbsp;
+       This is called the <i>one-definition rule</i>.&nbsp;
+       </p>
+
+       <p>
+       For example, we cannot define <span class="code">Transaction</span> or <span class="code">display()</span>
+       more than once within the same code block or translation unit.
+       </p>
+
+       <p class="ssection">Declarations are not necessarily Definitions</p>
+
+       <p>Forward declarations and function prototypes are declarations
+       that are not definitions.&nbsp; They associate an identifier with a type,
+       but do not attach any meaning to that identifier.&nbsp; We may repeat
+       such declarations several times within the same code block or translation
+       unit.&nbsp;
+       </p>
+       <p>
+       Header files consist of declarations.&nbsp; When we include several header
+       files in a single implementation file, multiple declarations may occur.&nbsp;
+       If some of the declarations are also definitions, this may result in multiple
+       definitions within the same translation unit.&nbsp; Any translation unit must
+       not break the one-definition rule.&nbsp; We need to design our header files
+       to respect this rule.
+       </p>
+
+       <p class="ssection">Designing Away Multiple Definitions</p>
+
+       <p>
+       A definition that appears more than once within the same translation
+       unit generates a compiler error.&nbsp; Two solutions are shown below.&nbsp;
+       </p>
+
+       <p>
+       The program listed below consists of three modules: <span class="code">main</span>,
+       <span class="code">Transaction</span> and <span class="code">iostream</span>.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Foundations _ Types, Overloading and References_files/definition.png" width="208" height="137" alt="one-definition rule"></p>
+
+       <p>
+       In the <span class="code">main</span> module's implementation file we have
+       introduced a new function called <span class="code">add()</span>, which
+       receives the address of a <span class="code">double</span> and the address
+       of a <span class="code">Transaction</span> object.&nbsp; This function
+       update the value stored in the first address:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // One Definition Rule
+ // one_defintion_rule.cpp
+
+ #include &lt;iostream&gt;
+ #include "main.h"        // prototype for add()
+ #include "Transaction.h" // prototypes for enter() and display()&nbsp;
+ using namespace std;
+
+ int main() {
+     int i;
+     double balance = 0.0;
+     Transaction tr;
+
+     for (i = 0; i &lt; NO_TRANSACTIONS; i++) {&nbsp;
+         enter(&amp;tr);
+         display(&amp;tr);
+         <span class="high">add(&amp;balance, &amp;tr)</span>;
+     }
+     cout &lt;&lt; "Balance " &lt;&lt; balance &lt;&lt; endl;
+ }
+
+ <span class="high">void add(double* bal, const Transaction* tr) {
+     *bal += (tr-&gt;type == 'd' ? -tr-&gt;amount : tr-&gt;amount);&nbsp;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The <span class="code">Transaction</span> module's header file
+       defines the <span class="code">Transaction</span>
+       type:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // Transaction.h
+
+ struct Transaction {
+     int acct;      // account number
+     char type;     // credit 'c' debit 'd'&nbsp;
+     double amount; // transaction amount
+ };
+
+ void enter(Transaction* tr);
+ void display(const Transaction* tr);&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Design Question</p>
+
+       <p>
+       Into which header file should we insert the prototype for this
+       <span class="code">add()</span> function?&nbsp;
+       </p>
+       <p>
+       If we insert the prototype into the <span class="code">main</span> module's
+       header file, <span class="code">main.cpp</span> will not compile:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> // main.h
+
+ #define NO_TRANSACTIONS 3
+
+ void add(double*, const Transaction*);&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The compiler will report <span class="code">Transaction*</span> as
+       undeclared.&nbsp; Note that the compiler analyzes code sequentially and
+       does not yet know what <span class="code">Transaction</span> is when it
+       encounters the prototype for <span class="code">add()</span>.
+       </p>
+       <p>
+       If we insert <span class="code">Transaction.h</span> into
+       this header file (<span class="code">main.h</span>), we resolve this issue
+       but break the one-definition rule in <span class="code">main.cpp</span>:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> // main.h
+
+ #define NO_TRANSACTIONS 3
+ #include "Transaction.h"  // BREAKS THE ONE-DEFINITION RULE!&nbsp;
+
+ void add(double*, const Transaction*);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">main.cpp</span>
+       translation unit would contain TWO definitions of <span class="code">Transaction</span>.&nbsp;
+       </p>
+       <p class="center"><img src="./Foundations _ Types, Overloading and References_files/twodefinition.png" width="208" height="137" alt="one-definition rule broken"></p>
+
+       <p>
+       Possible designs are possible include:
+       </p>
+       <ul>
+       <li>Forward Declaration Solution - insert the prototype into <span class="code">main.h</span></li>
+       <li>Compact Solution - insert the prototype into <span class="code">Transaction.h</span>
+       </li></ul>
+
+       <p class="sssection">Forward Declaration Solution</p>
+
+       <p>
+       Inserting the prototype into <span class="code">main.h</span> along with a
+       forward declaration of <span class="code">Transaction</span> informs the
+       compiler that this identifier in the prototype is a valid type.&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // main.h
+
+ #define NO_TRANSACTIONS 3
+
+ <span class="high">struct Transaction; // forward declaration</span>&nbsp;
+ void add(double*, const Transaction*);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       This design provides the compiler with just enough information
+       to accept the identifer, without exposing the type details.
+       </p>
+
+       <p class="sssection">Compact Solution</p>
+
+       <p>
+       Inserting the prototype into the <span class="code">Transaction.h</span>
+       header file is a more compact solution:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Modular Example
+ // Transaction.h
+
+ struct Transaction {
+     int acct;      // account number
+     char type;     // credit 'c' debit 'd'&nbsp;
+     double amount; // transaction amount
+ };
+
+ void enter(Transaction* tr);
+ void display(const Transaction* tr);&nbsp;
+ <span class="high">void add(double*, const Transaction*);</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       This design localizes all declarations related to the <span class="code">Transaction</span>
+       type within the same header file.&nbsp; We call functions that support a compound type
+       the <i>helper functions</i> for that type.
+       </p>
+
+       <p class="sssection">Proper Header File Inclusion</p>
+
+       <p>
+       To avoid contaminating system header files, we include header files in the
+       following order:
+       </p>
+       <ul>
+       <li><span class="code">#include &lt; ... &gt;</span> - system header files</li>
+       <li><span class="code">#include " ... "</span> - other system header files</li>
+       <li><span class="code">#include " ... "</span> - your own header files</li>
+       </ul>
+       <p>
+       We insert namespace declarations and directives after all header file inclusions.
+       </p>
+
+       <br>
+
+       <p id="sco" class="section">Scope</p>
+
+       <p>
+       The <i>scope</i> of a declaration is the portion of a program over which that
+       declaration is visible.&nbsp; Scopes include
+       </p>
+       <ul>
+       <li>global scope - visible to the entire program</li>
+       <li>file scope - visible to the source code within the file</li>
+       <li>function scope - visible to the source code within the function</li>
+       <li>class scope - visible to the member functions of the class</li>
+       <li>block scope - visible to the code block</li>
+       </ul>
+       <p>
+       The scope of a non-global declaration begins at the declaration and ends
+       at the closing brace for that declaration.&nbsp;  A non-global declaration
+       is called a <i>local</i> declaration.&nbsp; We say that an identifier that
+       has been locally declared is a <i>local</i> variable or object.&nbsp;
+       </p>
+
+       <p class="ssection">Going Out of Scope</p>
+       <p>
+       Once a declaration is out of its scope, the program has lost access to the
+       declared variable or object.&nbsp; Identifying the precise point at which
+       a variable's or object's declaration goes out of scope is important in
+       memory management.
+       </p>
+
+       <p class="sssection">Iterations</p>
+       <p>
+       In the following code snippet, the
+       counter <span class="code">i</span>, declared within the <span class="code">for</span>
+       statement, goes out of scope immediately <i>after</i> the closing brace:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> for (<span class="high">int i</span> = 0; i &lt; 4; i++) {
+     cout &lt;&lt; "The value of i is " &lt;&lt; i &lt;&lt; endl;&nbsp;
+ } // i goes out of scope here
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We cannot refer to <span class="code">i</span> after the closing brace.
+       </p>
+
+       <p>
+       A variable or object declared <i>within</i> a block goes out of scope
+       immediately <i>before</i> the block's closing brace.
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> for (int i = 0; i &lt; 3; i++) {
+     <span class="high">int j</span> = 2 * i;
+     cout &lt;&lt; "The value of j is " &lt;&lt; j &lt;&lt; endl;
+ } // j goes out of scope here
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The scope of <span class="code">j</span> extends from its definition to
+       just before the end of the current iteration.&nbsp; <span class="code">j</span>
+       goes out of scope with each iteration.&nbsp;
+       The scope of <span class="code">i</span> extends across the complete set of
+       iterations.&nbsp;</p>
+
+       <p class="ssection">Shadowing</p>
+       <p>
+       An identifier declared with an inner scope can shadow an identifier declared
+       with a broader scope, making the latter temporarily inaccessible.&nbsp;
+       For example, in the following program the second declaration shadows the first
+       declaration of <span class="code">i</span>:
+       </p>
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // scope.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     <span class="high">int i</span> = 6;
+     cout &lt;&lt; i &lt;&lt; endl;
+     for (int j = 0; j &lt; 3; j++) {
+         <span class="high">int i</span> = j * j;
+         cout &lt;&lt; i &lt;&lt; endl;
+     }
+     cout &lt;&lt; i &lt;&lt; endl;
+ }</pre>
+         </td>
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+ 6
+ <span class="high">0
+ 1
+ 4</span>
+
+ 6
+ </pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+
+       <p id="fun" class="section">Function Overloading</p>
+
+       <p>
+       In object-oriented languages functions may have multiple meanings.&nbsp;
+       Functions with multiple meanings are called <i>overloaded functions</i>.&nbsp;
+       C++ refers to functions first and foremost by their identifier and distinguishes
+       different meanings by differing parameter lists.&nbsp; For each identifier
+       and parameter list combination, we implement a separate function definition.&nbsp;
+       C++ compilers determine the definition to select by matching the argument
+       types in the function call to the parameters types in the definition.&nbsp;
+       </p>
+
+       <p class="ssection">Function Signature</p>
+
+       <p>
+       A function's <i>signature</i> identifies an overloaded function uniquely.&nbsp;
+       Its signature consists of</p>
+
+       <ul>
+        <li>the function identifier</li>
+
+        <li>the parameter types (ignoring <span class="code">const</span> qualifiers or address of operators as described in references below)</li>
+
+        <li>the order of the parameter types</li>
+       </ul>
+       <pre class="defin"> <span class="darkgrey"><i>type</i></span> <span class="high"><i>identifier</i> ( <i>type</i> <span class="darkgrey"><i>identifier</i></span> [, ... , <i>type</i> <span class="darkgrey"><i>identifier</i></span>] )</span>
+</pre>
+
+       <p>The square brackets enclose optional information.&nbsp;
+       The return type and the parameter identifiers are not
+       part of a function's signature.&nbsp;
+       </p>
+
+       <p>
+       C++ compilers preserve identifier uniqueness by renaming each overloaded function
+       using a combination of its identifier, its parameter types and the order of its
+       parameter types.&nbsp; We refer to this renaming as name <i>mangling</i>.&nbsp;
+       </p>
+
+       <p class="ssection">Example</p>
+
+       <p>
+       Consider the following example of an overloaded function.&nbsp; To display data
+       on the standard output device, we can define a <span class="code">display()</span>
+       function with different meanings:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Overloaded Functions
+ // overload.cpp
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ // prototypes
+ void display(<span class="high">int x</span>);
+ void display(const <span class="high">int* x, int n</span>);
+
+ int main() {
+     auto x = 20;
+     int a[] = {10, 20, 30, 40};
+     display(<span class="high">x</span>);
+     display(<span class="high">a, 4</span>);
+ }
+
+ // function definitions
+ //
+ void display(<span class="high">int x</span>) {
+     cout &lt;&lt; x &lt;&lt; endl;
+ }
+
+ void display(const <span class="high">int* x, int n</span>) {&nbsp;
+     for (int i = 0; i &lt; n; i++)
+         cout &lt;&lt; x[i] &lt;&lt; ' ';
+     cout &lt;&lt; endl;
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+ 20
+ 10 20 30 40&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       C++ compilers generate two one definition of <span class="code">display()</span>
+       for each set of parameters.&nbsp; The linker binds each function call to
+       the appropriate definition based on the argument types in the function call.</p>
+
+       <p class="ssection">Prototypes</p>
+
+       <p>
+       A function prototype completes the function's signature by specifying the return type.&nbsp;
+       However, the parameter identifiers are also optional in the prototype.&nbsp; The
+       prototype provides sufficient information to validate a function call.&nbsp;
+       </p>
+
+       <p>
+       A prototype without parameter types identifies an empty parameter list.&nbsp;
+       The keyword <span class="code">void</span>, which the C language uses to identify
+       no parameters is redundant in C++.&nbsp; We omit this keyword in C++.&nbsp;
+       </p>
+
+       <p class="sssection">Prototypes Required</p>
+
+       <p>
+       A programming language may require a function declaration before any
+       function call for type safety.&nbsp; The declaration may be either a
+       prototype or the function definition itself.&nbsp; The compiler uses
+       the declaration to check the argument types in the call against the
+       parameter types in the prototype or definition.&nbsp; The type safety
+       features of C++ require a preceding declaration.
+       </p>
+
+       <p>
+       For example, the following program will generate a compiler error
+       (note that the absence of any <span class="code">printf</span> declaration):
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> int main() {
+     printf("Hello C++\n");
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To meet type safety requirements, we include the prototype:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">#include &lt;cstdio&gt; // the prototype is in this header file&nbsp;
+ using namespace std;</span>
+
+ int main() {
+     printf("Hello C++\n");
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+        <p class="ssection">Default Parameter Values</p>
+        <p>
+        We may include default values for some or all of a function's parameters in the
+        first declaration of that function.&nbsp; The parameters with default values
+        must be the rightmost parameters in the function signature.&nbsp;
+        </p>
+        <p>
+        Declarations with default parameter values take the following form:
+        </p>
+        <pre class="defin"> <i>type identifier</i>(<i>type</i>[, ...], <i>type = value</i>);</pre>
+        <p>
+        The assignment operator followed by a value identifies the default value
+        for each parameter.&nbsp;
+        </p>
+        <p>
+        Specifying default values for function parameters reduces the need
+        for multiple function definitions if the function logic is identical
+        in every respect except for the values received by the parameters.&nbsp;
+        </p>
+        <p class="sssection">Example</p>
+        <p>
+        For example,
+        </p>
+        <table width="95%">
+        <tbody><tr>
+        <td width="70%">
+        <pre> // Default Parameter Values
+ // default.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ void display(int, int<span class="high"> = 5</span>, int<span class="high"> = 0</span>);
+
+ int main() {
+
+     display(6, 7, 8);
+     display(6);
+     display(3, 4);
+ }
+
+ void display(int a, int b, int c) {
+     cout &lt;&lt; a &lt;&lt; ", " &lt;&lt; b &lt;&lt; ", " &lt;&lt; c &lt;&lt; endl;&nbsp;
+ }</pre></td><td width="30%">
+                    <pre class="result">
+
+
+
+
+
+
+
+
+
+ 6, 7, 8
+ 6, 5, 0
+ 3, 4, 0
+
+
+
+
+ </pre></td></tr></tbody></table>
+        <p>
+        Each call to <span class="code">display()</span> must include enough arguments
+        to initialize the parameters that don't have default values.&nbsp; In this
+        example, each call must include at least one argument.&nbsp;
+        An argument passed to a parameter that has a default value
+        overrides the default value.&nbsp;
+        </p>
+        <br>
+
+       <p id="ref" class="section">References</p>
+
+       <p>
+       A <i>reference</i> is an alias for a variable or object.&nbsp; Object-oriented
+       languages rely on referencing.&nbsp; A reference in a function call passes the
+       variable or object rather than a copy.&nbsp; In other words, a reference is an
+       alternative to the pass by address mechanism available in the C language.&nbsp;
+       Pass-by-reference code is notably more readable than pass-by-address code.&nbsp;
+       To enable referencing, the C++ rules on function declarations are stricter than
+       those of the C language.&nbsp;
+       </p>
+
+       <p>
+       The declaration of a function parameter that is received as a reference to the
+       corresponding argument in the function call takes the form</p>
+       <pre class="defin"> <i>type identifier</i>(<i>type</i><span class="code">&amp;</span> <i>identifier</i>, ... )
+</pre>
+
+       <p>The <span class="code">&amp;</span> identifies the parameter
+       as an alias for, rather than a copy of, the corresponding argument.&nbsp;
+       The identifier is the alias for the argument within the function definition.&nbsp;
+       Any change to the value of a parameter received by reference changes the value of
+       the corresponding argument in the function call.&nbsp;</p>
+
+       <p class="ssection">Comparison Examples</p>
+
+       <p>Consider a function that swaps the values stored in two different
+       memory locations.&nbsp; The programs listed below compare
+       pass-by-address and pass-by-reference solutions.&nbsp;
+       The program on the left passes by address using pointers.&nbsp; The program on the
+       right passes by reference:&nbsp;</p>
+
+       <table width="100%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Swapping values by address
+ // swap1.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+ void swap ( char <span class="high">*</span>a, char <span class="high">*</span>b );
+
+ int main ( ) {
+     char left;
+     char right;
+
+     cout &lt;&lt; "left  is ";
+     cin  &gt;&gt; left;
+     cout &lt;&lt; "right is ";
+     cin  &gt;&gt; right;
+
+     swap(<span class="high">&amp;</span>left, <span class="high">&amp;</span>right);
+
+     cout &lt;&lt; "After swap:"
+            "\nleft  is " &lt;&lt;
+            left &lt;&lt;
+            "\nright is " &lt;&lt;
+            right &lt;&lt;
+            endl;
+ }
+
+ void swap ( char <span class="high">*</span>a, char <span class="high">*</span>b ) {
+     char c;
+
+     c = *a;
+     <span class="high">*</span>a = <span class="high">*</span>b;
+     <span class="high">*</span>b = c;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result"> // Swapping values by reference
+ // swap2.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+ void swap ( char <span class="high">&amp;</span>a, char <span class="high">&amp;</span>b );
+
+ int main ( ) {
+     char left;
+     char right;
+
+     cout &lt;&lt; "left  is ";
+     cin  &gt;&gt; left;
+     cout &lt;&lt; "right is ";
+     cin  &gt;&gt; right;
+
+     swap(left, right);
+
+     cout &lt;&lt; "After swap:"
+            "\nleft  is " &lt;&lt;
+            left &lt;&lt;
+            "\nright is " &lt;&lt;
+            right &lt;&lt;
+            endl;
+ }
+
+ void swap ( char <span class="high">&amp;</span>a, char <span class="high">&amp;</span>b ) {
+     char c;
+
+     c = a;
+     a = b;
+     b = c;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Clearly, reference syntax is simpler.&nbsp;
+       To pass an object by reference, we attach
+       the address of operator to the parameter type.&nbsp;
+       This operator instructs the compiler to pass by reference.&nbsp;
+       The corresponding arguments in the function call and the object
+       names within the function definition are not prefixed by the
+       dereferencing operator required in passing by address.&nbsp; </p>
+
+       <p>
+       Technically, the compiler converts each reference to a pointer with
+       an unmodifiable address.&nbsp;</p>
+
+       <br>
+
+       <p id="ptr" class="section">Array of Pointers</p>
+
+       <p>
+       Arrays of pointers are data structures like arrays of values.&nbsp; Arrays of
+       pointers contain addresses rather than values.&nbsp; We refer to the object
+       stored at a particular address by dereferencing that address.&nbsp; Arrays of
+       pointers play an important role in implementing polymorphism in the C++
+       language.&nbsp;
+       </p>
+       <p>
+       An array of pointers provides an efficient mechanism for processing the set.&nbsp;
+       With the objects' addresses collected in a contiguous array, we can refer to
+       each object indirectly through the pointers in the array and process the
+       data by iterating on its elements.&nbsp;
+       </p>
+
+       <p>
+       In preparation for a detailed study of polymorphic objects later in
+       this course, consider the following preliminary example:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Array of Pointers
+ // array_pointers.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ const int N_CHARS = 31;
+
+ struct Student {
+     int no;
+     double grade;
+     char name[N_CHARS];
+ };
+
+ int main() {
+     const int NO_STUDENTS = 3;
+     Student john = {1234, 67.8, "john"};
+     Student jane = {1235, 89.5, "jane"};
+     Student dave = {1236, 78.4, "dave"};
+
+     <span class="high">Student* pStudent[NO_STUDENTS]; // array of pointers&nbsp;</span>
+     pStudent[0] = &amp;john;
+     pStudent[1] = &amp;jane;
+     pStudent[2] = &amp;dave;
+
+     for (int i = 0; i &lt; NO_STUDENTS; i++) {&nbsp;
+         cout &lt;&lt; pStudent[i]-&gt;no &lt;&lt; endl;
+         cout &lt;&lt; pStudent[i]-&gt;grade &lt;&lt; endl;
+         cout &lt;&lt; pStudent[i]-&gt;name &lt;&lt; endl;
+         cout &lt;&lt; endl;
+     }
+ }
+</pre>
+         </td>
+         <td>
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 1234
+ 67.8
+ john
+
+ 1235
+ 89.5
+ jane
+
+ 1236
+ 78.4
+ dave&nbsp;
+ </pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       Here, while the objects are of the same type, the processing of their
+       data is done indirectly through an array of pointers to that data.
+       </p>
+
+       <br>
+
+       <p id="key" class="section">Keywords</p>
+
+       <p>
+       The 84 keywords of the C++11 standard are listed below.&nbsp; We cannot use any of these keywords
+       as identifiers.&nbsp; Those shaded in grey are also C keywords.&nbsp; The italicized
+       keywords are alternative tokens for operators.&nbsp;</p>
+       <pre class="defin"> alignas   alignof  <span class="grey">and</span>      <span class="grey">and_eq</span>    asm          <span class="darkgrey">auto</span>          <span class="grey">bitand</span>
+ <span class="grey">bitor</span>     bool     <span class="darkgrey">break</span>    <span class="darkgrey">case</span>      catch        <span class="darkgrey">char</span>          char16_t
+ char32_t  class    <span class="grey">compl</span>    <span class="darkgrey">const</span>     constexpr    const_cast    <span class="darkgrey">continue</span>
+ decltype  <span class="darkgrey">default</span>  delete   <span class="darkgrey">do</span>        <span class="darkgrey">double</span>       dynamic_cast<span class="darkgrey">  else</span>
+ <span class="darkgrey">enum</span>      explicit export   <span class="darkgrey">extern</span>    false        <span class="darkgrey">float</span>         <span class="darkgrey">for </span>
+ friend    <span class="darkgrey">goto</span>     <span class="darkgrey">if</span>       inline    <span class="darkgrey">int</span>          <span class="darkgrey">long</span>          mutable
+ namespace new      <span class="grey">not</span>      <span class="grey">not_eq</span>    noexcept     nullptr       operator
+ <span class="grey">or</span>        <span class="grey">or_eq</span>    private  protected public       <span class="darkgrey">register</span>      reinterpret_cast
+ <span class="darkgrey">return</span>    <span class="darkgrey">short</span>    <span class="darkgrey">signed</span>   <span class="darkgrey">sizeof</span>    <span class="darkgrey">static</span>       static_assert static_cast
+ <span class="darkgrey">struct</span>    <span class="darkgrey">switch</span>   template this      thread_local throw         true
+ try       <span class="darkgrey">typedef</span>  typeid   typename  <span class="darkgrey">union</span>        <span class="darkgrey">unsigned</span>      using
+ virtual   <span class="darkgrey">void</span>     <span class="darkgrey">volatile</span> wchar_t   <span class="darkgrey">while</span>        <span class="grey">xor</span>           <span class="grey">xor_eq</span>
+</pre>
+
+       <p>
+       C++ compilers will successfully compile any C program that does not use
+       any of these keywords as identifiers provided that that program satisfies
+       C++'s type safety requirements.&nbsp; We call such a C program a <i>clean
+       C</i> program.&nbsp;
+       </p>
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a <span class="code">bool</span> type can only hold
+        a <span class="code">true</span> value or a <span class="code">false</span> value</li>
+        <li>C++ requires the <span class="code">struct</span> or <span class="code">class</span>
+        keyword only in the definition of the class itself</li>
+        <li>a declaration associates an identifier with a type</li>
+        <li>a definition attaches meaning to an identifier and is an executable statement</li>
+        <li>a definition is a declaration, but a declaration is not necessarily a definition</li>
+        <li>the scope of a declaration is that part of the program throughout which the declaration is visible</li>
+        <li>we overload a function by changing its signature</li>
+        <li>a function's signature consists of its identifier, its parameter types, and the order of its parameter types</li>
+        <li>a C++ function prototype must include all of the parameter types and the return type</li>
+        <li>the <span class="code">&amp;</span> operator on a parameter type instructs
+        the compiler to pass by reference</li>
+        <li>pass by reference syntax  simplifies the pass by address syntax in most cases</li>
+        <li>an array of pointers is a data structure that provides an efficient way for
+        iterating through a set of objects based on their current type</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h1.html">Basic Concepts</a>&nbsp;</li>
+       </ul>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim_p.html" class="text3"><img src="./Foundations _ Types, Overloading and References_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html#top" class="text3">Top&nbsp; <img src="./Foundations _ Types, Overloading and References_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html" class="text3"><img src="./Foundations _ Types, Overloading and References_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Modular Programming</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html" class="text3">Next: Dynamic Memory&nbsp;&nbsp; <img src="./Foundations _ Types, Overloading and References_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Types, Overloading and References_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 01/24/2018 12:15&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Foundations _ Types, Overloading and References_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Foundations _ Types, Overloading and References_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

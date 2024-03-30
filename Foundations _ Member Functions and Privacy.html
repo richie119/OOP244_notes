@@ -1,0 +1,1711 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/cppst.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Foundations | Member Functions and Privacy</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Member Functions and Privacy_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Member Functions and Privacy_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Member Functions and Privacy_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Member Functions and Privacy_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Foundations _ Member Functions and Privacy_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst_p.html"><img src="./Foundations _ Member Functions and Privacy_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part B - Foundations</span>
+        <br>
+        <br>
+        <span class="texthead">Member Functions and Privacy</span>
+        <br>
+        <br>
+        <span class="textagend">Design member functions using logic constructs
+        <br>
+        Control accessibility to the data members of a class
+        <br>
+        Introduce the concept of an object's empty state
+        <br>
+        </span>
+
+        <p class="quote">"Because different structures can
+        have member functions with the same name, we must
+        specify the structure name when defining a member
+        function" (Stroustrup, 1997)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#mem">Member Functions</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#pri">Privacy</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#saf">Empty State</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#i_o">I/O Examples</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       The primary concept of object-oriented programming is class encapsulation.&nbsp;
+       Encapsulation incorporates within a class the structure of data that its
+       objects store and the logic that operates on that data.&nbsp; In other words,
+       encapsulation creates a clean interface between the class and its clients while
+       hiding the implementation details from its clients.&nbsp; The C++ language
+       describes this logic in the form of functions that are members of the class.&nbsp;
+       The data members of a class hold the information about the state of its objects,
+       while the member functions define the operations  that query, modify and manage
+       that state.
+       </p>
+
+       <p>
+       This chapter describes the C++ syntax for declaring member functions in a
+       class definition, for defining the member functions in the implementation
+       file and for limiting accessibility to an object's data.&nbsp;</p>
+       <br>
+
+       <p id="mem" class="section">Member Functions</p>
+
+       <p>
+       The member functions of a class provide the communication links between client
+       code and objects of the class.&nbsp; Client code calls the member functions to
+       access an object's data and possibly to change that data.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Foundations _ Member Functions and Privacy_files/methods.png" width="241" height="76" alt="c plus plus structures"></p>
+
+       <p>
+       We classify member functions into three mutually exclusive categories:
+       </p>
+       <ul>
+       <li><i>queries</i> - also called accessor methods - report the state of the object</li>
+       <li><i>modifiers</i> - also called mutator methods - change the state of the object</li>
+       <li><i>special</i> - also called manager methods - create, assign and destroy an object</li>
+       </ul>
+
+       <p class="center"><img src="./Foundations _ Member Functions and Privacy_files/communication.png" width="225" height="74" alt="communication"></p>
+
+       <p>
+       Every member function has direct access to the members of its
+       class.&nbsp; Each member function receives information from the client code
+       through its parameters and passes information to the client code through its
+       return value and possibly its parameters.&nbsp;
+       </p>
+
+       <p class="ssection">Adding a Member Function</p>
+
+       <p>
+       Consider a <span class="code">Student</span> type with the following definition
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ struct Student {
+     int no;          // student number
+     float grade[NG]; // grades
+     int ng;          // number of grades filled&nbsp;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Function Declaration</p>
+
+       <p>
+       To declare a member function to a class, we insert its prototype into the
+       class definition.&nbsp;
+       </p>
+       <p>
+       For example, to add <span class="code">display()</span> as a
+       member to our <span class="code">Student</span> type, we write:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> struct Student {
+     int no;
+     float grade[NG];
+     int ng;
+
+     <span class="high">void display() const; // member function&nbsp; </span>
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">const</span> qualifier identifies
+       the member function as a query.&nbsp; A query does not change
+       the state of its object.&nbsp; That is, this query cannot change
+       the value of <span class="code">no</span> or any
+       <span class="code">grade</span>.&nbsp;</p>
+
+       <p>
+       As a member function, <span class="code">display()</span> has
+       direct access to the data members (<span class="code">no</span> and
+       <span class="code">grade</span>).&nbsp; There is no need to pass their
+       values as arguments to the function.</p>
+
+       <p class="sssection">Function Definition</p>
+
+       <p>
+       We define <span class="code">display()</span> in the implementation
+       file as follows:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void <span class="high">Student::</span>display() <span class="high">const</span> {
+
+     cout &lt;&lt; no &lt;&lt; ": \n";
+     for (int i = 0; i &lt; ng; i++)
+         cout &lt;&lt; grade[i] &lt;&lt; endl;&nbsp;
+
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The definition consists of four elements:</p>
+
+       <ul>
+        <li>the <span class="code">Student::</span> prefix on the
+        function name identifies it as a member of our
+        <span class="code">Student</span> type</li>
+
+        <li>the empty parameter list - this function does not receive
+        any values from the client code or return any values through the parameter list
+        to the client code</li>
+
+        <li>the <span class="code">const</span> qualifier
+        identifies this function as a query -
+        this function cannot change any of the values of the object's data members</li>
+
+        <li>the data members - the function accesses <span class="code">no</span>
+        and <span class="code">grade</span> are defined outside the function's scope
+        but within the class' scope, which encompasses the function's scope</li>
+       </ul>
+
+       <p class="sssection">Calling a Member Function</p>
+
+       <p>
+       Client code calls a member function in the same way that an instance of
+       a <span class="code">struct</span> refers to one of its data members.&nbsp;
+       The call consists of the object's identifier, followed by the <span class="code">.</span>
+       operator and then followed by the member function's identifier.
+       </p>
+       <p>
+       For example, if <span class="code">harry</span> is a <span class="code">Student</span> object,
+       we display its data by calling <span class="code">display()</span> on
+       <span class="code">harry</span>:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student harry = {975, 78.9f, 69.4f};&nbsp;
+
+ <span class="high">harry.display();</span>  // &lt;== client call to the member function&nbsp;
+
+ cout &lt;&lt; endl;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The object part of the function call (the part before the member selection
+       operator) identifies the data that the function accesses.&nbsp;</p>
+
+       <p class="ssection">Scope of a Member Function</p>
+
+       <p>
+       The scope of a member function lies within the scope of its class.&nbsp; That is, a member
+       function can access any other member within its class' scope.&nbsp; For example, a member
+       function can access another member function directly:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> struct Student {
+     int no;
+     float grade[NG];
+     int ng;
+
+     void display() const;
+     void displayNo() const;
+ };
+
+ void Student::displayNo() const {
+     cout &lt;&lt; no &lt;&lt; ": \n";
+ }
+
+ void Student::display() const {
+     <span class="high">displayNo()</span>; // calls the member function defined above&nbsp;
+     for (int i = 0; i &lt; ng; i++)
+         cout &lt;&lt; grade[i] &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Accessing Global Functions</p>
+
+       <p>
+       A member function can also access a function outside its class' scope.&nbsp;
+       Consider the following global function definition:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void displayNo() {
+     cout &lt;&lt; "Number...\n";
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that this definition does not include any scope resolution identifier.&nbsp;
+       This global function shares the same identifier with one of the member functions, but
+       does not introduce any conflict, since the client code calls each function using
+       different syntax.&nbsp;
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> displayNo();       // calls the global display function
+ <span class="high">harry.</span>displayNo(); // calls the member function on harry &nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To access the global function from within the member function we apply the scope
+       resolution operator:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void Student::display() const {
+     <span class="high">::displayNo()</span>; // calls the global function&nbsp;
+     displayNo();   // calls the member function&nbsp;
+     for (int i = 0; i &lt; ng; i++)
+         cout &lt;&lt; grade[i] &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+
+       <p id="pri" class="section">Privacy</p>
+
+       <p>
+       Data privacy is central to encapsulation.&nbsp;
+       Data members defined using the <span class="code">struct</span> keyword
+       are exposed to client code.&nbsp; Any client code can change the value of
+       a data member.&nbsp; To limit accessibility to any member, the C++ language
+       lets us hide that member within the class by identifying it as private.&nbsp;
+       </p>
+       <p>
+       Well-designed object-oriented solutions expose to client code only those
+       members that are the class's communication links.&nbsp; In a good design,
+       the client code should not require direct access to any data that describes
+       an object's state or any member function that performs internally directed
+       operations.&nbsp;
+       </p>
+
+       <p class="ssection">Accessibility Labels</p>
+
+       <p>
+       To prohibit external access to any member (data or function), we insert
+       the label <span class="code">private</span> into the definition
+       of our class:</p>
+       <pre class="defin"> private:
+</pre>
+
+       <p><span class="code">private</span> identifies all subsequent
+       members listed in the class definition as inaccessible.</p>
+
+       <p>To enable external access, we insert the label
+       <span class="code">public</span>:</p>
+       <pre class="defin"> public:
+</pre>
+
+       <p><span class="code">public</span> identifies all subsequent members
+       listed in the class definition as accessible.</p>
+
+       <p>
+       For example, in order to</p>
+
+       <ul>
+        <li>hide the data members of each <span class="code">Student</span> object</li>
+
+        <li>expose the member function(s) of the <span class="code">Student</span> type</li>
+       </ul>
+
+       <p>we insert the accessibility keywords as
+       follows</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> struct Student {
+   <span class="high">private:</span>
+     int no;
+     float grade[NG];
+     int ng;
+   <span class="high">public:</span>
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note that the keyword <span class="code">struct</span> identifies a
+       class that is <em>public by default</em>.&nbsp;
+       </p>
+
+       <p class="ssection">class</p>
+
+       <p>
+       The keyword <span class="code">class</span> identifies a
+       class that is <em>private by default</em>.&nbsp;
+       </p>
+
+       <p>We use the keyword <span class="code">class</span> to
+       simplify the definition of a <span class="code">Student</span> type:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">class</span> Student {
+     int no;
+     float grade[NG];
+     int ng;
+   <span class="high">public:</span>
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">class</span> keyword is the common keyword in object-oriented
+       programming, much more common than the <span class="code">struct</span> keyword.&nbsp;
+       (The C language does not support privacy and a derived type in C can only
+       be a <span class="code">struct</span>).&nbsp;
+       </p>
+
+       <p>
+       Any attempt by the client code to access a private member generates a complier error:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> void foo(const Student&amp; harry) {
+
+     <span class="high">cout &lt;&lt; harry.no;  // ERROR - this member is private!  </span>
+
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The function <span class="code">foo()</span> can only access the
+       data stored in <span class="code">harry</span> indirectly through
+       <span class="code">public</span> member function <span class="code">display()</span>.&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void foo(const Student&amp; harry) {
+
+     harry.display(); // OK
+
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Modifying Private Data</p>
+
+       <p>
+       If the data members of a class are private, client code cannot initialize
+       their values directly.&nbsp;
+       We use a separate member function for this specific task.
+       </p>
+       <p>
+       For example, to store data in <span class="code">Student</span>
+       objects, let us introduce a <span class="code">public</span> modifier
+       named <span class="code">set()</span>:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> const int NG = 20;
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     <span class="high">void set(int, const float*, int);&nbsp;</span>
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       <span class="code">set()</span> receives a student number, the address of
+       an unmodifiable array of grades and the number of grades in that array
+       from the client code and stores this information in the data members of
+       the <span class="code">Student</span> object:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void Student::set(int sn, const float* g, int ng_) {
+     <span class="high">ng = </span>ng_ &lt; NG ? ng_ : NG;
+     <span class="high">no =</span> sn; // store the Student number as received
+     // store the grades as received within the available space&nbsp;
+     for (int i = 0; i &lt; ng; i++)
+         <span class="high">grade[i] =</span> g[i];
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Communications Links</p>
+
+       <p>The <span class="code">set()</span> and
+       <span class="code">display()</span> member functions
+       are the only communication links to client code.&nbsp;
+       Clients can call <span class="code">set()</span> or <span class="code">display()</span>
+       on any <span class="code">Student</span> object, but no client code
+       can access the data stored within any
+       <span class="code">Student</span> object directly.</p>
+
+       <p>
+       For example, the compiler traps the following privacy breach:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error"> Student harry;
+ float g[] = {78.9f, 69.4f};
+
+ harry.set(975, g, 2);
+ harry.display();
+
+ <span class="high">cout &lt;&lt; harry.no; // ERROR .no IS PRIVATE! </span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <!--<p>You can find the complete code that fails to compile <a href=
+       "../content/privateWithError.cpp">here</a>.</p>
+
+       <p>You can find the complete code that does not refer to any
+       private member <a href="../content/privatePublic.cpp">here</a>.</p>
+
+       <p>You can find the complete code where all members are public
+       <a href="../content/public.cpp">here</a>.</p>
+
+       <p>You can find the complete code where the functions are not
+       member functions but global functions <a href=
+       "../content/globalFunctions.cpp">here</a>.</p>-->
+       <br>
+
+       <p id="saf" class="section">Empty State</p>
+
+       <p>
+       Hiding all data members from client code gives us control over which data to
+       accept, which data to reject and which data to expose.&nbsp; We can validate
+       information incoming from client code before storing it in an object.&nbsp;
+       If the data is invalid, we can reject it and store default values that identify
+       the object's state as an <i>empty state</i>.&nbsp;
+       </p>
+
+       <p class="ssection">Upgrading set()</p>
+
+       <p>
+       Let us upgrade our <span class="code">set()</span> member function to validate
+       incoming data <em>only if</em>
+       </p>
+       <ul>
+       <li>the student number is positive-valued</li>
+       <li>the grades are between 0 and 100 inclusive</li>
+       </ul>
+       <p>
+       If any incoming data fails to meet one of these conditions, let us ignore all
+       incoming data and store a value that places the object in an <i>empty state</i>.&nbsp;
+       For instance, let us use a student number of 0 to identify an empty state:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void Student::set(int sn, const float* g, int ng_) {
+     int n = ng_ &lt; NG ? ng_ : NG;
+     bool valid = true; // assume valid input, check for invalid values&nbsp;
+
+     <span class="high">if (sn &lt; 1)
+         valid = false;
+     else
+         for (int i = 0; i &lt; n &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;</span>
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = n;
+         for (int i = 0; i &lt; n; i++)
+             grade[i] = g[i];
+     }
+     else {
+         no = 0; // ignore the client's data, set an empty state
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       This validation logic ensures that either the data stored in any
+       <span class="code">Student</span> object is valid data or the object is
+       in an <em>empty state</em>.&nbsp;
+       </p>
+
+       <p class="sssection">Design Tip</p>
+
+       <p>
+       Select one data member to hold the special value that identifies an
+       empty state.&nbsp; Then, to determine if an object is in an empty state,
+       we only need to interrogate that data member.&nbsp;
+       </p>
+
+       <p class="ssection">Upgrading display()</p>
+
+       <p>
+       To match this upgrade, we ensure that our <span class="code">display()</span>
+       member function executes gracefully if our object is in an empty state:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> void Student::display() const {
+     if (no != 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         for (int i = 0; i &lt; ng; i++)
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+     } else {
+         <span class="high">cout &lt;&lt; "no data available";&nbsp;</span>
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Looking Forward</p>
+
+       <p>
+       Although this upgrade validates data incoming from client code, our class definition
+       still leaves the data in a <span class="code">Student</span> object uninitialized before
+       the first call from client code to <span class="code">set()</span>.&nbsp;
+       To address this deficiency, we will introduce a special member function in the
+       chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/ctros.html">Construction and Destruction</a>.&nbsp;
+       </p>
+       <!--<p class="ssection">Preventing Corruption</p>
+
+       <p>
+       Ensuring the validity of data stored in any object depends on
+       declaring data members <span class=code>private</span>.&#160;
+       As long as data is private and all modifiers validate any changes,
+       we can be confident that our objects either hold valid data or are
+       in empty states.&#160;
+       </p>
+       <p>
+       Provided that no alternative access exists, no client can corrupt
+       the state of our objects.</p>-->
+
+       <!--<p>You can find the complete code that uses this improved
+       version of <span class=code>set()</span>
+       <a href="../content/safeState.cpp">here</a>.</p>-->
+
+       <br>
+
+       <p id="i_o" class="section">Input and Output Examples</p>
+
+       <p>
+       The <span class="code">iostream</span> type that represents the standard input and
+       output objects, like <span class="code">cin</span> and <span class="code">cout</span>,
+       provides member functions for controlling the conversion of characters from the
+       input stream into data types stored in system memory and the conversion of data
+       types stored in system memory into characters sent to the output stream.
+       </p>
+
+       <p class="ssection">cin</p>
+
+       <p>
+       The <span class="code">cin</span> object is an instance of the
+       <span class="code">istream</span> type.&nbsp; This object
+       extracts a sequence of characters from the standard input stream,
+       converts that sequence into a specified type and stores that type
+       in system memory.&nbsp;</p>
+
+       <p>The general expression for extracting characters from the standard input stream
+       takes the form</p>
+       <pre class="defin"> cin &gt;&gt; <i>identifier</i>
+</pre>
+
+       <p>where <span class="code">&gt;&gt;</span> is the extraction operator and
+       <span class="code"><i>identifier</i></span> is the name of the destination
+       variable.&nbsp; </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> int i;
+ char c;
+ double x;
+ char s[8];
+ cout &lt;&lt; "Enter an integer,\n"
+         "a character,\n"
+         "a floating-point number and\n"
+         "a string : " &lt;&lt; flush;
+ cin &gt;&gt; i;
+ cin &gt;&gt; c;
+ cin &gt;&gt; x;
+ cin &gt;&gt; s;  // possible overflow
+ cout &lt;&lt; "Entered " &lt;&lt; i &lt;&lt; ' '
+      &lt;&lt; c &lt;&lt; ' ' &lt;&lt; x &lt;&lt; ' ' &lt;&lt; s &lt;&lt; endl;&nbsp;
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ Enter an integer,
+ a character,
+ a floating-point and
+ a string : 6  -  9.75  Harry
+
+
+
+
+ Entered 6 - 9.75 Harry
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">cin</span> object skips leading whitespace with
+       numeric, string and character types (in the same way that
+       <span class="code">scanf("%d"...)</span>, <span class="code">scanf("%lf"...)</span>, <span class="code">scanf("%s"...)</span> and <span class="code">scanf("
+       %c"...)</span> skip whitespace in C).&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Leading Whitespace
+ // leading.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char str[11];
+
+     cout &lt;&lt; "Enter a string : " &lt;&lt; endl;
+     cin &gt;&gt; str;
+     cout &lt;&lt; "|" &lt;&lt; str &lt;&lt; "|" &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+          Note: _ denotes space
+
+
+
+
+
+ Enter a string :
+ __abc
+ |abc|
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">cin</span> treats whitespace in the input stream
+       as a delimiter for  numeric and string data types.&nbsp; For
+       C-style null-terminated string types, <span class="code">cin</span> adds
+       the null byte after the last non-whitespace character stored in
+       memory:&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Trailing Whitespace
+ // trailing.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char str[11];
+
+     cout &lt;&lt; "Enter a string : " &lt;&lt; endl;
+     cin &gt;&gt; str;
+     cout &lt;&lt; "|" &lt;&lt; str &lt;&lt; "|" &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+          Note: _ denotes space
+
+
+
+
+
+ Enter a string :
+ __abc__
+ |abc|
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">istream</span> type supports
+       the following member functions:</p>
+
+       <ul>
+        <!--<li><span class=code>width(int)</span> - sets the
+                    maximum field width for the next input value</li>-->
+
+        <li><span class="code">ignore(...)</span> - ignores/discards
+        character(s) from the input buffer</li>
+
+        <li><span class="code">get(...)</span> - extracts a character
+        or a string from the input buffer</li>
+
+        <li><span class="code">getline(...)</span> - extracts a line of
+        characters from the input buffer</li>
+       </ul><!--<p>
+                    <span class=code>ignore()</span>,
+                    <span class=code>get()</span> and
+                    <span class=code>getline()</span> extract characters
+                    from the input stream without format control.&nbsp;
+                    </p>
+                    <p>
+                    <span class=code>width()</span> limits the number
+                    of characters extracted for the next value.&nbsp;
+                    To limit the number extracted to 8,
+                    we write:
+                    <table width="45%" summary="">
+                    <tr>
+                    <td>
+                    <br />
+                    <pre>
+ char s[8];
+ <span class=high>cin.width(8);</span>
+ cin &gt;&gt; s;     // maximum of 8 characters extracted into s&nbsp;
+ s[7] = '\0';  // in case 8 characters were extracted</pre></td></tr></table>
+                    </p>
+                    <p>
+                    Note that <span class=code>width()</span>
+                    receives the number of memory locations available.&nbsp;
+                    If the extraction operator removes 8 characters, we
+                    replace the 8th character with a null byte.
+                    </p>-->
+
+       <p>
+       For detailed descriptions of <span class="code">get()</span> and
+       <span class="code">getline()</span>, see the chapter entitled
+       <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#ist">More on Input and Output</a>.
+       </p>
+
+       <p class="sssection">ignore</p>
+
+       <p>The <span class="code">ignore()</span> member function extracts
+       characters from the input buffer and discards them.&nbsp; <span class="code">ignore()</span> does not skip leading whitespace.&nbsp;
+       Two versions of <span class="code">ignore()</span> are available:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">cin.ignore();
+ cin.ignore(2000, '\n');  </span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The no-argument version discards a single character.&nbsp; The
+       two-argument version removes and discards up to the specified number of
+       characters or up to the specified delimiting character, whichever occurs
+       first and discards the delimiting character.&nbsp; The default delimiter
+       is end-of-file (not end-of-line).&nbsp;</p>
+
+       <p class="ssection">cout</p>
+
+       <p>
+       The <span class="code">cout</span> object is an instance of the
+       <span class="code">ostream</span> type.&nbsp; An <span class="code">ostream</span> object copies data from system memory into an output
+       stream; in copying, it converts the data in system memory into a sequence of
+       characters.&nbsp;
+       </p>
+
+       <p>The general expression for inserting data into the standard output stream takes
+       the form</p>
+       <pre class="defin"> cout &lt;&lt; <i>identifier</i>
+</pre>
+
+       <p>where <span class="code">&lt;&lt;</span> is the insertion operator and
+       <span class="code"><i>identifier</i></span> is the name of the variable
+       or object that holds the data.</p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> int i = 6;
+ char c = ' ';
+ double x = 9.75;
+ char s[] = "Harry";
+ cout <span class="code">&lt;&lt;</span> i;
+ cout <span class="code">&lt;&lt;</span> c;
+ cout <span class="code">&lt;&lt;</span> x;
+ cout <span class="code">&lt;&lt;</span> c;
+ cout <span class="code">&lt;&lt;</span> s;
+ cout <span class="code">&lt;&lt;</span> endl;
+ cout <span class="code">&lt;&lt;</span> "Data has been written";
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ 6 9.75 Harry
+
+
+</pre>
+          <br>
+          <pre class="result"> Data has been written
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">endl</span> inserts a newline character
+       into the stream and flushes the stream's buffer.&nbsp;</p>
+
+       <p>
+       We may combine these expressions into a single statement that specifies
+       multiple insertions:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> int i = 6;
+ char c = ' ';
+ double x = 9.75;
+ char s[] = "Harry";
+
+ <span class="high">cout &lt;&lt; i &lt;&lt; c &lt;&lt; x &lt;&lt; c &lt;&lt; s &lt;&lt; endl;</span>&nbsp;
+
+ cout &lt;&lt; "Data has been written";
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+ 6 9.75 Harry
+</pre>
+          <pre class="result"> Data has been written
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>We call such repeated use of the insertion operator
+       <em>cascading</em>.&nbsp;</p>
+
+       <p>The <span class="code">ostream</span> type supports the
+       following public member functions for formatting conversions:</p>
+
+       <ul>
+        <!--<li><span class=code>put(char)</span> - inserts the character received</li>-->
+
+        <li><span class="code">width(int)</span> - sets the field width
+        to the integer received</li>
+
+        <li><span class="code">fill(char)</span> - sets the padding
+        character to the character received</li>
+
+        <li><span class="code">setf(...)</span> - sets a formatting
+        flag to the flag received</li>
+
+        <li><span class="code">unsetf(...)</span> - unsets a
+        formatting flag for the flag received</li>
+
+        <li><span class="code">precision(int)</span> - sets the
+        decimal precision to the integer received</li>
+       </ul><!--<p>
+                    For example, to insert the character <span class=code>'x'</span> into the standard
+                    output stream and the character <span class=code>'z'</span> into
+                    the standard error stream, we write
+                    <table width="95%" summary="">
+                    <tr>
+                    <td class="half">
+                    <br />
+                    <pre>
+ cout.<span class=high>put('x')</span>;
+ cerr.<span class=high>put('z')</span>;</pre><br /></td><td class="half">
+                    <br />
+                    <pre class=result>
+ x
+<div class=error> z</div></pre></td></tr></table>
+                    </p>-->
+
+       <p class="sssection">width</p>
+
+       <p>The <span class="code">width(int)</span> member function
+       specifies the minimum width of the <u>next</u>
+       output field:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Field Width
+ // width.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int attendance = 27;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     <span class="high">cout.width(10);</span>
+     cout &lt;&lt; attendance &lt;&lt; endl;
+     cout &lt;&lt; attendance &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ 1234567890
+         27
+ 27
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">width(int)</span> applies
+       only to the next field.&nbsp; Note how the field width for
+       the first display of <span class="code">attendance</span> is 10,
+       while the field width for the second display of <span class="code">attendance</span> is just the minimum number
+       of characters needed to display the value (2).&nbsp;</p>
+
+       <p class="sssection">fill</p>
+
+       <p>
+       The <span class="code">fill(char)</span> member function defines the padding
+       character.&nbsp; The output object inserts this character into the stream
+       wherever text occupies less space than the specified field width.&nbsp;
+       The default fill character is <span class="code">'&nbsp;'</span> (space).&nbsp;
+       To pad a field with <span class="code">'*'</span>'s, we add:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Padding
+ // fill.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int attendance = 27;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     <span class="high">cout.fill('*');</span>
+     cout.width(10);
+     cout &lt;&lt; attendance &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ 1234567890
+ ********27
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The padding character remains unchanged, until we reset it.</p>
+
+       <p class="sssection">setf, unsetf</p>
+
+       <p>
+       The <span class="code">setf()</span> and <span class="code">unsetf()</span> member functions control formatting and alignment.&nbsp;
+       Their control flags include:</p>
+
+       <table class="center" cellpadding="3" summary="">
+        <tbody><tr class="desc">
+         <td>Control Flag</td>
+
+         <td align="left">&nbsp;Result</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::fixed</td>
+
+         <td align="left">&nbsp;ddd.ddd&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::scientific</td>
+
+         <td align="left">&nbsp;d.ddddddEdd&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::left</td>
+
+         <td align="left">&nbsp;align left&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::right</td>
+
+         <td align="left">&nbsp;align right&nbsp;</td>
+        </tr>
+       </tbody></table>
+
+       <p>The scope resolution (<span class="code">ios::</span>)
+       on these flags identifies them as part of the <span class="code">ios</span> class.&nbsp;
+       </p>
+
+       <p class="sssection">setf, unsetf - Formatting</p>
+
+       <p>
+       The default format in C++ is <i>general format</i>, which outputs data
+       in the simplest, most succinct way possible (1.34, 1.345E10, 1.345E-20).&nbsp;
+       To output a fixed number of decimal places, we select <i>fixed format</i>.&nbsp;
+       To specify fixed format, we pass the <span class="code">ios::fixed</span> flag to
+       <span class="code">setf()</span>:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Fixed Format
+ // fixed.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     <span class="high">cout.setf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+ 1234567890
+   3.141593
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Format settings persist until we change them.&nbsp;
+       To unset fixed format, we pass the <span class="code">ios::fixed</span> flag to
+       the <span class="code">unsetf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Unset Fixed Format
+ // unsetf.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     <span class="high">cout.setf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+     <span class="high">cout.unsetf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+   3.141593
+ 3.14159
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>To specify scientific format, we pass the <span class="code">ios::scientific</span> flag to the <span class="code">setf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Scientific Format
+ // scientific.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "12345678901234" &lt;&lt; endl;
+     cout.width(14);
+     <span class="high">cout.setf(ios::scientific);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+ 12345678901234
+   3.141593e+00
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To turn off scientific format, we pass the <span class="code">ios::scientific</span> flag to
+       the <span class="code">unsetf()</span> member function.</p>
+
+       <p class="sssection">setf, unsetf - Alignment</p>
+
+       <p>The default alignment is right-justified.&nbsp;</p>
+
+       <p>
+       To specify left-justification, we pass the <span class="code">ios::left</span> flag to the <span class="code">setf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Left Justified
+ // left.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     cout.fill('?');
+     <span class="high">cout.setf(ios::left);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+ 3.14159???
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To turn off left-justification, we pass the <span class="code">ios::left</span>
+       flag to the <span class="code">unsetf()</span> member function:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> cout.<span class="high">un</span>setf(ios::left);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">precision</p>
+
+       <p>The <span class="code">precision()</span> member function sets the precision of
+       subsequent floating-point fields.&nbsp; The default
+       precision is <span class="code">6</span> units.&nbsp; General,
+       fixed, and scientific formats implement precision differently.&nbsp;
+       General format counts the number of significant digits.&nbsp;
+       Scientific and fixed formats
+       count the number of digits following the
+       decimal point.&nbsp;
+       </p>
+       <p>
+       For a precision of <span class="code">2</span> under general format, we write</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Precision
+ // precison.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.setf(ios::fixed);
+     cout.width(10);
+     <span class="high">cout.precision(2);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+       3.14
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The precision setting applies to the output of all subsequent
+       floating-point values until we change it.&nbsp;</p>
+
+       <p class="sssection">Student Example</p>
+
+       <p>
+       The code snippet listed on the left produces the output listed on the right
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> void Student::display() const {
+     if (no &gt; 0) {
+         cout &lt;&lt; no &lt;&lt; ":\n";
+         <span class="high">cout.setf(ios::fixed);
+         cout.precision(2);</span>
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             <span class="high">cout.width(6);</span>
+             cout &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         <span class="high">cout.unsetf(ios::fixed);
+         cout.precision(6);</span>
+     } else {
+         <span class="high">cout &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;</span>
+     }
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+ 975:
+  78.90
+  69.40
+
+
+
+
+
+
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>object-oriented classes may contain both data members and member functions</li>
+
+        <li>the keyword <span class="code">private</span> identifies
+        subsequent members as inaccessible to any client</li>
+
+        <li>the keyword <span class="code">public</span> identifies
+        subsequent members as
+        accessible to any client</li>
+
+        <li>data members hold the information about an object's state</li>
+
+        <li>member functions describe the logic that an object performs on its data members</li>
+
+        <li>a query reports the state of an object without changing its state</li>
+
+        <li>a modifier changes the state of an object</li>
+
+        <li>an empty state is the set of data values that identifies the
+        absence of valid data in an object</li>
+
+        <li>a field width setting only holds for the next field</li>
+
+        <li>all settings other than a field width setting persist until changed</li>
+
+        <li>precision has different meanings under general,
+        scientific, and fixed formats</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+       <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h2.html">Member Functions and Privacy</a></li>
+        <li>Complete the Workshop on <script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/workshop_3.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/w3.html">Classes&nbsp;and&nbsp;Privacy</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst_p.html" class="text3"><img src="./Foundations _ Member Functions and Privacy_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html#top" class="text3">Top&nbsp; <img src="./Foundations _ Member Functions and Privacy_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html" class="text3"><img src="./Foundations _ Member Functions and Privacy_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Dynamic Mmeory</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html" class="text3">Next: Construction and Destruction&nbsp;&nbsp; <img src="./Foundations _ Member Functions and Privacy_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav2" class="center">
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Member Functions and Privacy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Foundations _ Member Functions and Privacy_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Foundations _ Member Functions and Privacy_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

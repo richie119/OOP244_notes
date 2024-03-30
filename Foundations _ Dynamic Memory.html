@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/dynam.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Foundations | Dynamic Memory</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Dynamic Memory_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Dynamic Memory_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Dynamic Memory_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Foundations _ Dynamic Memory_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Foundations _ Dynamic Memory_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam_p.html"><img src="./Foundations _ Dynamic Memory_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part B - Foundations</span>
+        <br>
+        <br>
+        <span class="texthead">Dynamic&nbsp;Memory</span>
+        <br>
+        <br>
+        <span class="textagend">Describe the two kinds of system memory available
+        <br>
+        Allocate and deallocate memory dynamically
+        <br>
+        Identify common issues associated with dynamic memory</span>
+
+        <p class="quote">"Avoid allocating and deallocating in different modules" (Sutter, Alexandrescu, 2005)</p><span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#ove">Memory</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#ne_">Allocation</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#de_">Deallocation</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#all">Memory Issues</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#new">Single Instances</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Various components of object-oriented programs can be reused by other
+       applications.&nbsp; An important aspect of object designing is including flexibility
+       in their memory requirements to enhance reusability.&nbsp; Objects are more reusable
+       by different clients if they account for their own memory needs internally.&nbsp;
+       These memory requirements may depend on problem size, which might not even be
+       known approximately at compile-time.&nbsp; Programming languages address this
+       aspect of reusability by supporting dynamic memory allocation.&nbsp;
+       </p>
+
+       <p>
+       This chapter introduces the C++ syntax for allocating and deallocating
+       memory dynamically.&nbsp; The chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">Classes
+       and Resources</a> augments this material with the details required to code
+       classes that manage dynamic memory internally.
+       </p>
+       <br>
+
+       <p id="ove" class="section">Static and Dynamic Memory</p>
+
+       <p>
+       The memory accessible by a C++ program throughout its execution consists of
+       static and dynamic components.&nbsp; After the user starts an application,
+       the operating system loads its executable into RAM and transfers control to
+       that executable's entry point (the <span class="code">main()</span> function).&nbsp;
+       The loaded executable only includes the memory allocated at compile time.&nbsp;
+       During execution, the application may request more memory from the
+       operating system.&nbsp; The system satisfies such requests by allocating
+       more memory in RAM.&nbsp; After the application terminates and returns control to
+       the operating system, the system recovers all of the memory that the application
+       has used.&nbsp; </p>
+
+       <p class="ssection">Static Memory</p>
+
+       <p>
+       The memory that the operating system allocates for the application at
+       load time is called <i>static memory</i>.&nbsp; Static memory includes
+       the memory allocated for program instructions and program data.&nbsp; The
+       compiler determines the amount of static memory that each translation unit
+       requires.&nbsp; The linker determines the amount of static memory that the
+       entire application requires.&nbsp;</p>
+
+       <p class="center"><img src="./Foundations _ Dynamic Memory_files/static memory.png" width="247" height="63" alt="arrays in dynamic memory"></p>
+
+       <p>
+       The application's variables and objects share static memory amongst
+       themselves.&nbsp; When a variable or object goes out of scope its memory
+       becomes available for newly defined variables or objects.&nbsp;
+       The lifetime of each local variable and object concludes at the closing
+       brace of the code block within which it has been defined:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // lifetime of a local variable or object
+
+ for (int i = 0; i &lt; 10; i++) {
+     <span class="high">double x = 0;      // lifetime of x starts here</span>
+     // ...
+ }                      <span class="high">// lifetime of x ends here</span>
+
+ for (int i = 0; i &lt; 10; i++) {
+     <span class="high">double y = 4;      // lifetime of y starts here&nbsp;</span>
+     // ...
+ }                      <span class="high">// lifetime of y ends here</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Since the variable <span class="code">x</span> goes out of scope
+       before the variable <span class="code">y</span> is declared, the
+       two variables may occupy the same memory location.&nbsp;
+       This system of sharing memory amongst local variables and objects
+       ensures that each application minimizes its use of RAM.
+       </p>
+       <p>
+       Static memory requirements are determined at compile-link time and
+       do not change during execution.&nbsp; This memory is fast, fixed in
+       its amount and allocated at load time.&nbsp;
+       </p>
+
+       <p class="ssection">Dynamic Memory</p>
+
+       <p>
+       The memory that an application obtains from the operating system during
+       execution is called <i>dynamic memory</i>.&nbsp;</p>
+
+       <p>
+       Dynamic memory is distinct from the static memory.&nbsp; While the
+       operating system allocates static memory for an application at load
+       time, the system reserves dynamic memory, allocates it and deallocates
+       it at run-time.&nbsp;
+       </p>
+
+       <p class="sssection">Scope Considerations</p>
+
+       <p>
+       To keep track of an application's dynamic memory, we store the address
+       of each allocated region in a pointer variable.&nbsp; We allocate memory
+       for this pointer itself in static memory.&nbsp; This pointer variable
+       must remain in scope as long as we need access to the data in the allocated
+       region of dynamic memory.&nbsp;</p>
+
+       <p>
+       Consider allocating dynamic memory for an array of n elements.&nbsp;
+       We store the array's address in a pointer, <span class="code">p</span>, in
+       static memory as illustrated below.&nbsp; We allocate memory for the elements
+       of the array dynamically and store the data in those elements starting at
+       address <span class="code">p</span>.</p>
+
+       <p class="center"><img src="./Foundations _ Dynamic Memory_files/dynamic memory.png" width="205" height="114" alt="arrays in dynamic memory"></p>
+
+       <p class="ssection">Lifetime</p>
+
+       <p>The lifetime of any dynamically allocated memory ends when the
+       pointer holding its address goes out of scope.&nbsp; The application
+       must explicitly deallocate the allocated region of dynamic memory
+       within this scope.&nbsp; If the application neglects to deallocate
+       the allocated region, that memory becomes inaccessible and irrecoverable
+       until the application returns control to the operating system.&nbsp;
+       </p>
+       <p>
+       Unlike variables and objects that have been allocated in static memory,
+       those in dynamic memory do not automatically go of out scope at the
+       closing brace of the code block within which they were defined.&nbsp;
+       We must manage their deallocation explicitly ourselves.</p>
+       <br>
+
+       <p id="ne_" class="section">Dynamic Allocation</p>
+
+       <p>The keyword <span class="code">new</span> followed by
+       <span class="code">[n]</span> allocates contiguous memory
+       dynamically for an array of <span class="code">n</span>
+       elements and returns the address of the array's first element.&nbsp;
+       </p>
+       <p>
+       Dynamic allocation of arrays takes the form</p>
+       <pre class="defin"> <i>pointer</i> = new <i>Type</i>[<i>size</i>];
+</pre>
+
+       <p>where <span class="code"><i>Type</i></span> is the type of the array's elements.&nbsp;
+       </p>
+       <p>
+       For example, to allocate dynamic memory for an array of
+       <span class="code">n</span> <span class="code">Student</span>s, we write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> int n;                      // the number of students
+ Student* student = nullptr; // the address of the dynamic array&nbsp;
+
+ cout &lt;&lt; "How many students in this section? ";
+ cin &gt;&gt; n;
+
+ student = <span class="high">new</span> Student<span class="high">[n]</span>;   // allocates dynamic memory
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">nullptr</span> keyword identifies the address pointed
+       to as the null address.&nbsp; This keyword is an implementation constant.&nbsp;
+       Initialization to <span class="code">nullptr</span> ensures that <span class="code">student</span>
+       is not pointing to any valid dereferencable address.&nbsp; The size of the array
+       is a run-time variable and not an integer constant or constant expression.&nbsp;
+       Note that the size of an array allocated in static memory must be an integer constant
+       or constant expression.&nbsp;</p>
+       <br>
+
+       <p id="de_" class="section">Dynamic Deallocation</p>
+
+       <p>The keyword <span class="code">delete</span> followed by
+       <span class="code">[]</span> and the address of a dynamically allocated region of
+       memory deallocates the memory that the corresponding <span class="code">new[]</span>
+       operator had allocated.&nbsp;
+       </p>
+       <p>
+       Dynamic deallocation of arrays takes the form</p>
+       <pre class="defin"> delete [] <i>pointer</i>;
+</pre>
+       <p>where <span class="code"><i>pointer</i></span> holds the address
+       of the dynamically allocated array.&nbsp;
+       </p>
+
+       <p>
+       For example, to deallocate the memory allocated for the array of
+       <span class="code">n</span> <span class="code">Student</span>s
+       above, we write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">delete []</span> student;
+ student = nullptr;  // optional
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">nullptr</span> assignment ensures that <span class="code">student</span> now holds the null address.&nbsp;
+       This optional assignment eliminates the possibility of deleting the original
+       address a second time, which is a serious run-time error.&nbsp;
+       Deleting the <span class="code">nullptr</span> address has no effect.</p>
+
+       <p>
+       Note that omitting the brackets in a deallocation expression deallocates the first
+       element of the array, leaving the other elements inaccessible.&nbsp;</p>
+
+       <p>
+       Deallocation does not return dynamic memory to the operating system.&nbsp;
+       The deallocated  memory remains available for subsequent dynamic allocations.&nbsp;
+       The operating system only reclaims all of the dynamically allocated memory once
+       the application has returned control to the system.&nbsp;</p>
+
+       <p class="ssection">A Complete Example</p>
+
+       <p>Consider a simple program in which the user enters a number and the program
+       allocates memory for that number of <span class="code">Student</span>s.&nbsp;
+       The user then enters data for each student.&nbsp; The program displays the data
+       stored, deallocates the memory and terminates:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Dynamic Memory Allocation
+ // dynamic.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;cstring&gt;
+ using namespace std;
+
+ struct Student {
+     int no;
+     float grade[2];
+ };
+
+ int main( ) {
+     int n;
+     <span class="high">Student* student = nullptr</span>;
+
+     cout &lt;&lt; "Enter the number of students : ";&nbsp;
+     cin &gt;&gt; n;
+     <span class="high">student = new Student[n]</span>;
+
+     for (int i = 0; i &lt; n; i++) {
+         cout &lt;&lt; "Student Number: ";
+         cin  &gt;&gt; student[i].no;
+         cout &lt;&lt; "Student Grade 1: ";
+         cin  &gt;&gt; student[i].grade[0];
+         cout &lt;&lt; "Student Grade 2: ";
+         cin  &gt;&gt; student[i].grade[1];
+     }
+
+     for (int i = 0; i &lt; n; i++) {
+         cout &lt;&lt; student[i].no &lt;&lt; ": "
+          &lt;&lt; student[i].grade[0] &lt;&lt; ", " &lt;&lt; student[i].grade[1]&nbsp;
+          &lt;&lt; endl;
+     }
+
+     <span class="high">delete [] student</span>;
+     <span class="high">student = nullptr</span>;
+ }</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+
+       <p id="all" class="section">Memory Issues</p>
+
+       <p>
+       Issues regarding dynamic memory allocation and deallocation include:
+       </p>
+       <ol>
+       <li>memory leaks</li>
+       <li>insufficient memory</li>
+       </ol>
+
+       <p class="ssection">Memory Leak</p>
+
+       <p>
+       Memory leaks are one of the most important bugs in object-oriented programming.&nbsp;
+       A memory leak occurs if an application loses the address of dynamically
+       allocated memory before that memory has been deallocated.&nbsp; This may
+       occur if</p>
+
+       <ul>
+        <li>the pointer to dynamic memory goes out of scope before
+        the application deallocates that memory&nbsp;</li>
+
+        <li>the pointer to dynamic memory changes its value before
+        the application deallocates the memory starting at the address
+        stored in that pointer&nbsp;</li>
+       </ul>
+
+       <p>Memory leaks are difficult to find because they often do not halt
+       execution immediately.&nbsp; We might only become aware of
+       their existence indirectly through subsequently incorrect results or
+       progressively slower execution.&nbsp;</p>
+
+       <p class="ssection">Insufficient Memory</p>
+
+       <p>
+       On small platforms where memory is severely limited, a realistic possibility
+       exists that the operating system might not be able to provide the amount of
+       dynamic memory requested.&nbsp;
+       If the operating system cannot dynamically allocate the requested memory, the
+       application may throw an exception and stop executing.&nbsp; The topic of
+       exception handling is beyond the scope of these notes.&nbsp; One method of
+       trapping a failure to allocate memory is described in the chapter entitled
+       <a ref="ansis.html">The ISO/IEC Standard</a>.</p>
+
+       <br>
+
+       <p id="new" class="section">Single Instances <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       Although dynamic memory is often allocated for data structures like arrays,
+       we can also allocate dynamic memory for single instances of any type.&nbsp;
+       The allocation and deallocation syntax is similar to that for arrays.&nbsp;
+       We simply remove the brackets.</p>
+
+       <p class="ssection">Allocation</p>
+
+       <p>
+       The keyword <span class="code">new</span>
+       without brackets allocates dynamic memory for a single
+       variable or object.&nbsp;
+       </p>
+       <p>
+       A dynamic allocation statement takes the form</p>
+       <pre class="defin"> <i>pointer</i> = new <i>Type</i>;
+</pre>
+
+       <p>
+       For example, to store one instance of a <span class="code">Student</span> in dynamic memory, we write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> Student* harry = nullptr;   // a pointer in static memory
+ harry = <span class="high">new</span> Student;        // points to a Student in dynamic memory&nbsp;
+
+ // we must deallocate harry later!
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="center"><img src="./Foundations _ Dynamic Memory_files/single instance.png" width="205" height="113" alt="single instance dynamic memory"></p>
+
+       <p class="ssection">Deallocation</p>
+
+       <p>The keyword <span class="code">delete</span> without
+       brackets deallocates dynamic memory at the address specified.&nbsp;
+       </p>
+       <p>
+       A dynamic deallocation statement takes the form</p>
+       <pre class="defin"> delete <i>pointer</i>;
+</pre>
+
+       <p><span class="code">delete</span> takes the address that
+       was returned by the <span class="code">new</span> operator.</p>
+
+       <p>
+       For example, to deallocate the memory for <span class="code">harry</span>, we write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">delete</span> harry;
+ harry = nullptr;  // good programming style&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>the memory available to an application at run-time consists of static memory and dynamic memory</li>
+
+        <li>static memory lasts the lifetime of the application</li>
+
+        <li>the linker determines the amount of static memory used by the application</li>
+
+        <li>the operating system provides dynamic memory to an application at run-time upon request</li>
+
+        <li>the keyword <span class="code">new []</span> allocates a contiguous region of dynamic memory
+        and returns its starting address</li>
+
+        <li>we store the address of dynamically allocated memory in static memory</li>
+
+        <li><span class="code">delete []</span> deallocates contiguous memory starting at the specified address</li>
+
+        <li>allocated memory must be deallocated within the scope of the pointer that holds its address</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on
+       <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h4.html">Dynamic Memory</a></li>
+        <li>Complete the Workshop on <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/workshop_2.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/w2.html">Dynamic&nbsp;Memory</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam_p.html" class="text3"><img src="./Foundations _ Dynamic Memory_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html#top" class="text3">Top&nbsp; <img src="./Foundations _ Dynamic Memory_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html" class="text3"><img src="./Foundations _ Dynamic Memory_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Types, Overloading and References</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html" class="text3">Next: Member Functions and Privacy&nbsp;&nbsp; <img src="./Foundations _ Dynamic Memory_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Foundations _ Dynamic Memory_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Foundations _ Dynamic Memory_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Foundations _ Dynamic Memory_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Foundations _ Dynamic Memory_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
