@@ -1,0 +1,2402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/basic.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Refinements | Input and Output Refinements</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Input and Output Refinements_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Input and Output Refinements_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Input and Output Refinements_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Input and Output Refinements_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Refinements _ Input and Output Refinements_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic_p.html"><img src="./Refinements _ Input and Output Refinements_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part F - Refinements</span>
+        <br>
+        <br>
+        <span class="texthead">Input and Output Refinements</span>
+        <br>
+        <br>
+        <span class="textagend">Use stream objects to interact with users and access persistent data
+        <br>
+        Introduce manipulators to format data for input and output objects
+        <br>
+        Describe the member functions that manage the state of streaming objects</span>
+
+        <p class="quote">"Designing and implementing a general input/output facility for
+        a programming language is notoriously difficult. ... Nobody
+        has come up with a solution that pleases everyone" (Stroustrup, 1997)</p><span class="textagend"><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#ove">Stream Classes</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#ist">Input</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#ost">Output</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#man">Manipulators</a>
+        <br>
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#sta">State</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#val">Robust Validation</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#fil">File Stream Classes</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       The chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">Member Functions and Privacy</a>
+       covered the public member functions that format data passing through the
+       standard library's <span class="code">iostream</span> objects.&nbsp; The chapter
+       entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">Input and Output Operators</a> covered the design
+       of custom input and output operators and introduced the standard library's
+       <span class="code">fstream</span> classes for processing file data.&nbsp;
+       </p>
+
+       <p>This chapter describes in more detail the input and output objects
+       along with their public member functions reviews the material covered in
+       those preceding chapters.&nbsp; This chapter introduces manipulators as a
+       simplifying alternative to member function calls on input and output objects.&nbsp;
+       </p>
+       <br>
+
+       <p class="ssection">Stream and Stream Objects</p>
+
+       <p>
+       A <em>stream</em> is a sequence of items without limitation.&nbsp; More
+       specifically, in C++ a stream is a sequence of bytes.&nbsp;
+       An executing application accepts data in one stream and outputs data in
+       another stream.&nbsp; The number of bytes in a stream can be indeterminate.&nbsp;
+       Input objects store data from an input stream in the application's memory.&nbsp;
+       Output objects copy data from the application's memory into an output stream.&nbsp;
+       Both input and output objects operate in FIFO (First In First Out) order.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Refinements _ Input and Output Refinements_files/streams.png" width="544" height="85" alt="file streams"></p>
+
+       <p>The standard input and output objects of the <span class="code">iostream</span>
+       library represent the standard peripheral devices, such as the keyboard and display.&nbsp;
+       </p>
+
+       <p>
+       An input object converts a sequence of bytes from its attached input stream
+       into values of specified type, which are stored in system memory.&nbsp; An output object
+       converts values of specified type, which have been stored in system memory,
+       into a sequence of bytes in its associated output stream.&nbsp; Both types
+       of objects use the data type associated with the region of memory to make the
+       appropriate conversions from or to the sequence of bytes in each stream.&nbsp;</p>
+
+       <p class="center"><img src="./Refinements _ Input and Output Refinements_files/memory_io.png" width="462" height="75" alt="memory i o"></p>
+       <br>
+
+       <p>
+       The data in a stream, unlike the data stored in a region of memory, is not associated
+       with any particular type.&nbsp; The notion of type is programming language specific.</p>
+
+       <br>
+
+       <p id="ist" class="section">Input Objects</p>
+
+       <p>
+       An input object is an instance of the <span class="code">istream</span>
+       class.&nbsp; The <span class="code">istream</span> class defines the structure
+       of an input device.&nbsp;
+       The object extracts data from the input stream and stores it in
+       system memory, converting each sequence of bytes in the input stream
+       into an equivalent value in system memory based on the specified variable's type.&nbsp;</p>
+
+       <p class="ssection">Extraction</p>
+
+       <p>The expression for extracting bytes from an input stream
+       takes the form</p>
+       <pre class="defin"> <i>inputObject</i> &gt;&gt; <i>identifier</i>
+</pre>
+
+       <p>where <span class="code"><i>inputObject</i></span> is the name of
+       the input object, <span class="code">&gt;&gt;</span> is the
+       extraction operator and <span class="code"><i>identifier</i></span>
+       is the name of the destination variable.&nbsp; </p>
+
+       <p>
+       The standard <span class="code">iostream</span>
+       library defines one input object for buffered input:
+       <span class="code">cin</span>.&nbsp; </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> int i;
+ char c;
+ double x;
+ char s[8];
+ cout &lt;&lt; "Enter an integer,\n"
+         "a character,\n"
+         "a floating-point number and\n"
+         "a string : " &lt;&lt; flush;
+ <span class="high">cin &gt;&gt; i;
+ cin &gt;&gt; c;
+ cin &gt;&gt; x;
+ cin &gt;&gt; s;  // possible overflow</span>
+ cout &lt;&lt; "Entered " &lt;&lt; i &lt;&lt; ' '
+      &lt;&lt; c &lt;&lt; ' ' &lt;&lt; x &lt;&lt; ' ' &lt;&lt; s &lt;&lt; endl;&nbsp;
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ Enter an integer,
+ a character,
+ a floating-point and
+ a string : 6  -  9.75  Harry
+
+
+
+
+ Entered 6 - 9.75 Harry
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Each expression that takes an <span class="code">istream</span> object
+       as its left operand converts the next sequence of bytes in the
+       attached input stream into a value stored in the type of the expression's
+       right operand.&nbsp;</p>
+
+       <p>
+       The <span class="code">cin</span> object skips leading whitespace with
+       numeric, string and character types (in the same way that
+       <span class="code">scanf("%d"...)</span>, <span class="code">scanf("%lf"...)</span>, <span class="code">scanf("%s"...)</span> and <span class="code">scanf("
+       %c"...)</span> skip whitespace in C).&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Leading Whitespace
+ // leading.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char str[11];
+
+     cout &lt;&lt; "Enter a string : " &lt;&lt; endl;
+     cin &gt;&gt; str;
+     cout &lt;&lt; "|" &lt;&lt; str &lt;&lt; "|" &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+          Note: _ denotes space
+
+
+
+
+
+ Enter a string :
+ __abc
+ |abc|
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Whitespace</p>
+
+       <p>
+       The input object treats whitespace in its input stream
+       as a delimiter for numeric and string data types.&nbsp; In converting
+       input bytes into a C-style null-terminated string, the input
+       object adds the null byte after the last non-whitespace character
+       stored in memory:&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Trailing Whitespace
+ // trailing.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char str[11];
+
+     cout &lt;&lt; "Enter a string : " &lt;&lt; endl;
+     cin &gt;&gt; str;
+     cout &lt;&lt; "|" &lt;&lt; str &lt;&lt; "|" &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+          Note: _ denotes space
+
+
+
+
+
+ Enter a string :
+ __abc__
+ |abc|
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Cascading</p>
+
+       <p>
+       We can compress a sequence of extraction operations into a single compound
+       expression:&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> int i;
+ char c;
+ double x;
+ char s[8];
+ cout &lt;&lt; "Enter an integer,\n"
+         "a character,\n"
+         "a floating-point number and\n"
+         "a string : " &lt;&lt; flush;
+ <span class="high">cin &gt;&gt; i &gt;&gt; c &gt;&gt; x &gt;&gt; s;</span>
+ cout &lt;&lt; "Entered " &lt;&lt; i &lt;&lt; ' '
+      &lt;&lt; c &lt;&lt; ' ' &lt;&lt; x &lt;&lt; ' ' &lt;&lt; s &lt;&lt; endl;&nbsp;
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ Enter an integer,
+ a character,
+ a floating-point and
+ a string : 6  -  9.75  Harry
+
+ Entered 6 - 9.75 Harry
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>We call such repeated use of the extraction operator
+       <em>cascading</em>.&nbsp;</p>
+
+       <p>
+       Note that reading a sequence of bytes in this manner is discouraged
+       (see below).
+       </p>
+
+       <p class="sssection">Overflow</p>
+
+       <p>
+       In the above two examples, overflow may occur while filling
+       <span class="code">s</span>.&nbsp; The extraction operator
+       <span class="code">&gt;&gt;</span> does not restrict the
+       number of bytes accepted.&nbsp; If more than 7 bytes
+       are in the input stream the data stored for the string
+       may corrupt other data that has been stored in memory as shown
+       on the right:&nbsp;</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Overflow
+ // overflow.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int i;
+     char c;
+     double x;
+     char s[8];
+     cout &lt;&lt; "Enter an integer,\n"
+         "a character,\n"
+         "a floating-point number and\n"
+         "a string : \n";
+     <span class="high">cin &gt;&gt; i &gt;&gt; c &gt;&gt; x &gt;&gt; s;</span>
+     cout &lt;&lt; "Entered " &lt;&lt; endl;
+     cout &lt;&lt; i &lt;&lt; ' '
+          &lt;&lt; c &lt;&lt; ' ' &lt;&lt; x &lt;&lt; ' ' &lt;&lt; s &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ Enter an integer,
+ a character,
+ a floating-point and
+ a string :
+ 6 - 9.75 Constantinople
+
+ Entered
+ 6 - <span class="high">2.04952</span> Constantinople&nbsp;
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The corruption varies from platform to platform.</p>
+
+       <p class="ssection">Member Functions</p>
+
+       <p>The <span class="code">istream</span> type supports
+       the following member functions:</p>
+
+       <ul>
+        <!--<li><span class=code>width(int)</span> - sets the
+                    maximum field width for the next input value</li>-->
+
+        <li><span class="code">ignore(...)</span> - ignores/discards
+        character(s) from the input buffer</li>
+
+        <li><span class="code">get(...)</span> - extracts a character
+        or a string from the input buffer</li>
+
+        <li><span class="code">getline(...)</span> - extracts a line of
+        characters from the input buffer</li>
+       </ul><!--<p>
+                    <span class=code>ignore()</span>,
+                    <span class=code>get()</span> and
+                    <span class=code>getline()</span> extract characters
+                    from the input stream without format control.&nbsp;
+                    </p>
+                    <p>
+                    <span class=code>width()</span> limits the number
+                    of characters extracted for the next value.&nbsp;
+                    To limit the number extracted to 8,
+                    we write:
+                    <table width="45%" summary="">
+                    <tr>
+                    <td>
+                    <br />
+                    <pre>
+ char s[8];
+ <span class=high>cin.width(8);</span>
+ cin &gt;&gt; s;     // maximum of 8 characters extracted into s&nbsp;
+ s[7] = '\0';  // in case 8 characters were extracted</pre></td></tr></table>
+                    </p>
+                    <p>
+                    Note that <span class=code>width()</span>
+                    receives the number of memory locations available.&nbsp;
+                    If the extraction operator removes 8 characters, we
+                    replace the 8th character with a null byte.
+                    </p>-->
+
+       <p class="sssection">ignore</p>
+
+       <p>The <span class="code">ignore()</span> member function extracts bytes from
+       the input buffer and discards them without skipping whitespace.&nbsp;
+       The <span class="code">iostream</span> hierarchy defines two overloaded
+       versions of <span class="code">ignore()</span>:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> <span class="high">cin.ignore();
+ cin.ignore(2000, '\n');  </span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The no-argument version discards a single byte.&nbsp; The
+       two-argument version removes and discards up to the number of
+       bytes specified by the first argument or up to the specified
+       delimiting character, whichever occurs first and discards the
+       delimiting character.&nbsp; The default delimiter is the end-of-file
+       character (not the newline character).&nbsp;</p>
+
+       <p class="sssection">get</p>
+
+       <p>The <span class="code">get()</span> member function extracts either
+       a single character or a string from the input buffer.&nbsp;
+       Three versions are available:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Input Extraction Using get()
+ // get.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char c, d, t[8], u[8], v;
+
+     <span class="high">c = cin.get();</span>          // extracts a single character
+     <span class="high">cin.get(d);</span>             // extracts a single character
+     <span class="high">cin.get(t, 8);</span>          // newline delimiter - accepts up to 7 chars&nbsp;
+                             //    and adds a null byte
+     cin.ignore(2000, '\n'); // extracts the 'j' and the newline
+     <span class="high">cin.get(u, 8, '\t');</span>    // tab delimiter - accepts up to 7 chars and
+                             //    adds a null byte
+     cin.ignore();           // extracts the tab
+     <span class="high">cin.get(v);</span>             // extracts a single character
+
+     cout &lt;&lt; "c = " &lt;&lt; c &lt;&lt; endl;
+     cout &lt;&lt; "d = " &lt;&lt; d &lt;&lt; endl;
+     cout &lt;&lt; "t = " &lt;&lt; t &lt;&lt; endl;
+     cout &lt;&lt; "u = " &lt;&lt; u &lt;&lt; endl;
+     cout &lt;&lt; "v = " &lt;&lt; v &lt;&lt; endl;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The above program produces the following results for the input shown
+       (the character _ refers to the horizontal tab character):</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="result"> Input stream : abcdefghij
+                klmn_opqr
+ Output:
+ -------
+ c = a
+ d = b
+ t = cdefghi
+ u = klmn
+ v = o
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       <span class="code">get()</span> does not skip leading
+       whitespace.&nbsp; <span class="code">get(,)</span> leaves the
+       delimiting character in the input buffer.&nbsp; In using
+       <span class="code">get(,)</span> we need to remove the delimiting
+       character, if there is one.&nbsp; Both string versions
+       - <span class="code">get(char*, int)</span> and <span class="code">get(char*,
+       int, char)</span> - append a null byte to the sequence of
+       characters stored in memory.&nbsp;</p>
+
+       <p class="sssection">getline</p>
+
+       <p><span class="code">getline()</span> behaves like <span class="code">get()</span>, but extracts the delimiting character from the input
+       buffer:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Input Extraction using getline()
+ // getline.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     char t[8], u[8], v;
+
+     <span class="high">cin.getline(t, 8);</span>       // newline delimiter - accepts up to 7 chars&nbsp;
+                              //    and adds a null byte
+     <span class="high">cin.getline(u, 8, '\t');</span> // tab delimiter - accepts up to 7 chars and
+                              //    adds a null byte
+     cin.get(v);              // extracts a single character
+
+     cout &lt;&lt; "t = " &lt;&lt; t &lt;&lt; endl;
+     cout &lt;&lt; "u = " &lt;&lt; u &lt;&lt; endl;
+     cout &lt;&lt; "v = " &lt;&lt; v &lt;&lt; endl;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The above program produces the following results for the input shown
+       (the character _ refers to the horizontal tab character):</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="result"> Note: _ denotes '\t' character here
+
+ Input stream : cdefghi
+                jklmn_opqr
+ Output:
+ -------
+ t = cdefghi
+ u = jklmn
+ v = o
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       <span class="code">getline()</span>, like <span class="code">get()</span>, does not skip leading whitespace and appends
+       a null byte to the sequence of characters stored in system memory.&nbsp;</p>
+
+       <br>
+
+       <p id="ost" class="section">Output Objects</p>
+
+       <p>
+       An output object is an instance of the <span class="code">ostream</span>
+       class.&nbsp; The <span class="code">ostream</span> class defines the structure
+       of an output device.&nbsp;
+       An <span class="code">ostream</span> object copies data from system memory
+       into an output stream; in copying, it converts the data in system memory
+       into a sequence of characters.&nbsp;
+       </p>
+       <p>
+       The standard <span class="code">iostream</span> library defines three
+       distinct standard output objects:</p>
+
+       <ul>
+        <li><span class="code">cout</span> - transfers a buffered sequence
+        of characters to the standard output device</li>
+
+        <li><span class="code">cerr</span> - transfers an unbuffered
+        sequence of characters to the standard error output device</li>
+
+        <li><span class="code">clog</span> - transfers a buffered sequence
+        of characters to the standard error output device</li>
+       </ul>
+
+       <p class="ssection">Inserting Data</p>
+
+       <p>The expression for inserting data into an output stream takes
+       the form</p>
+       <pre class="defin"> <i>output</i> &lt;&lt; <i>identifier</i>
+</pre>
+
+       <p>where <span class="code"><i>output</i></span> is the
+       name of the <span class="code">ostream</span> object, <span class="code">&lt;&lt;</span> is the insertion operator and
+       <span class="code"><i>identifier</i></span> is the name of the variable
+       or object that holds the data.</p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> int i = 6;
+ char c = ' ';
+ double x = 9.75;
+ char s[] = "Harry";
+ cout <span class="code">&lt;&lt;</span> i;
+ cout <span class="code">&lt;&lt;</span> c;
+ cout <span class="code">&lt;&lt;</span> x;
+ cout <span class="code">&lt;&lt;</span> c;
+ cout <span class="code">&lt;&lt;</span> s;
+ cout <span class="code">&lt;&lt;</span> endl;
+ cerr <span class="code">&lt;&lt;</span> "Data has been written";
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+ 6 9.75 Harry
+
+
+</pre>
+          <br>
+          <pre class="error"> Data has been written
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>Each expression that takes an <span class="code">ostream</span> object
+       as its left operand converts the data in its right operand into a sequence
+       of characters based on the type of the expression's right operand.&nbsp;</p>
+
+       <p><span class="code">endl</span> inserts a newline character
+       into the output stream and flushes the stream's buffer.&nbsp;</p>
+
+       <p class="sssection">Cascading</p>
+
+       <p>
+       We may combine a sequence of insertion operations into a compound insertion expression:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> int i = 6;
+ char c = ' ';
+ double x = 9.75;
+ char s[] = "Harry";
+
+ <span class="high">cout &lt;&lt; i &lt;&lt; c &lt;&lt; x &lt;&lt; c &lt;&lt; s &lt;&lt; endl;</span>&nbsp;
+
+ cerr &lt;&lt; "Data has been written";
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+ 6 9.75 Harry
+</pre>
+          <pre class="error"> Data has been written
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Member Functions</p>
+
+       <p>The <span class="code">ostream</span> class supports the
+       following public member functions for formatting control:</p>
+
+       <ul>
+        <!--<li><span class=code>put(char)</span> - inserts the character received</li>-->
+
+        <li><span class="code">width(int)</span> - sets the field width
+        to the integer received</li>
+
+        <li><span class="code">fill(char)</span> - sets the padding
+        character to the character received</li>
+
+        <li><span class="code">setf(...)</span> - sets a formatting
+        flag to the flag received</li>
+
+        <li><span class="code">unsetf(...)</span> - unsets a
+        formatting flag for the flag received</li>
+
+        <li><span class="code">precision(int)</span> - sets the
+        decimal precision to the integer received</li>
+       </ul><!--<p>
+                    For example, to insert the character <span class=code>'x'</span> into the standard
+                    output stream and the character <span class=code>'z'</span> into
+                    the standard error stream, we write
+                    <table width="95%" summary="">
+                    <tr>
+                    <td class="half">
+                    <br />
+                    <pre>
+ cout.<span class=high>put('x')</span>;
+ cerr.<span class=high>put('z')</span>;</pre><br /></td><td class="half">
+                    <br />
+                    <pre class=result>
+ x
+<div class=error> z</div></pre></td></tr></table>
+                    </p>-->
+
+       <p class="sssection">width</p>
+
+       <p>The <span class="code">width(int)</span> member function
+       specifies the minimum width of the <u>next</u>
+       output field:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Field Width
+ // width.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int attendance = 27;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     <span class="high">cout.width(10);</span>
+     cout &lt;&lt; attendance &lt;&lt; endl;
+     cout &lt;&lt; attendance &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ 1234567890
+         27
+ 27
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">width(int)</span> applies
+       only to the next field.&nbsp; Note how the field width for
+       the first display of <span class="code">attendance</span> is 10,
+       while the field width for the second display of <span class="code">attendance</span> is just the minimum number
+       of characters needed to display the value (2).&nbsp;</p>
+
+       <p class="sssection">fill</p>
+
+       <p>
+       The <span class="code">fill(char)</span> member function defines the padding
+       character.&nbsp; The output object inserts this character into the stream
+       wherever text occupies less space than the specified field width.&nbsp;
+       The default fill character is <span class="code">'&nbsp;'</span> (space).&nbsp;
+       To pad a field with <span class="code">'*'</span>'s, we add:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Padding
+ // fill.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     int attendance = 27;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     <span class="high">cout.fill('*');</span>
+     cout.width(10);
+     cout &lt;&lt; attendance &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ 1234567890
+ ********27
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The padding character remains unchanged, until we reset it.</p>
+
+       <p class="sssection">setf, unsetf - Format control</p>
+
+       <p>
+       The <span class="code">setf()</span> and <span class="code">unsetf()</span> member functions control formatting and alignment.&nbsp;
+       Their control flags include:</p>
+
+       <table class="center" cellpadding="3" summary="">
+        <tbody><tr class="desc">
+         <td>Control Flag</td>
+
+         <td align="left">&nbsp;Result</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::fixed</td>
+
+         <td align="left">&nbsp;ddd.ddd&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::scientific</td>
+
+         <td align="left">&nbsp;d.ddddddEdd&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::left</td>
+
+         <td align="left">&nbsp;align left&nbsp;</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">ios::right</td>
+
+         <td align="left">&nbsp;align right&nbsp;</td>
+        </tr>
+       </tbody></table>
+
+       <p>The scope resolution (<span class="code">ios::</span>)
+       on these flags identifies them as part of the <span class="code">ios</span> class.&nbsp;
+       </p>
+
+       <p>
+       The default format in C++ is <i>general format</i>, which outputs data
+       in the simplest, most succinct way possible (1.34, 1.345E10, 1.345E-20).&nbsp;
+       To output a fixed number of decimal places, we select <i>fixed format</i>.&nbsp;
+       To specify fixed format, we pass the <span class="code">ios::fixed</span> flag to
+       <span class="code">setf()</span>:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Fixed Format
+ // fixed.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     <span class="high">cout.setf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+ 1234567890
+   3.141593
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Format settings persist until we change them.&nbsp;
+       To unset fixed format, we pass the <span class="code">ios::fixed</span> flag to
+       the <span class="code">unsetf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Unset Fixed Format
+ // unsetf.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     <span class="high">cout.setf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+     <span class="high">cout.unsetf(ios::fixed);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+   3.141593
+ 3.14159
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>To specify scientific format, we pass the <span class="code">ios::scientific</span> flag to the <span class="code">setf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Scientific Format
+ // scientific.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "12345678901234" &lt;&lt; endl;
+     cout.width(14);
+     <span class="high">cout.setf(ios::scientific);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+ 12345678901234
+   3.141593e+00
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To turn off scientific format, we pass the <span class="code">ios::scientific</span> flag to
+       the <span class="code">unsetf()</span> member function.</p>
+
+       <p class="sssection">setf, unsetf - Alignment</p>
+
+       <p>The default alignment is right-justified.&nbsp;</p>
+
+       <p>
+       To switch to left-justification, we pass the <span class="code">ios::left</span> flag to the <span class="code">setf()</span> member function:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Left Justified
+ // left.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.width(10);
+     cout.fill('?');
+     <span class="high">cout.setf(ios::left);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+ 3.14159???
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       To switch off left-justification, we pass the <span class="code">ios::left</span>
+       flag to the <span class="code">unsetf()</span> member function:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> cout.<span class="high">un</span>setf(ios::left);
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">precision</p>
+
+       <p>The <span class="code">precision()</span> member function sets the precision of
+       subsequent floating-point fields.&nbsp; The default
+       precision is <span class="code">6</span> units.&nbsp; General,
+       fixed, and scientific formats implement precision differently.&nbsp;
+       General format counts the number of significant digits.&nbsp;
+       Scientific and fixed formats
+       count the number of digits following the
+       decimal point.&nbsp;
+       </p>
+       <p>
+       For a precision of <span class="code">2</span> under general format, we write</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Precision
+ // precison.cpp
+
+ #include &lt;iostream&gt;
+ using namespace std;
+
+ int main() {
+     double pi = 3.141592653;
+     cout &lt;&lt; "1234567890" &lt;&lt; endl;
+     cout.setf(ios::fixed);
+     cout.width(10);
+     <span class="high">cout.precision(2);</span>
+     cout &lt;&lt; pi &lt;&lt; endl;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ 1234567890
+       3.14
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The precision setting applies to the output of all subsequent
+       floating-point values until we change it.&nbsp;</p>
+
+       <br>
+
+       <p id="man" class="section">Manipulators <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       The C++ language defines manipulators that are elegant alternatives to member
+       function calls.&nbsp; These manipulators are operands for the extraction and
+       insertion operators.&nbsp; Manipulators that don't take any argument do not
+       include parentheses and are defined in <span class="code">&lt;iostream&gt;</span>.&nbsp;
+       Those that take an argument include parentheses and are defined in
+       <span class="code">&lt;iomanip&gt;</span>.&nbsp; That is, we must include
+       <span class="code">&lt;iomanip&gt;</span> whenever we use manipulators that
+       take an argument.</p>
+
+       <p class="ssection">Input Manipulators</p>
+
+       <p>
+       The manipulators of input objects are listed below:</p>
+
+       <table width="80%" class="center" summary="">
+        <tbody><tr class="desc">
+         <td class="w30">Manipulator</td>
+
+         <td align="left" class="w70">
+         &nbsp;Effect</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">skipws</td>
+
+         <td align="left">&nbsp;skip whitespace</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">noskipws</td>
+
+         <td align="left">&nbsp;turn off skip whitespace</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">setw(int)</td>
+
+         <td align="left">&nbsp;set the field width for next input (strings
+         only)</td>
+        </tr>
+       </tbody></table>
+
+       <p>The argument to <span class="code">setw()</span> should be one more
+       than the maximum number of input bytes to be read.&nbsp;
+       Note that the <span class="code">setw()</span> manipulator is an
+       alternative to <span class="code">get(char*, int)</span>, but
+       <span class="code">setw()</span> skips leading whitespace
+       unless we turn off skipping.</p>
+
+       <p>
+       Once a manipulator has modified the format settings of an
+       input object, those settings remain modified.&nbsp;</p>
+
+       <p>We may combine manipulators with input variables
+       directly to form compound expressions.&nbsp; For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Input Manipulators
+ // manipulator.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;iomanip&gt;
+ using namespace std;
+
+ int main( ) {
+     char a[5], b[2], c, d[7];
+     cout &lt;&lt; "Enter : ";
+     cin &gt;&gt; setw(5) &gt;&gt; a &gt;&gt;
+            setw(2) &gt;&gt; b &gt;&gt; noskipws &gt;&gt;
+            c &gt;&gt; skipws &gt;&gt; d;
+     cout &lt;&lt; "Stored '" &lt;&lt; a &lt;&lt;
+             "' &amp; '" &lt;&lt;  b &lt;&lt;
+             "' &amp; '" &lt;&lt; c &lt;&lt;
+             "' &amp; '" &lt;&lt; d &lt;&lt; "'" &lt;&lt; endl;&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+ Enter :     abcde          fgh
+
+
+
+ Stored 'abcd' &amp; 'e' &amp; ' ' &amp; 'fgh'
+
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Output Manipulators</p>
+
+       <p>
+       The manipulators of output objects are listed below:</p>
+
+       <table width="80%" class="center" summary="">
+        <tbody><tr class="desc">
+         <td class="w30">Manipulator</td>
+
+         <td align="left" class="w70">
+         &nbsp;Effect</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">fixed</td>
+
+         <td align="left">&nbsp;output floating-point numbers in fixed-point
+         format</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">scientific</td>
+
+         <td align="left">&nbsp;output floating-point numbers in scientific
+         format</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">left</td>
+
+         <td align="left">&nbsp;left justify</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">right</td>
+
+         <td align="left">&nbsp;right justify</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">endl</td>
+
+         <td align="left">&nbsp;output end of line and flush the buffer</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">setprecision(int)</td>
+
+         <td align="left">&nbsp;set the precision of the output</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">setfill(int)</td>
+
+         <td align="left">&nbsp;set the fill character for the field width</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">setw(int)</td>
+
+         <td align="left">&nbsp;set the field width for the next output operand
+         only</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">setbase(int)</td>
+
+         <td align="left">&nbsp;set the base of the number system for <span class="code">int</span> output</td>
+        </tr>
+
+        <tr class="value">
+         <td class="code">flush</td>
+
+         <td align="left">&nbsp;flush the output buffer</td>
+        </tr>
+       </tbody></table>
+
+       <p>Manipulators (except for <span class="code">setw(i)</span>,
+       which only modifies the format setting for the next object) modify the format settings
+       until we change them.&nbsp;
+       </p>
+
+       <p>For example,</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> cout &lt;&lt; fixed &lt;&lt; left &lt;&lt; setw(5) &lt;&lt;
+        setprecision(1) &lt;&lt; 12.376 &lt;&lt;
+        setprecision(5) &lt;&lt; 12.376 &lt;&lt;
+        endl;
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+ 12.4 12.37600
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+       <br>
+
+       <p class="sssection">Reference Example <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/optional.js"></script>(Optional)</p>
+
+       <p>The following program produces the output listed on the right</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> #include &lt;iostream&gt;
+ #include &lt;iomanip&gt;
+ using namespace std;
+
+ int main( ) {
+     /* integers */
+     cout &lt;&lt; "\n* ints *\n"
+     &lt;&lt; "1234567890\n"
+     &lt;&lt; "----------\n"
+     &lt;&lt; 4321 &lt;&lt; '\n'
+     &lt;&lt; setw(7) &lt;&lt; 4321 &lt;&lt; '\n'
+     &lt;&lt; setw(7) &lt;&lt; setfill('0') &lt;&lt; 4321 &lt;&lt; setfill(' ')&lt;&lt;'\n'&nbsp;
+     &lt;&lt; setw(7) &lt;&lt; left &lt;&lt; 4321 &lt;&lt; right &lt;&lt; '\n';
+     /* floats */
+     cout &lt;&lt; "\n* floats *\n"
+     &lt;&lt; "1234567890\n"
+     &lt;&lt; "----------\n"
+     &lt;&lt; 4321.9876546F &lt;&lt; '\n';
+     /* doubles */
+     cout &lt;&lt; "\n* doubles *\n"
+     &lt;&lt; "1234567890\n"
+     &lt;&lt; "----------\n"
+     &lt;&lt; fixed &lt;&lt; 4.9876546 &lt;&lt; '\n'
+     &lt;&lt; setw(7) &lt;&lt; setprecision(3) &lt;&lt; 4.9876546 &lt;&lt; '\n'
+     &lt;&lt; setw(7) &lt;&lt; setfill('0') &lt;&lt; 4.9876546 &lt;&lt; '\n'
+     &lt;&lt; setw(7) &lt;&lt; left &lt;&lt; 4.9876546 &lt;&lt; right &lt;&lt; '\n';
+     /* characters */
+     cout &lt;&lt; "\n* chars *\n"
+     &lt;&lt; "1234567890\n"
+     &lt;&lt; "----------\n"
+     &lt;&lt; 'd' &lt;&lt; '\n'
+     &lt;&lt; int('d') &lt;&lt; '\n';
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+ * ints *
+ 1234567890
+ ----------
+ 4321
+    4321
+ 0004321
+ 4321
+
+ * floats *
+ 1234567890
+ ----------
+ 4321.99
+
+ * doubles *
+ 1234567890
+ ----------
+ 4.987655
+   4.988
+ 004.988
+ 4.98800
+
+ * chars *
+ 1234567890
+ ----------
+ d
+ 100
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>Notes:</p>
+
+       <ul>
+        <li>a <span class="code">double</span> or a <span class="code">float</span> rounds to the requested precision</li>
+
+        <li><span class="code">char</span> data displays in either
+        character or decimal format<br>to output its numeric code,
+        we cast the value to an
+        <span class="code">int</span> (the value output for <span class="code">'d'</span>
+        here is its ASCII value).&nbsp;</li>
+       </ul>
+       <br>
+
+       <p id="sta" class="section">State</p>
+
+       <p>
+       The <span class="code">ios</span> base class defines public member functions
+       that report or change the state of <span class="code">istream</span> and
+       <span class="code">ostream</span> objects.&nbsp;
+       These member functions include:</p>
+
+       <ul>
+        <li><span class="code">good()</span> - the next operation might
+        succeed</li>
+
+        <li><span class="code">fail()</span> - the next operation will
+        fail</li>
+
+        <li><span class="code">eof()</span> - end of data has been
+        encountered</li>
+
+        <li><span class="code">bad()</span> - the data may be
+        corrupted</li>
+
+        <li><span class="code">clear()</span> - reset the state to
+        good</li>
+       </ul>
+
+       <p>
+       For user-friendly input processing, we should check the state of the
+       input object every time it extracts a sequence of bytes from the
+       input buffer.&nbsp; If the object has encountered an invalid character,
+       the object will fail and leave that invalid character in the input buffer and the
+       <span class="code">fail()</span> member function will return true.&nbsp;
+       </p>
+       <p>
+       Before a failed object can continue extracting data from the input buffer,
+       we must clear the object of its failed state.&nbsp; The <span class="code">clear()</span>
+       function resets the state of the object to <span class="code">good</span>:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> if(cin.fail()) {            // checks if cin is in a failed state
+     cin.clear();            // clears state to allow further extraction&nbsp;
+     cin.ignore(2000, '\n'); // clears the input buffer
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       The following section provides a complete example.
+       </p>
+       <br>
+
+       <p id="val" class="section">Robust Validation</p>
+
+       <p>
+       Robust validation enhances the friendliness of any application that processes
+       input.&nbsp; The state functions of the <span class="code">iostream</span> classes
+       help us validate input robustly.&nbsp; Robust validation checks the input object's
+       state after each extraction to ensure that the object has converted the sequence of
+       bytes into a value and that that converted value is valid and within admissible
+       bounds.&nbsp; Robust validation rejects invalid input and out-of-bound values,
+       resetting any failed state and requesting fresh input as necessary from the user.&nbsp;</p>
+
+       <p class="ssection">getPosInt</p>
+       <p>To extract a positive <span class="code">int</span>
+       that is not greater than <span class="code">max</span> from the standard input
+       device, we write</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // getPosInt extracts a positive integer &lt;= max
+ // from standard input and returns its value
+ //
+ int getPosInt(int max) {
+     int value;
+     int keepreading;
+
+     keepreading = 1;
+     do {
+         cout &lt;&lt; "Enter a positive integer (&lt;= " &lt;&lt; max &lt;&lt; ") : ";&nbsp;
+         cin  &gt;&gt; value;
+
+         if (cin.fail()) {   // check for invalid character
+             cerr &lt;&lt; "Invalid character.  Try Again." &lt;&lt; endl;
+             cin.clear();
+             cin.ignore(2000, '\n');
+         } else if (value &lt;= 0 || value &gt; max) {
+             cerr &lt;&lt; value &lt;&lt; " is outside the range [1," &lt;&lt;
+                  max &lt;&lt; ']' &lt;&lt; endl;
+             cerr &lt;&lt; "Invalid input.  Try Again." &lt;&lt; endl;
+             cin.ignore(2000, '\n');
+         <span class="high">// you may choose to omit this branch
+         } else if (char(cin.get()) != '\n') {
+             cerr &lt;&lt; "Trailing characters.  Try Again." &lt;&lt; endl;
+             cin.ignore(2000, '\n');</span>
+         } else
+             keepreading = 0;
+     } while(keepreading == 1);
+
+     return value;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <br>
+       <br>
+
+       <p id="fil" class="section">File Stream Classes <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       The <span class="code">ios</span> inheritance hierarchy includes three derived classes
+       specifically designed for processing file streams.&nbsp; These classes manage the
+       communications between file streams containing 8-bit bytes and system memory.&nbsp;
+       </p>
+
+       <p class="center"><img src="./Refinements _ Input and Output Refinements_files/full ios hierarchy.png" width="192" height="168" alt="full ios hierarchy"></p>
+       <br>
+
+       <p>
+       The <span class="code">fstream</span> system header file defines its classes
+       in the <span class="code">std</span> namespace:&nbsp;
+       </p>
+
+       <table width="95%" summary="fstream">
+        <tbody><tr>
+         <td>
+         <pre class="defin">#include &lt;fstream&gt;</pre>
+         </td>
+        </tr>
+       </tbody></table>
+       <p>
+       The <span class="code">fstream</span> classes include:
+       </p>
+       <ul>
+       <li><span class="code">ifstream</span> - processes input from a file stream</li>
+       <li><span class="code">ofstream</span> - processes output to a file stream</li>
+       <li><span class="code">fstream</span> - processes input from and output to a file stream</li>
+       </ul>
+       <p>
+       These classes access a file stream through separate input and output buffers.&nbsp;
+       </p>
+
+       <p class="ssection">Extraction and Insertion Operator Overloads</p>
+
+       <p>
+       The standard library overloads the extraction and insertion operators for
+       the fundamental types.&nbsp; We overload these operators for <span class="code">fstream</span>
+       objects as left operands and custom types as right operands.&nbsp;
+       </p>
+
+       <p class="sssection">Fundamental Types</p>
+
+       <p>
+       For fundamental types see the chapter entitled
+       <a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">Input and Output Operators</a>.
+       </p>
+
+       <p class="sssection">Custom Types</p>
+
+       <p>
+       Typicall', custom types require separate overloads of both extraction and insertion
+       operators.&nbsp;
+       </p>
+       <p>
+       While reading standard input involves prompting the suer, reading a file does not require any prompts.&nbsp;
+       The extraction operator for file input objects excludes prompts.&nbsp;
+       Since writing to a file matches the convention for subsequent reading from that file,
+       the output to a file generally differs from the more decorated output to be read by
+       the user.&nbsp;
+       Moreover, since the insertion operator that takes an <span class="code">ostream</span>
+       object as its left operand class is a templated function and the <span class="code">ofstream</span>
+       class is a class derived from the <span class="code">ostream</span> class, ambiguities
+       arise with direct overloading of the operator for a custom type.&nbsp; One way to avoid
+       these ambiguities is to define a separate file class for the custom type and overload the
+       insertion operator for that file class.&nbsp;
+       </p>
+       <p>
+       The file related additions are highlighted in the listings below.&nbsp;
+       </p>
+       <p>
+       The header file for the <span class="code">Student</span> class includes the
+       definition of a <span class="code">StudentFile</span> class that overloads the
+       insertion operators for an <span class="code">ofstream</span> object that
+       receives the <span class="code">Student</span> class:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt; // for std::ostream, std::istream
+ <span class="high">#include &lt;fstream&gt;  // for std::ifstream</span>
+ const int NG = 13;
+
+ <span class="high">class StudentFile;</span>
+
+ class Student {
+     int no;
+     float grade[NG];
+     int ng;
+ public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void read(std::istream&amp;);
+     <span class="high">void read(std::ifstream&amp;);</span>
+     void display(std::ostream&amp; os) const;
+     <span class="high">void display(StudentFile&amp; os) const;</span>
+ };
+
+ std::istream&amp; operator&gt;&gt;(std::istream&amp; is, Student&amp; s);
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Student&amp; s);&nbsp;
+ <span class="high">std::ifstream&amp; operator&gt;&gt;(std::ifstream&amp; is, Student&amp; s);
+
+ class StudentFile {
+   public:
+     std::ofstream f;
+     StudentFile(const char*);
+     StudentFile&amp; operator&lt;&lt;(char);
+     StudentFile&amp; operator&lt;&lt;(int);
+     StudentFile&amp; operator&lt;&lt;(float);
+     void close();
+};
+
+ StudentFile&amp; operator&lt;&lt;(StudentFile&amp; os, const Student&amp; s);</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file overloads the file extraction and insertion
+       operators for our <span class="code">Student</span> class and defines
+       the insertion operator for <span class="code">StudentFile</span> objects
+       as left operands and fundamental types as right operands:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Student.cpp
+
+ #include "Student.h"
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     *this = Student(n, nullptr, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::read(std::istream&amp; is) {
+     int no;          // will hold the student number
+     int ng;          // will hold the number of grades
+     float grade[NG]; // will hold the grades
+
+     std::cout &lt;&lt; "Student Number : ";
+     is &gt;&gt; no;
+     std::cout &lt;&lt; "Number of Grades : ";
+     is &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         std::cout &lt;&lt; "Grade " &lt;&lt; i + 1 &lt;&lt; " : ";
+         is &gt;&gt; grade[i];
+     }
+
+     // construct a temporary Student
+     Student temp(no, grade, ng);
+     // if data is valid, copy temporary object into current object
+     if (temp.no != 0)
+         *this = temp;
+ }
+
+ <span class="high">void Student::read(std::ifstream&amp; is) {
+     int no;          // will hold the student number
+     int ng;          // will hold the number of grades
+     float grade[NG]; // will hold the grades
+
+     is &gt;&gt; no;
+     is &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         is &gt;&gt; grade[i];
+     }
+
+     // construct a temporary Student
+     Student temp(no, grade, ng);
+     // if data is valid, copy temporary object into current object&nbsp;
+     if (temp.no != 0)
+         *this = temp;
+ }</span>
+
+ void Student::display(std::ostream&amp; os) const {
+     if (no &gt; 0) {
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(std::ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; std::endl;
+         }
+         os.unsetf(std::ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; std::endl;
+     }
+ }
+
+ <span class="high">void Student::display(StudentFile&amp; os) const {
+     os &lt;&lt; no &lt;&lt; '\n';
+     os &lt;&lt; ng &lt;&lt; '\n';
+     for (int i = 0; i &lt; ng; i++)
+         os &lt;&lt; grade[i] &lt;&lt; '\n';
+ }</span>
+
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const Student&amp; s) {
+     s.display(os);
+     return os;
+ }
+
+ std::istream&amp; operator&gt;&gt;(std::istream&amp; is, Student&amp; s) {
+     s.read(is);
+     return is;
+ }
+
+ <span class="high">std::ifstream&amp; operator&gt;&gt;(std::ifstream&amp; is, Student&amp; s) {
+     s.read(is);
+     return is;
+ }
+
+ StudentFile&amp; operator&lt;&lt;(StudentFile&amp; f, const Student&amp; s) {
+     s.display(f);
+     return f;
+ }
+
+ StudentFile::StudentFile(const char* filename) : f(filename) {}
+
+ StudentFile&amp; StudentFile::operator&lt;&lt;(char c) {
+     f &lt;&lt; c;
+     return *this;
+ }
+
+ StudentFile&amp; StudentFile::operator&lt;&lt;(int i) {
+     f &lt;&lt; i;
+     return *this;
+ }
+
+ StudentFile&amp; StudentFile::operator&lt;&lt;(float v) {
+     f &lt;&lt; v;
+     return *this;
+ }
+
+ void StudentFile::close() {
+     f.close();
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Note the definitions of the <span class="code">read()</span> and
+       <span class="code">display()</span> member functions overloaded for file
+       input and output respectively.&nbsp;
+       </p>
+
+       <p>
+       The client file that uses this upgraded <span class="code">Student</span>
+       class creates the file objects, writes to them and reads from them:</p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="half">
+          <pre> // Custom File Operators
+ // customFile.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main ( ) {
+     Student harry;
+
+     std::cin &gt;&gt; harry;
+     std::cout &lt;&lt; harry;
+
+     StudentFile studentFile("Student.txt");
+     studentFile &lt;&lt; harry;
+     studentFile.close();
+
+     std::ifstream inFile("Student.txt");
+     inFile &gt;&gt; harry;
+     std::cout &lt;&lt; harry;
+ }
+</pre>
+         </td>
+
+         <td class="half">
+          <pre class="result">
+
+
+
+
+
+
+ Student Number : 1234&nbsp;
+ Number of Grades : 3
+ Grade 1 : 56.7
+ Grade 2 : 78.9
+ Grade 3 : 85.4
+ 1234:
+  56.70
+  78.90
+  85.40
+ 1234:
+  56.70
+  78.90
+  85.40
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>The records written to the <span class="code">Student.txt</span> file
+       by this program are:</p>
+
+       <table width="45%" summary="contents of Student.txt">
+        <tbody><tr>
+         <td>
+          <pre class="result"> 1234
+ 3
+ 56.7
+ 78.9
+ 85.4
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Nice to Know <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/optional.js"></script>(Optional)</p>
+
+       <p class="sssection">Open-Mode Flags</p>
+
+       <p>
+       To customize a file object's connection mode we use combinations of flags
+       passed as an optional second argument to the object's constructor or its
+       <span class="code">open()</span> member function.&nbsp;</p>
+
+       <p>The flags defining the connection mode are:</p>
+
+       <ul>
+        <li><span class="code">std::ios::in</span> open for reading</li>
+
+        <li><span class="code">std::ios::out</span> open for writing</li>
+
+        <li><span class="code">std::ios::app</span> open for appending</li>
+
+        <li><span class="code">std::ios::trunc</span> open for writing, but
+        truncate if file exists</li>
+
+        <li><span class="code">std::ios::ate</span> move to the end of the
+        file once the file is opened</li>
+       </ul>
+
+       <p>Practical combinations of these flags include</p>
+
+       <ul>
+        <li><span class="code">std::ios::in|std::ios::out</span> open for reading
+        and writing (default)</li>
+
+        <li><span class="code">std::ios::in|std::ios::out|std::ios::trunc</span> open
+        for reading and overwriting</li>
+
+        <li><span class="code">std::ios::in|std::ios::out|std::ios::app</span> open
+        for reading and appending</li>
+
+        <li><span class="code">std::ios::out|std::ios::trunc</span> open for
+        overwriting</li>
+       </ul>
+
+       <p>
+       The vertical bar (<span class="code">|</span>) is the <i>bit-wise or</i>
+       operator.
+       </p>
+
+       <p class="sssection">The Defaults</p>
+
+       <p>
+       The default combinations for no-argument and one-argument constructors are:
+       </p>
+
+       <ul>
+        <li><span class="code">ifstream</span> - <span class="code">std::ios::in</span> - open for reading</li>
+
+        <li><span class="code">ofstream</span> - <span class="code">std::ios::out</span> - open for writing</li>
+
+        <li><span class="code">fstream</span> - <span class="code">std::ios::in|std::ios::out</span> - open
+        for reading and writing</li>
+       </ul>
+
+       <p class="sssection">The Logical Negation Operator</p>
+
+       <p>
+       The standard library overloads the logical negation operator (<span class="code">!</span>)
+       as an alternative to the <span class="code">fail()</span> query.&nbsp;
+       This operator reports <span class="code">true</span> if the latest operation
+       has failed or if the stream has encountered a serious error.&nbsp;
+       </p>
+       <p>
+       We can invoke this operator on any stream object to check the
+       success of the most recent activity:</p>
+
+       <table width="95%" summary="negation as alternative to fail function">
+        <tbody><tr>
+         <td class="half">
+          <pre> if (fin.fail()) {
+     std::cerr &lt;&lt; "Read error";
+     fin.clear();
+ }
+</pre>
+         </td>
+         <td class="half">
+          <pre> if (<span class="high">!fin</span>) {
+     std::cerr &lt;&lt; "Read error";
+     fin.clear();
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The operator applied directly to a file object returns the state of the connection:</p>
+
+       <table width="45%" summary="negation on file object">
+        <tbody><tr>
+         <td>
+          <pre> #include &lt;iostream&gt;
+ #include &lt;fstream&gt;
+
+ int main() {
+     std::ofstream fout("output.txt");  // connects fout to output.txt&nbsp;
+                                        // for writing
+     if (<span class="high">!fout</span>) {
+         std::cerr &lt;&lt; "File is not open" &lt;&lt; std::endl;
+     } else {
+         std::cout &lt;&lt; "File is open" &lt;&lt; std::endl;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Rewinding a Connection</p>
+
+       <p class="sssection">istream, fstream</p>
+
+       <p>To rewind an input stream we call:</p>
+
+       <ul>
+        <li><span class="code">istream&amp; seekg(0)</span>
+        - sets the current position in the input stream to <span class="code">0</span></li>
+       </ul>
+
+       <p class="sssection">ostream, fstream</p>
+
+       <p>To rewind an output stream we call:</p>
+
+       <ul>
+        <li><span class="code">ostream&amp; seekp(0)</span>
+        - sets the current position in the output stream to
+        <span class="code">0</span></li>
+       </ul>
+
+       <p class="sssection">Premature Closing</p>
+
+       <p>
+       To close a file connection before the file object
+       has gone out of scope, we call the <span class="code">close()</span>
+       member function on the object:&nbsp;</p>
+
+       <table width="45%" summary="file copy 2 dot c p p">
+        <tbody><tr>
+         <td>
+          <pre> // Concatenate Two Files
+ // concatenate.cpp
+
+ #include &lt;fstream&gt;
+
+ int main() {
+     std::ifstream in("src1.txt");    // open 1st source file
+     std::ofstream out("output.txt"); // open destination file&nbsp;
+
+     if (in) {
+         while (!in.eof())
+             out &lt;&lt; in.get();        // byte by byte copy
+         in.clear();
+         <span class="high">in.close();</span>                 // close 1st source file
+     }
+
+     in.open("src2.txt");            // open 2nd source file
+
+     if (in) {
+         while (!in.eof())
+             out &lt;&lt; in.get();        // byte by byte copy
+         in.clear();
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Writing to and Reading from the Same File</p>
+
+       <p>
+       The <span class="code">fstream</span> class supports both reading and
+       writing operations.&nbsp;  An instance of this class
+       can write to a file and read from that same file.&nbsp;
+       </p>
+
+       <p>
+       For example, the following program produces the output
+       shown on the right</p>
+
+       <table width="95%" summary="f stream dot c p p">
+        <tbody><tr>
+         <td class="w80">
+          <pre> // File Objects - writing and reading
+ // fstream.cpp
+
+ #include &lt;iostream&gt;
+ #include &lt;fstream&gt;
+
+ int main() {
+
+     std::fstream f("file.txt",
+      std::ios::in|std::ios::out|std::ios::trunc);
+     f &lt;&lt; "Line 1" &lt;&lt; std::endl;   // record 1
+     f &lt;&lt; "Line 2" &lt;&lt; std::endl;   // record 2
+     f &lt;&lt; "Line 3" &lt;&lt; std::endl;   // record 3
+     f.seekp(0);                   // rewind output
+     f &lt;&lt; "****";                  // overwrite
+
+     char c;
+     f.seekg(0);                   // rewind input
+     f &lt;&lt; std::noskipws;           // don't skip whitespace
+     while (f.good()) {
+         f &gt;&gt; c;                   // read 1 char at a time
+         if (f.good())
+             std::cout &lt;&lt; c;       // display the character
+     }
+     f.clear();                    // clear failed (eof) state&nbsp;
+ }
+</pre>
+         </td>
+
+         <td class="w20">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ **** 1
+ Line 2
+ Line 3&nbsp;
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>the extraction and insertion operators support cascading</li>
+
+        <li><span class="code">get()</span> and
+        <span class="code">getline()</span> read strings with whitespace</li>
+
+        <li>a field width setting only holds for the next field</li>
+
+        <li>all non-field width settings persist until changed</li>
+
+        <li>precision has different meanings under general,
+        scientific, and fixed formats</li>
+
+        <li>manipulators are the elegant alternative to member function based format settings</li>
+
+        <li>manipulators that take arguments are defined in <span class="code">#include &lt;iomanip&gt;</span></li>
+
+        <li>a failed state must be cleared before processing can continue</li>
+
+        <li>the extraction and insertion operators are overloaded for file objects as left operands and fundamental types as right operands</li>
+
+        <li>an input file object is an instance of an <span class="code">ifstream</span> class</li>
+
+        <li>an output file object is an instance of an <span class="code">ofstream</span> class</li>
+
+        <li>we may overload the extraction and insertion operators for file objects as left operands and our class types as right operands</li>
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Experiment with <span class="code">get()</span>, <span class="code">getline()</span> and
+        state on little programs of your own</li>
+       <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h3.html">Input and Output</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/basic_p.html" class="text3"><img src="./Refinements _ Input and Output Refinements_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html#top" class="text3">Top&nbsp; <img src="./Refinements _ Input and Output Refinements_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html" class="text3"><img src="./Refinements _ Input and Output Refinements_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Overview of Polymorphism</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html" class="text3">Next: Derived Classes and Resources&nbsp;&nbsp; <img src="./Refinements _ Input and Output Refinements_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Input and Output Refinements_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 03/21/2020 13:40&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Refinements _ Input and Output Refinements_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Refinements _ Input and Output Refinements_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

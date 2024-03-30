@@ -1,0 +1,1038 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/dclas.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+    <title>Refinements | Derived Classes and Resources</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Derived Classes and Resources_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Derived Classes and Resources_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Derived Classes and Resources_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Derived Classes and Resources_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Refinements _ Derived Classes and Resources_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas_p.html"><img src="./Refinements _ Derived Classes and Resources_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part F - Refinements</span>
+        <br>
+        <br>
+        <span class="texthead">Derived&nbsp;Classes and Resources</span>
+        <br>
+        <br>
+        <span class="textagend">Design classes with dynamically allocated resources to model the components of a programming solution
+        <br>
+        Define the copy constructor and assignment operator for a derived class with a resource
+        <br>
+        Identify the copy constructor and copy assignment operator defaults for a derived class
+        <br>
+        </span>
+
+        <p class="quote">"If you use pointers, you have to think about resource management" (Stroustrup, 1997)</p>
+        <span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#con">Constructor and Destructors</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#cop">Copy Constructor</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#ass">Copy Assignment Operator</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Inheritance hierarchies that access resources at multiple levels require intervention.&nbsp;
+       Managing relationships between the special member functions in a hierarchy with multiple
+       resources involves ensuring that the appropriate calls between these functions are made.&nbsp;
+       The definitions of some copy constructors and copy assignment operators in the hierarchy
+       may require explicit coding of the connections to their base class counterparts.&nbsp;</p>
+
+       <p>
+       This chapter describes how to define the constructors and the copy assignment operators
+       in a hierarchy that access multiple resources and how to call their base class
+       counterparts.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="con" class="section">Constructors and Destructor</p>
+
+       <p>
+       Each constructor of a derived class calls a constructor of its base class.&nbsp;
+       By default, that constructor is the no-argument constructor.&nbsp; To override this default,
+       we insert an explicit call to the base class constructor.&nbsp;
+       </p>
+       <p>
+       Destructors in an inheritance hierarchy do not require any intervention, since each
+       class in the hierarchy has but one destructor and each destructor calls its sole base
+       class counterpart automatically.&nbsp;
+       </p>
+
+       <p class="ssection">Example</p>
+
+       <p>
+       Let us upgrade the definition of our <span class="code">Student</span>
+       class to accommodate a client-defined number of grades.&nbsp; We store the grades
+       in dynamic memory and store the address of that memory in a resource instance pointer.&nbsp;
+       </p>
+
+       <p>
+       The upgraded definition of our <span class="code">Student</span> class contains
+       a resource instance pointer:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     <span class="high">float* grade;</span>
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     ~Student();
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Our four-argument constructor forwards the student's name to the single-argument
+       constructor of the base class and then allocates memory
+       for the grades.&nbsp; Our destructor deallocates that memory.&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+     <span class="high">grade = nullptr;</span>
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         <span class="high">ng = ng_;
+         if (ng &gt; 0) {
+             grade = new float[ng_];
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = g[i];
+         } else {
+             grade = nullptr;
+         }</span>
+     } else {
+         <span class="high">grade = nullptr;</span>
+         *this = Student();
+     }
+ }
+
+ Student::~Student() {
+     <span class="high">delete [] grade;</span>
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class with a Resource Constructors
+ // dclassResourceCtor.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane("Jane");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+
+     harry.display(std::cout);
+     jane.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+ Jane
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="cop" class="section">Copy Constructor</p>
+
+       <p>
+       The copy constructor of a derived class calls a constructor of the
+       base class.&nbsp; By default, that constructor is the no-argument constructor.&nbsp;
+       To override this default, we explicitly call the base class constructor of our choice.&nbsp;
+       </p>
+
+       <p>
+       The header in the definition of the copy constructor for a derived class takes the form
+       </p>
+       <pre class="defin"> <i>Derived</i>(const <i>Derived</i>&amp; <i>identifier</i>) : <i>Base</i>(<i>identifier</i>) {
+
+      // ...
+ }
+</pre>
+      <p>The parameter receives an unmodifiable reference to an
+      object of the derived class.&nbsp; The argument in the call
+      to the base class' constructor is the parameter's identifier.&nbsp;</p>
+
+       <p>
+       Copying occurs in two distinct stages and four steps altogether:</p>
+
+       <ol>
+        <li>copy the base class part of the existing object
+
+         <ol>
+          <li>allocate memory for the instance variables of the base class in
+          the order of their declaration</li>
+
+          <li>execute the base class' copy constructor</li>
+         </ol>
+        </li>
+
+        <li>copy the derived class part of the existing object
+
+         <ol start="3">
+          <li>allocate memory for the instance variables of the derived class
+          in the order of their declaration</li>
+
+          <li>execute the derived class' copy constructor</li>
+         </ol>
+        </li>
+       </ol>
+
+       <p class="ssection">Example</p>
+
+       <p>
+       Let us declare our own definition of the copy constructor for our
+       <span class="code">Student</span> class, but use the default definition for the
+       <span class="code">Person</span> class:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     <span class="high">float* grade;</span>
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     <span class="high">Student(const Student&amp;);</span>
+     ~Student();
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We implement the copying steps as follows:</p>
+
+       <ol>
+       <li>shallow copy the <span class="code">Person</span> part of the source object
+       <ul>
+        <li>allocate static memory for <span class="code">name</span> in the base class part of the newly created object</li>
+
+        <li>copy into <span class="code">name</span> the string at address
+        <span class="code">src.name</span></li>
+        </ul></li>
+
+        <li>copy the <span class="code">Student</span> part of the source object
+        <ul>
+        <li>allocate static memory for <span class="code">no</span>,
+        <span class="code">*grade</span> and <span class="code">ng</span> in the
+        derived part of the newly created object</li>
+
+        <li>shallow copy <span class="code">src.no</span> into <span class="code">no</span>
+        </li>
+
+        <li>shallow copy <span class="code">src.ng</span> into <span class="code">ng</span>
+        </li>
+
+        <li>allocate dynamic memory for a copy of <span class="code">src.grade</span></li>
+
+        <li>deep copy the elements at <span class="code">src.grade</span> into
+        <span class="code">grade</span></li>
+       </ul></li></ol>
+
+       <p>
+       The default copy constructor for the base class performs a shallow copy.&nbsp; The
+       copy constructor for the derived class calls the base class copy constructor and
+       performs the deep copy itself:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+     grade = nullptr;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_;
+         if (ng &gt; 0) {
+             grade = new float[ng_];
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = g[i];
+         } else {
+             grade = nullptr;
+         }
+     } else {
+         grade = nullptr;
+         *this = Student();
+     }
+ }
+
+ <span class="high">Student::Student(const Student&amp; src) : Person(src) {
+     no = src.no;
+     ng = src.ng;
+     if (src.grade != nullptr &amp;&amp; ng &gt; 0) {
+         grade = new float[ng];
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = src.grade[i];
+     }
+     else
+         grade = nullptr;
+ }</span>
+
+ Student::~Student() {
+     <span class="high">delete [] grade;</span>
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The <span class="code">Student</span> copy constructor executes its logic
+       after the <span class="code">Person</span> copy constructor has executed
+       its logic.&nbsp; </p>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class with a Resource Copy Constructor
+ // dclassResourceCopyCtor.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+     <span class="high">Student harrz = harry; // calls copy constructor&nbsp;</span>
+
+     harry.display(std::cout);
+     harrz.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="ass" class="section">Copy Assignment Operator</p>
+
+       <p>
+
+       </p><p>
+       The default copy assignment operator of a derived class calls the copy assignment
+       operator of its base class.&nbsp; However, any custom copy assignment operator of
+       a derived class DOES NOT by default call the copy assignment operator of its base
+       class.&nbsp; Accordingly, a custom copy assignment operator of a derived class with
+       a resource requires an explicit call to the base class copy assignment operator.</p>
+       <p>
+       We call the base class copy assignment operator from within the body of the definition
+       of the derived class assignment operator.&nbsp; The call takes one
+       of the following forms:
+       </p>
+       <ul>
+       <li>the functional form</li>
+       <li>the cast assignment form</li>
+       </ul>
+       <p>
+       The functional expression takes the form</p>
+       <pre class="defin"> <i>Base</i>::operator=(<i>identifier</i>);
+</pre>
+       <p>
+       </p><p>
+       The assignment expression takes the form</p>
+       <pre class="defin"> (<i>Base</i>&amp;)*this = <i>identifier</i>;
+</pre>
+       <p></p>
+       <span class="code"><i>Base</i></span> is the name of the base class and
+       <span class="code"><i>identifier</i></span> is the name of the right operand,
+       which is the source object for the assignment.&nbsp; Note that the
+       address of the derived object is the same as the address of the base
+       class part of that object.&nbsp; The compiler distinguishes the
+       call to the base class operator from a call to the derived class
+       operator by the type of the left operand.&nbsp;
+       <p></p>
+
+       <p class="ssection">Example
+
+       </p><p>
+       The derived class definition declares the assignment operator and a private
+       member function for the copying operations:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float* grade;
+     int ng;
+     <span class="high">void init(int, int, const float*);</span>
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     Student(const Student&amp;);
+     <span class="high">Student&amp; operator=(const Student&amp; src);</span>
+     ~Student();
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The private <span class="code">init()</span> contains the copying logic shared by the
+       constructors and the assignment operator:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(std::ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ <span class="high">void Student::init(int no_, int ng_, const float* g) {&nbsp;
+     no = no_;
+     ng = ng_;
+     if (g != nullptr &amp;&amp; ng &gt; 0) {
+         grade = new float[ng_];
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         grade = nullptr;
+     }
+ }</span>
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+     grade = nullptr;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         <span class="high">init(sn, ng_, g);</span>
+     } else {
+         grade = nullptr;
+         *this = Student();
+     }
+ }
+
+ Student::Student(const Student&amp; src) : Person(src) {
+     <span class="high">init(src.no, src.ng, src.grade);</span>
+ }
+
+ <span class="high">Student&amp; Student::operator=(const Student&amp; src) {
+     if (this != &amp;src) {
+         // Base class assignment&nbsp;
+         // 1 - functional expression
+         // Person::operator=(src);
+         // 2 - assignment expression
+         (Person&amp;)*this = src; // call base class assignment operator&nbsp;
+         delete [] grade;
+         init(src.no, src.ng, src.grade);
+     }
+     return *this;
+ }</span>
+
+ Student::~Student() {
+     delete [] grade;
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Sharing a <span class="code">private</span> member function is one way of
+       coding the copy constructor and assignment operator for the derived class.&nbsp;
+       </p>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class with a Resource Copy Assignment
+ // dclassResourceCopyAssmnt.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3), harrz;
+     <span class="high">harrz = harry; // calls copy assignment&nbsp;</span>
+
+     harry.display(std::cout);
+     harrz.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+      <p class="ssection">Direct Call Copy Constructor</p>
+      <p>
+       The alternative to sharing a private member function is a direct call from the copy
+       constructor to the copy assignment operator (as in the chapter entitled
+       <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">Classes and Resources</a>).&nbsp;
+       In a direct call, the assignment operator copies the base class part of the object
+       and any call to the base class copy constructor is redundant.&nbsp;
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> Student::Student(const Student&amp; src) { // calls no-argument base constructor&nbsp;
+     <span class="high">grade = nullptr;
+     *this = src;</span>
+ }
+
+ Student&amp; Student::operator=(const Student&amp; src) {
+     if (this != &amp;src) {
+         // Base class assignment&nbsp;
+         // 1 - functional expression
+         // Person::operator=(src);
+         // 2 - assignment expression
+         Person&amp; person = *this; // only copies address
+         person = src;           // call base class operator
+         delete [] grade;
+         <span class="high">no = src.no;
+         ng = src.ng;
+         if (src.ng &gt; 0) {
+             grade = new float[ng];
+             for (int i = 0; i &lt; ng; i++)
+                 grade[i] = src.grade[i];
+         }
+         else
+             grade = nullptr;</span>
+     }
+     return *this;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a derived class with a resource requires explicit definitions of its
+        special member functions - constructors, copy assignment operator and destructor</li>
+
+        <li>an explicitly defined derived class copy constructor without a call to the
+        base class' copy constructor calls the base class' no-argument constructor
+        </li>
+
+        <li>
+        the derived class' copy constructor executes the logic in the base class' copy
+        constructor first</li>
+
+        <li>
+        an explicitly defined derived class copy assignment operator does NOT automatically
+        call the base class assignment operator.&nbsp;</li>
+
+        <li>
+        the derived class assignment operator executes the base class assignment
+        operator entirely within the scope of the copy derived class assignment operator</li>
+
+        <li>the destructor of a derived class automatically calls the destructor of the
+        base class</li>
+       </ul>
+
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h14.html">Derived Class with a Resource</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas_p.html" class="text3"><img src="./Refinements _ Derived Classes and Resources_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html#top" class="text3">Top&nbsp; <img src="./Refinements _ Derived Classes and Resources_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html" class="text3"><img src="./Refinements _ Derived Classes and Resources_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Input and Output Refinements</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html" class="text3">Next: Language Standards&nbsp;&nbsp; <img src="./Refinements _ Derived Classes and Resources_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Derived Classes and Resources_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Refinements _ Derived Classes and Resources_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Refinements _ Derived Classes and Resources_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/ansis.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Refinements | Language Standards</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Language Standards_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Language Standards_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Language Standards_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Refinements _ Language Standards_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Refinements _ Language Standards_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Language Standards_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Language Standards_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis_p.html"><img src="./Refinements _ Language Standards_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Refinements _ Language Standards_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part F - Refinements</span>
+        <br>
+        <br>
+        <span class="texthead">Language Standards</span>
+        <br>
+        <br>
+        <span class="textagend">Introduce international standards and describe their evolution
+        <br>
+        </span>
+
+        <p class="quote">"C++11 feels like a new language: The pieces just fit together
+        better than they used to and I find a higher-level style of programming more
+        natural than before and as efficient as ever." (Stroustrup, 2013)
+        </p><span class="textagend">
+        <a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html#his">Milestones</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html#rel">Some Features that have Changed</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       Object-oriented languages have evolved since the concept of objects was
+       formally incorporated into the Simula language by Ole-Johan Dahl and
+       Kristen Nygaard in the 1960s.&nbsp;  International standards have
+       documented their evolution.&nbsp; The most recent standard for the
+       C++ language is formally known as ISO/IEC 14882:2014 and extends over
+       1300 pages.&nbsp; ISO stands for the International Organization
+       for Standardization.&nbsp; IEC stands for the International Electrotechnical
+       Commission.&nbsp;
+       </p>
+       <p>
+       This chapter reviews the milestones in the evolution of C++, highlights
+       some of the features introduced during its evolution with respect to the
+       original version of the language, and briefly discusses a few of the topics
+       that have evolved with the C++ standards.&nbsp;
+       </p>
+
+       <br>
+
+       <p id="his" class="section">Milestones</p>
+
+       <p>
+       C++ was originally designed as a synthesis of C and object-orientation
+       Simula-style.&nbsp; C had and still has no object-oriented capabilities.&nbsp;
+       Simula introduced the terms class, object, inheritance, virtual methods and
+       subclasses (derived classes) formally to the programming community.&nbsp;
+       </p>
+       <p>
+       <a href="http://www.research.att.com/~bs/homepage.html">Bjarne
+       Stroustrup</a> created C++ at Bell Labs (AT&amp;T Research Labs) by augmenting
+       C with the object-oriented features of Simula.&nbsp; He released C++ officially
+       in October 1985.&nbsp; His web site includes a quite useful and up-to-date
+       <a href="http://www.research.att.com/~bs/glossary.html">glossary of
+       technical terms</a>.
+       </p>
+       <p class="ssection">The ISO/IEC Standards</p>
+
+       <p>
+       At the time of printing, three standard definitions have been approved by the
+       international programming community.&nbsp;
+       </p>
+       <ul>
+       <li>C++98</li>
+       <li>C++11</li>
+       <li>C++14</li>
+       </ul>
+
+       <p class="sssection">C++98</p>
+
+       <p>
+       The first official standard that defined the C++ language
+       is formally known as ISO/IEC 14882:1998 and less formally as
+       C++98.&nbsp; The international programming community ratified
+       this definition in 1998 and published it in a document that
+       contains about 800 pages.&nbsp; The definition is based in part
+       on the ISO/IEC 9899:1990 standard for the C language (informally
+       known as C89).&nbsp;
+       </p>
+       <p>
+       C++98 augmented pre-standard C++ with
+       </p><p class="quote">
+       "additional data types, classes, templates, exceptions, namespaces,
+       inline functions, operator overloading, function name overloading,
+       references, freestore management operators, and additional library
+       facilities."
+       </p>
+
+       <p>
+       The library facilities included a newly re-written <span class="code">iostream</span>
+       library and the string class.&nbsp;
+       </p>
+
+       <p class="sssection">C++11</p>
+
+       <p>
+       The second official standard that re-defined the language is formally known
+       as ISO/IEC 14882:2011 and less formally as C++11.&nbsp; The international
+       programming community ratified this definition on August 12 2011.&nbsp; The
+       definition is based on C++98 and C99 and includes several major additions to
+       the core language as well as several major extensions of the standard library.&nbsp;</p>
+
+       <p>
+       The objectives of the C++11 committee had included:
+       </p>
+       <ul>
+       <li>making C++ easier to teach and to learn through increased
+       uniformity</li>
+       <li>making C++ better for systems programming and library
+       construction</li>
+       <li>improving the type safety of the language</li>
+       </ul>
+       <p>
+       The features that C++11 added to C++98 included (amongst others):
+       </p>
+       <ul>
+       <li>the <span class="code">nullptr</span> keyword replacing the
+       <span class="code">NULL</span> macro</li>
+       <li>the <span class="code">auto</span> keyword inferring the type
+       of a left operand implicitly from the type of the right operand
+       in an assignment expression</li>
+       <li>inherited constructors</li>
+       <li>features covered in the next volume of this series of notes
+       <ul>
+       <li>move constructors and assignment operators</li>
+       <li>lambda expressions (anonymous functions)</li>
+       <li>library support for multi-threading classes</li>
+       <li>range based for loops</li>
+       <li>strongly typed enumerations</li>
+       <li>uniformity amongst initializers</li>
+       <li>initializers for class members</li>
+       </ul>
+       </li>
+       </ul>
+
+       <p class="sssection">C++14</p>
+
+       <p>
+       The third official standard that re-defined the language is formally known
+       as ISO/IEC 14882:2014 and less formally as C++14.&nbsp; The international
+       programming community ratified this definition on August 18 2014.&nbsp;
+       The definition expanded the application of the <span class="code">auto</span>
+       keyword to return types, the application of templates to variables.&nbsp;
+       The changes made the language safer and more convenient.&nbsp;
+       </p>
+       <p>
+       These notes align with this standard.</p>
+       <p></p>
+
+       <p class="sssection">C++17</p>
+
+       <p>
+       The ISO/IEC 14882 standards committee is working on the next iteration scheduled
+       for ratification in July 2017.&nbsp; The committee intended this revision to
+       be a major amendment to the C++14 standard, but several new features did not
+       make the cut.&nbsp;
+       </p>
+
+       <p class="sssection">Compiler Support Status</p>
+
+       <p>
+       A language standard is a specification for compiler writers.&nbsp;
+       Different writers introduce different features adopted in a standard at
+       different times.&nbsp; The support status for the features approved in C++11
+       and C++14 is tabulated at
+       <a href="http://en.cppreference.com/w/cpp/compiler_support">http://en.cppreference.com/w/cpp/compiler_support</a>.&nbsp;
+       Links to the individual compiler web sites are included there.</p>
+
+       <br>
+
+       <p id="rel" class="section">Some Features that have Changed</p>
+
+       <p>
+       Facilities that C++98 and C++11 introduced included inline functions,
+       member function deletion, constrained casting and changes to freestore
+       management.&nbsp;
+       </p>
+
+        <p class="ssection">Inline Functions</p>
+        <p>
+        <i>Inlining</i> is a technique for improving a function's execution time
+        by replacing the function call with the function logic proper and
+        thereby removing the overhead associated with parameter passing.&nbsp;
+        The primary cost of inlining is an increase in the size of the executable
+        code.&nbsp;
+        </p>
+        <p>
+        An inline request directs the compiler to insert the body of the function
+        at every call to the function, if possible.&nbsp; The compiler, instead of
+        storing the function's definition once in its own dedicated region of memory
+        and transferring control to that region for each call, inserts a copy of the
+        body at each and every call.&nbsp; Inlining is particularly useful with member
+        functions that contain small blocks of code.&nbsp; Member functions that do not
+        contain iterations are candidates for inlining.</p>
+        <p>
+        The compiler determines whether or not to implement an inline request.&nbsp;
+        If the function contains too many statements or an iteration, the
+        compiler ignores the request and calls the function in the usual way.&nbsp;
+        </p>
+        <p class="sssection">Example</p>
+        <p>
+        To inline a member function, we embed its definition within
+        the class definition as shown on the left or alternatively add the
+        keyword <span class="code">inline</span> to the definition as shown on
+        the right.&nbsp;
+        </p>
+        <p>
+        For example,
+        </p>
+        <table width="95%">
+        <tbody><tr>
+        <td>
+        <pre> // Inline Functions - Embedded
+ // inline_1.h
+
+ const int NG = 20;
+
+ struct Student {
+   private:
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     void set(int n, const char* g);&nbsp;
+     <span class="high">const float* getGrades() const {
+         return grade;
+     }</span>
+ };
+
+
+</pre></td><td><pre> // Inline Functions - Separate
+ // inline_2.h
+
+ const int NG = 20;
+
+ struct Student {
+   private:
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     void set(int n, const char* g);&nbsp;
+     const float* getGrades() const;
+ };
+ <span class="high">inline</span> const float* Student::getGrades()&nbsp;
+  const {
+     return grade;
+ }
+</pre></td></tr></tbody></table>
+        <p>
+        Note that we place the implementation of an inline function in the header file
+        that includes the class definition.
+        </p>
+
+       <p class="ssection">Function Deletion</p>
+
+       <p>
+       C++11 introduced use of the keyword <span class="code">delete</span> to
+       inform the compiler that we do not want any default definition of a
+       member function created.&nbsp; An example of this usage is the Copies
+       Prohibited Section of the chapter entitled <a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html#noc">Classes and Resoures</a>.&nbsp;
+       </p>
+
+       <p class="sssection">The Legacy Way</p>
+
+       <p>
+       Prior to C++11, one way to prohibit a client from copying or copy assigning
+       an instance of a class was to declare both the copy constructor and copy assignment
+       operator as private members:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> class Student {
+     int no;
+     float* grade;
+     int ng;
+     <span class="high">Student(const Student&amp; source);
+     Student&amp; operator=(const Student&amp; source);&nbsp;</span>
+ public:
+     Student();
+     Student(int, const float*);
+     ~Student();
+     void display() const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Since these special member functions were defined as private members, no
+       definition was practically necessary.
+       </p>
+
+       <p class="ssection">C-Style Casts</p>
+
+        <p>
+       C++ inherited its original casting facilities from C directly.&nbsp;
+       The constrained casting syntax described in the chapter entitled
+       <a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html#cas">Templates</a> is more discriminating than the
+       inherited syntax.&nbsp; The standards support the inherited syntax for
+       legacy reasons.&nbsp; The availability of these older features allows
+       programmers to bypass the type system and directly weaken a compiler's
+       ability to identify type errors.&nbsp;
+       </p>
+
+       <p>
+       For example, consider code that converts an <span class="code">int</span>
+       to a pointer to an <span class="code">int</span>.&nbsp; Such code is most
+       probably a typing mistake, C and hence C++ allow this code to slip through
+       the type checking system:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre class="error">     int x = 2;
+     int* p;
+     p = (int*)(x); // MOST PROBABLY A TYPING ERROR (&amp; missing)!&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       Nevertheless, in applications built from many thousands of lines of code,
+       we expect the compiler's type-checking system to flag such code.&nbsp;
+       Errors that result from such casts are very difficult to find if they
+       are embedded within many thousands of lines of code.&nbsp;</p>
+
+       <p>
+       C++ supports old-style casting in two distinct forms - plain C-style casts and
+       C++-function-style casts:
+       </p>
+       <pre class="defin"> (<i>Type</i>) <i>identifier</i>       and      <i>Type</i> (<i>identfier</i>)
+</pre>
+
+       <p>These forms are interchangeable for fundamental types, but not
+       pointer types.&nbsp; For conversions to pointer types, only the
+       C-style cast is available.&nbsp;
+       </p>
+       <p class="sssection">C-Style Casts</p>
+
+       <p>To cast a value from one type to another using a C-style cast,
+       we simply preface the identifier with the name of the target type
+       enclosed in parentheses:&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // C-Style Casting
+ // c_cast.cpp
+
+ #include &lt;iostream&gt;
+
+ int main() {
+     double hours;
+     int minutes;
+     std::cout &lt;&lt; "Enter minutes : ";
+     std::cin &gt;&gt; minutes;
+     hours = <span class="high">(double)</span> minutes / 60;  // C-Style Cast&nbsp;
+     std::cout &lt;&lt; "In hours, this is " &lt;&lt; hours;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Function-Style Casts</p>
+
+       <p>
+       To cast a value from one type to another using a function-style cast,
+       we enclose in parentheses the variable or object to be cast
+       to the target type:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Function Style Casting
+ // functionStyleCast.cpp
+
+ #include &lt;iostream&gt;
+
+ int main() {
+     double hours;
+     int minutes;
+     std::cout &lt;&lt; "Enter minutes : ";
+     std::cin &gt;&gt; minutes;
+     hours = <span class="high">double(</span>minutes<span class="high">)</span> / 60;  // Function-Style Cast&nbsp;
+     std::cout &lt;&lt; "In hours, this is " &lt;&lt; hours;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">Comparison</p>
+
+      <p>
+       The C-style casts (for example, <span class="code">(int)x</span>) apply without
+       regard to the nature of the conversion.&nbsp; Such syntax does not convey
+       the programmer's intent.&nbsp;
+       </p>
+       <p>
+       A C-style cast can mean any of the following:
+       </p>
+       <ul>
+       <li><span class="code">static_cast</span></li>
+       <li><span class="code">const_cast</span></li>
+       <li><span class="code">static_cast</span> + <span class="code">const_cast</span></li>
+       <li><span class="code">reinterpret_cast</span></li>
+       <li><span class="code">reinterpret_cast</span> + <span class="code">const_cast</span></li>
+       </ul>
+       <p>
+       The constrained casts distinguish the different categories and thereby improve the
+       degree of type checking available from the compiler.
+       </p>
+       <p>
+       For example, it is always safer type-wise to code a <span class="code">static_cast</span> rather than a
+       C-style cast.
+       </p>
+       <p class="ssection">Freestore Management</p>
+
+       <p>
+       C++98 introduced exception handling for dynamic memory allocation.&nbsp;
+       By default, the <span class="code">new</span> operator throws an exception
+       if the operator encounters an error.&nbsp; The topic of exception handling
+       is covered in the next volume of this series of notes.&nbsp;
+       </p>
+
+       <p class="sssection">The Legacy Way</p>
+
+       <p>
+       Prior to C++98, the <span class="code">new</span> operator returned the null address
+       if it encountered an error (for example, insufficient memory).&nbsp;
+       </p>
+       <p>
+       The following legacy code checks for such an error:
+       </p>
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Prior to C++98
+
+ #include &lt;iostream.h&gt;
+
+ int main() {
+     char* p;
+     int i = 0;
+
+     do {
+         p = new char[100001];
+         i++;
+     } while (p != NULL);
+
+     cout &lt;&lt; "Out of space after " &lt;&lt; i &lt;&lt; " attempts!\n";&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="sssection">One Alternative</p>
+
+       <p>
+       Since C++98, we can instruct the <span class="code">new</span> operator to return
+       the null address by passing the <span class="code">nothrow</span>
+       argument to the operator.&nbsp; <span class="code">nothrow</span> is
+       defined in the <span class="code">new</span> header file:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // After C++98 - Null Address Alternative
+
+ <span class="high">#include &lt;new&gt;</span>
+ #include &lt;iostream&gt;
+
+ int main() {
+     char* p;
+     int i = 0;
+
+     do {
+         p = new <span class="high">(std::nothrow)</span> char[100001];
+         i++;
+     } while (p != NULL);
+
+     std::cout &lt;&lt; "Out of space after " &lt;&lt; i &lt;&lt; " attempts!\n";&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       With C++11, we can improve type safety by replacing the macro
+       <span class="code">NULL</span> with
+       the <span class="code">nullptr</span> keyword:&nbsp;</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // After C++11 - Null Address Alternative
+
+ <span class="high">#include &lt;new&gt;</span>
+ #include &lt;iostream&gt;
+
+ int main( ) {
+     char* p;
+     int i = 0;
+
+     do {
+         p = new <span class="high">(std::nothrow)</span> char[100001];
+         i++;
+     } while (p != <span class="high">nullptr</span>);
+
+     std::cout &lt;&lt; "Out of space after " &lt;&lt; i &lt;&lt; " attempts!\n";&nbsp;
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">A Technical Note on Inclusion Polymorphism</p>
+
+       <p class="sssection">Dynamic Dispatch or Late Binding</p>
+
+       <p>
+       The terms dynamic dispatch and late binding arise in descriptions of inclusion
+       polymorphism.&nbsp; These terms have similar definitions and are sometimes used
+       interchangeably.&nbsp; Technically, dynamic dispatch is the more precise
+       term in regard to C++.
+       </p>
+
+       <p>
+       <i>Dynamic dispatch</i> is the process of selecting which implementation of a member
+       function in a class hierarchy to call on a polymorphic object.&nbsp; The
+       name of the operation may be bound to a polymorphic operation at compile
+       time and the implementation identified at run time.&nbsp;
+       The object's dynamic type determines which implementation to call.&nbsp;
+       </p>
+       <p>
+       <i>Late binding</i> associates a method's name with an object based on its
+       dynamic type.&nbsp; The name of the operation is bound to a polymorphic
+       operation at run time when the implementation is identified.&nbsp; Late
+       binding implies dynamic dispatch.
+       </p>
+
+       <p>
+       C++ uses early binding and static or dynamic dispatch.&nbsp; Static dispatch
+       is the default.&nbsp; The <span class="code">virtual</span> keyword implements
+       dynamic dispatch.
+       </p>
+
+       <p class="sssection">Virtual Table</p>
+
+       <p>
+       Most C++ compilers implement dynamic dispatch by adding an instance pointer
+       to the object's data members.&nbsp; This pointer redirects to a table that
+       associates the member function implementations with object types.&nbsp; The
+       run-time code uses this table to select the implementation corresponding to
+       the object's dynamic type.&nbsp; This table is called the <i>virtual table</i>
+       for the class.&nbsp;
+       </p>
+       <p>
+       The compiler creates the virtual table at compile time.&nbsp; Introducing
+       a virtual table (by inserting the keyword <span class="code">virtual</span>)
+       results in the equivalent of a single indirection every time a client calls
+       a virtual member function on an instance of its class; that is, it does not
+       introduce a significant overhead.&nbsp; Since the compiler constructs the
+       table at compile time, it is unmodifiable at run-time and we cannot add a
+       new member function to the class at that time.&nbsp;
+       </p>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis_p.html" class="text3"><img src="./Refinements _ Language Standards_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html#top" class="text3">Top&nbsp; <img src="./Refinements _ Language Standards_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html" class="text3"><img src="./Refinements _ Language Standards_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      DErived Classes and Resources</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/index.html" class="text3">Next: Table of Contents&nbsp;&nbsp; <img src="./Refinements _ Language Standards_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Language Standards_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Refinements _ Language Standards_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Refinements _ Language Standards_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 05/20/2017 11:50&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Refinements _ Language Standards_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Refinements _ Language Standards_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
