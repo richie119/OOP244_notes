@@ -1,0 +1,1617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0061)https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html -->
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="generator" content="HTML Tidy for Windows (vers 25 March 2009), see www.w3.org">
+
+ <title>Inheritance | Functions in a Hierarchy</title>
+ 
+ <meta http-equiv="PICS-Label" content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))">
+ <meta name="Copyright" content="(c) Copyright Chris Szalwinski and Seneca College 2016">
+ <meta name="Description" content="Welcome to the ICT Programming Stream C++ Web Site. On this site you can find the introductory course to object-oriented programming. Designed by Chris Szalwinski.">
+ <meta name="Abstract" content="This subject introduces the principles of object-oriented programming. Students study the solution of problems using objects with the C++ programming language. The emphasis throughout is on the solution of small problems.">
+ <meta name="Author" content="chris.szalwinski@senecacollege.ca">
+ <meta name="Keywords" content="software development, object-oriented programming, lecture notes">
+ <link rel="stylesheet" type="text/css" href="./Inheritance _ Functions in a Hierarchy_files/style.043.css">
+ <link rel="stylesheet" type="text/css" href="./Inheritance _ Functions in a Hierarchy_files/styleScreen.043.css" media="screen">
+ <link rel="stylesheet" type="text/css" href="./Inheritance _ Functions in a Hierarchy_files/styleSPrint.043.css" media="print">
+ <link rel="stylesheet" type="text/css" href="./Inheritance _ Functions in a Hierarchy_files/styleNav.043.css">
+</head>
+
+<body>
+ <table id="top" width="850" cellspacing="0" cellpadding="0" summary="body">
+  <!-- Banner -->
+
+  <tbody><tr class="banner">
+   <td colspan="2" class="banner">
+    <table cellspacing="0" cellpadding="0" summary="banner">
+     <tbody><tr>
+      <td class="w250 banner">
+       <div class="center">
+        <span class="text0">&nbsp;&nbsp;Software&nbsp;&nbsp;
+        <br>
+        &nbsp;&nbsp;Development&nbsp;&nbsp;</span>
+       </div>
+      </td>
+
+      <td class="tbanner"><img src="./Inheritance _ Functions in a Hierarchy_files/Banner4.gif" height="120" width="500" alt="Software Development"></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Navigation Bar -->
+
+  <tr class="navigate">
+   <td class="panel1" align="left" valign="bottom">
+    <ul id="tabnav">
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline</a></li>
+
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc_p.html"><img src="./Inheritance _ Functions in a Hierarchy_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page"></a></li>
+    </ul>
+   </td><!-- Web Site Title -->
+
+   <td class="panel2 w150" align="center"><span class="text1"><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/subject.js">
+</script>OOP244</span></td>
+  </tr><!-- Body Cells -->
+
+  <tr class="content">
+   <!-- Content Area -->
+
+   <td class="tbody" valign="top">
+    <table cellpadding="10" width="100%" summary="content">
+     <tbody><tr>
+      <td class="content" valign="top">
+       <br>
+
+       <div class="center">
+        <span class="texth">Part D - Inheritance</span>
+        <br>
+        <br>
+        <span class="texthead">Functions in a Hierarchy</span>
+        <br>
+        <br>
+        <span class="textagend">
+        Relate classes using inheritance hierarchies to minimize the duplication of object code
+        <br>
+        Shadow a base class function using a derived class function
+        <br>
+        Pass initialization data across the constructors of a class hierarchy
+        <br>
+        </span>
+
+        <p class="quote"></p>
+        <span class="textagend"><a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#sha">Shadowing</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#con">Constructors</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#des">Destructors</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#hel">Helpers</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#sum">Summary</a>
+        | <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#exe">Exercises</a>
+        </span>
+       </div>
+       <br>
+       <br>
+
+       <p>
+       The logic that a derived class inherits from its base class is limited
+       to the normal member functions of the base class.&nbsp; A derived class
+       does not by default inherit the constructors, the destructor or the copy
+       assignment operator - that is, the special member functions - of the base
+       class.&nbsp;
+       The special member functions in a class hierarchy define the logic for the
+       creation, destruction and copying of different parts of an object and are
+       necessarily different.&nbsp; A derived class' constructor automatically
+       calls the base class' default constructor.&nbsp; A derived class' destructor
+       automatically calls the base class' destructor.&nbsp; A derived class' copy
+       assignment operator automatically calls the base class' copy assignment
+       operator.&nbsp;
+       </p>
+
+       <p>
+       This chapter describes how member functions shadow one another in a hierarchy
+       and the order in which constructors and destructors call one another.&nbsp;
+       This chapter shows how to define a derived class' constructor to access a
+       specific base class constructor and how to overload a helper operator for a
+       derived class.</p>
+       <br>
+
+       <p id="sha" class="section">Shadowing</p>
+
+       <p>
+       A member function of a derived class <i>shadows</i> the base class member function
+       with the same identifier.&nbsp; The C++ compiler binds a call to the member function
+       of the derived class, if one exists.&nbsp; </p>
+
+       <p>
+       To access the base class version of a member function that a derived class
+       version has shadowed, we use scope resolution.&nbsp; A call to a shadowed
+       function takes the form</p>
+       <pre class="defin"> <i>Base</i>::<i>identifier</i>(<i>arguments</i>)
+</pre>
+       <p>where <span class="code"><i>Base</i></span> identifies the class to which the
+       shadowed function belongs.</p>
+
+       <p class="ssection">Example</p>
+
+       <p>
+       Consider the following hierarchy.&nbsp; The base class and the derived class
+       define distinct versions of the <span class="code">display()</span> member
+       function.&nbsp; The <span class="code">Student</span> class version shadows
+       the <span class="code">Person</span> class version for any object of
+       <span class="code">Student</span> type:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     void set(const char* n);
+     <span class="high">void display(std::ostream&amp;) const;</span>&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     <span class="high">void display(std::ostream&amp;) const;</span>
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We access the base class version from the derived version using scope resolution:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std::
+
+ void Person::set(const char* n) {
+     strncpy(name, n, NC);
+     name[NC] = '\0';
+ }
+
+ <span class="high">void Person::display(std::ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }</span>
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student(n, g, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         <span class="high">Person::display(os);</span>
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client code produces the output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Shadowing
+ // shadowing.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     <span class="high">Person jane;
+     jane.set("Jane Doe");</span>
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry(1234, gh, 3);
+     harry.set("Harry");           // inherited
+     harry.display(std::cout);     // not inherited
+     jane.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Jane Doe
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p><span class="code">harry.display(std::cout)</span> calls <span class="code">Student::display()</span>, which calls the shadowed
+       <span class="code">Person::display()</span>, while
+       <span class="code">jane.display()</span>
+       calls <span class="code">Person::display()</span> directly.&nbsp; The derived
+       version shadows the base version when called on <span class="code">harry</span>.&nbsp;
+       </p>
+
+       <p class="sssection">Good Design Tip</p>
+
+       <p>
+       By calling <span class="code">Person::display()</span> within
+       <span class="code">Student::display()</span>, we hide the
+       hierarchy from the client code.&nbsp; The <span class="code">main()</span>
+       function is hierarchy agnostic.
+       </p>
+
+       <p class="ssection">Exposing an Overloaded Member Function<script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       The C++ language shadows member functions on their identifier and not on their
+       signature.&nbsp; To expose an overloaded member function in the base class with the
+       same identifier but a different signature we insert a <span class="code">using</span>
+       declaration into the definition of the derived class.&nbsp;
+       A <span class="code">using</span> declaration takes the form</p>
+       <pre class="defin"> using <i>Base</i>::<i>identifier</i>;
+</pre>
+       <p>where <span class="code"><i>Base</i></span> identifies the base class and
+       <span class="code"><i>identifier</i></span> is the name of the shadowed function.</p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       Let us overload the <span class="code">display()</span> member function in the
+       <span class="code">Person</span> class to take two arguments: a modifiable reference
+       to the output stream and the address of a C-style null-terminated character string
+       containing a prefix message.&nbsp; We insert the <span class="code">using</span>
+       declaration in the definition of the derived class to expose this member function
+       and any other with the same identifier for objects of the derived class.&nbsp;
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     void set(const char* n);
+     void display(std::ostream&amp;) const;&nbsp;
+     <span class="high">void display(std::ostream&amp;, const char*) const;</span>&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void display(std::ostream&amp;) const;
+     <span class="high">using Person::display;</span>&nbsp;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We define the overloaded <span class="code">display()</span> function
+       for the base class:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ void Person::set(const char* n) {
+     strncpy(name, n, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ <span class="high">void Person::display(ostream&amp; os, const char* msg) const</span> {&nbsp;
+     os &lt;&lt; msg &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student(n, nullptr, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client produces the result shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Overloading and Shadowing
+ // overloading.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane;
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry(1234, gh, 3);
+
+     harry.set("Harry");
+     harry.display(std::cout);
+     <span class="high">harry.display(std::cout, "Name is ");</span>
+     std::cout &lt;&lt; std::endl;
+     jane.set("Jane Doe");
+     jane.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+
+
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+ Name is Harry&nbsp;
+ Jane Doe
+
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="con" class="section">Constructors</p>
+
+       <p>
+       A derived class does not inherit a base class constructor by default.&nbsp;
+       That is, if we do not declare a constructor in our definition of the derived class,
+       the compiler inserts an empty no-argument constructor by default.</p>
+
+       <p>
+       The compiler constructs an instance of the derived class in four steps in
+       two distinct stages:</p>
+
+       <ol>
+        <li>construct the base class portion of the complete object
+
+         <ol>
+          <li>allocate memory for the instance variables in the
+          order of their declaration</li>
+
+          <li>execute the base class constructor</li>
+         </ol>
+        </li>
+
+        <li>construct the derived class portion of the object
+
+         <ol start="3">
+          <li>allocate memory for the instance variables in the
+          order of their declaration</li>
+
+          <li>execute the derived class constructor</li>
+         </ol>
+        </li>
+       </ol>
+
+       <p class="center"><img src="./Inheritance _ Functions in a Hierarchy_files/inherit ctor.png" alt="inheritance constructors" width="224" height="135"></p>
+
+       <p>
+       In our example, let us define a no-argument constructor for the
+       base class.&nbsp; The header file declares the no-argument constructor:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     <span class="high">Person();</span>
+     void set(const char* n);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(int, const float*, int);
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file defines the base class constructor:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ <span class="high">Person::Person() {
+     <span class="high">cout &lt;&lt; "Person()" &lt;&lt; endl;</span>
+     name[0] = '\0';
+ }</span>
+
+ void Person::set(const char* n) {
+     <span class="high">cout &lt;&lt; "Person(const char*)" &lt;&lt; endl;</span>
+     strncpy(name, n, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     <span class="high">cout &lt;&lt; "Student()" &lt;&lt; endl;</span>
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     <span class="high">cout &lt;&lt; "Student(int)" &lt;&lt; endl;</span>
+     float g[] = {0.0f};
+     *this = Student(n, g, 0);
+ }
+
+ Student::Student(int sn, const float* g, int ng_) {
+     <span class="high">cout &lt;&lt; "Student(int, const float*, int)" &lt;&lt; endl;&nbsp;</span>
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client uses this implementation to produce the
+       result shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class Constructors
+ // derivedCtors.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane;
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry(1234, gh, 3);
+
+     harry.set("Harry");
+     harry.display(std::cout);
+
+     jane.set("Jane");
+     jane.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+ Person()
+ Person()
+ Student(int, const float*, int);
+ Person(const char*);
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Person(const char*);
+ Jane
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>In this example, the compiler constructs the two objects as follows:</p>
+       <ol>
+       <li> allocates memory for <span class="code">jane</span>
+       <ol>
+       <li>allocates memory for <span class="code">person</span></li>
+       <li>the base class constructor initializes <span class="code">person</span> to an empty string</li>
+       </ol>
+       </li>
+       <li>allocates memory for <span class="code">harry</span>
+       <ol>
+       <li>allocates memory for <span class="code">name</span></li>
+       <li>the base class constructor initializes <span class="code">name</span> to an empty string</li>
+       <li>allocates memory for <span class="code">no</span>,
+       <span class="code">grade</span> and <span class="code">ng</span></li>
+       <li>the derived class constructor initializes
+       <ul>
+       <li><span class="code">no</span> to <span class="code">1234</span></li>
+       <li><span class="code">grade</span> to <span class="code">{89.40f, 67.80f, 45.50f}</span></li>
+       <li><span class="code">ng</span> to <span class="code">3</span></li>
+       </ul>
+       </li>
+       </ol>
+       </li>
+       </ol>
+
+       <p class="ssection">Passing Arguments to a Base Class Constructor</p>
+
+       <p>
+       Each constructor of a derived class, other than the no-argument constructor,
+       receives in its parameters all of the values passed by the client.&nbsp;
+       Each constructor forwards the values for the base class part of the object to
+       the base class constructor.&nbsp; The base class constructor uses the values
+       received to build the base class part of the object.&nbsp; The derived class
+       constructor uses the values received to complete building the derived class
+       part of the object.&nbsp;
+       </p>
+       <p>
+       A call to the base class constructor from a derived class constructor that
+       forwards values takes the form</p>
+       <pre class="defin"> <i>Derived</i>( <i>parameters</i> ) : <i>Base</i>( <i>arguments</i> )
+</pre>
+       <p>
+       where <span class="code"><i>Derived</i></span> is the name of the derived class and
+       <span class="code"><i>Base</i></span> is the name of the base class.&nbsp;
+       The single colon separates the header of the derived-class constructor
+       from its call to the base class constructor.&nbsp; If we omit this call,
+       the compiler inserts a call to the default base class constructor.&nbsp; </p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       Let us replace the <span class="code">set()</span> member function
+       in the base class with a one-argument constructor and upgrade the
+       <span class="code">Student</span>'s three-argument constructor
+       to receive the student's name.&nbsp; The header file declares
+       a single-argument base class constructor and a four-argument
+       derived class constructor:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     <span class="high">Person(const char*);</span>
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     <span class="high">Student(const char*, int, const float*, int);</span>&nbsp;
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation of the single-argument constructor copies the name to the
+       instance variable:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ <span class="high">Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }</span>
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student(<span class="high">"",</span> n, g, 0);
+ }
+
+ <span class="high">Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm)</span> {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class Constructors with Arguments
+ // drvdCtorsArgs.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane("Jane");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+
+     harry.display(std::cout);
+     jane.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Jane
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p class="ssection">Inheriting Base Class Constructors <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       C++11 introduced syntax for inheriting a base class constructor in cases where
+       the derived class constructor does not execute any logic on the instance variables
+       of the derived class and only passes to the base class constructor values
+       received from the client.&nbsp; In such cases, the derived class may inherit
+       the base class constructors.</p>
+       <p>
+       The declaration for inheriting a base class constructor takes
+       the form:</p>
+       <pre class="defin"> using <i>Base</i>::<i>Base</i>;
+</pre>
+       <p>
+       where <span class="code"><i>Base</i></span> is the name of the base class.&nbsp;
+       </p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       Let us derive an <span class="code">Instructor</span> class from the
+       <span class="code">Person</span> base class and inherit all of the constructors
+       of the base class.&nbsp; The header file overrides the no-inheritance default:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ // compiles with GCC 4.8 or greater or equivalent
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     void display(std::ostream&amp;) const;
+ };
+
+ <span class="high">class Instructor : public Person {
+   public:
+     using Person::Person;
+ };</span>
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file remains unchanged.&nbsp; The following client
+       uses this new class definition to produce the output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Inherited Constructors
+ // inheritCtors.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Instructor john("John");
+     Person jane("Jane");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+     john.display(std::cout);
+     std::cout &lt;&lt; std::endl;
+     harry.display(std::cout);
+     jane.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+
+
+
+ John
+ Harry 1234:&nbsp;
+  89.40
+  67.80
+  45.50
+ Jane
+
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="des" class="section">Destructors</p>
+
+       <p>
+       A derived class does not inherit the destructor of its base class.&nbsp;
+       Destructors execute in opposite order to the order of their object's construction.&nbsp;
+       That is, the derived class destructor always executes before the base class
+       destructor.&nbsp;</p>
+
+       <p class="center"><img src="./Inheritance _ Functions in a Hierarchy_files/inherit dtor.png" width="215" height="156" alt="inheritance destructors"></p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       Let us define destructors for our base and derived classes that insert
+       tracking messages to standard output.&nbsp; We declare each destructor
+       in its class definition:</p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     <span class="high">~Person();</span>
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     <span class="high">~Student();</span>
+     void display(std::ostream&amp;) const;
+ };
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       We specify the messages in the destructor definitions:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ <span class="high">Person::~Person() {
+     std::cout &lt;&lt; "Leaving " &lt;&lt; name &lt;&lt; std::endl;
+ }</span>
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ <span class="high">Student::~Student() {
+     std::cout &lt;&lt; "\nLeaving " &lt;&lt; no &lt;&lt; std::endl;
+ }</span>
+
+ void Student::display(ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Derived Class Destructors
+ // drvdDtors.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane("Jane");
+     float gh[] = {89.4f, 67.8f, 45.5f};
+     Student harry("Harry", 1234, gh, 3);
+
+     harry.display(std::cout);
+     jane.display(std::cout);
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+
+
+
+ Harry 1234:
+  89.40
+  67.80
+  45.50
+ Jane
+ Leaving 1234
+ Leaving Harry&nbsp;
+ Leaving Jane
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="hel" class="section">Helper Operators <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/optional.js"></script>(Optional)</p>
+
+       <p>
+       Helper functions support the classes identified by their parameter types.&nbsp;
+       Each helper function is dedicated to the class that it supports.&nbsp; The
+       compiler binds a call to a helper function on the basis of its parameter
+       type(s).&nbsp; That is, the helper functions of a base class do not directly
+       support classes derived from the supported base class.&nbsp;
+       </p>
+
+       <p class="sssection">Example</p>
+
+       <p>
+       Let us upgrade our <span class="code">Student</span> class to include overloads
+       of the insertion and extraction operators for both base and derived classes.&nbsp;
+       The header file contains:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.h
+
+ #include &lt;iostream&gt;
+ const int NC = 30;
+ const int NG = 20;
+
+ class Person {
+     char name[NC+1];
+   public:
+     Person();
+     Person(const char*);
+     void display(std::ostream&amp;) const;&nbsp;
+ };
+ <span class="high">std::istream&amp; operator&gt;&gt;(std::istream&amp;, Person&amp;);&nbsp;
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const Person&amp;);</span>
+
+ class Student : public Person {
+     int no;
+     float grade[NG];
+     int ng;
+   public:
+     Student();
+     Student(int);
+     Student(const char*, int, const float*, int);&nbsp;
+     <span class="high">void read(std::istream&amp;);</span>
+     void display(std::ostream&amp;) const;
+ };
+ <span class="high">std::istream&amp; operator&gt;&gt;(std::istream&amp;, Student&amp;);&nbsp;
+ std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const Student&amp;);</span>&nbsp;
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The implementation file defines the helper operators:
+       </p>
+
+       <table width="45%" summary="">
+        <tbody><tr>
+         <td>
+          <pre> // Student.cpp
+
+ #include &lt;cstring&gt;
+ #include "Student.h"
+ using namespace std;
+
+ Person::Person() {
+     name[0] = '\0';
+ }
+
+ Person::Person(const char* nm) {
+     strncpy(name, nm, NC);
+     name[NC] = '\0';
+ }
+
+ void Person::display(ostream&amp; os) const {
+     os &lt;&lt; name &lt;&lt; ' ';
+ }
+
+ <span class="high">istream&amp; operator&gt;&gt;(istream&amp; is, Person&amp; p) {
+     char name[NC+1];
+     cout &lt;&lt; "Name: ";
+     is.getline(name, NC+1);
+     p = Person(name);
+     return is;
+ }
+
+ std::ostream&amp; operator&lt;&lt;(ostream&amp; os, const Person&amp; p) {
+     p.display(os);
+     return os;
+ }</span>
+
+ Student::Student() {
+     no = 0;
+     ng = 0;
+ }
+
+ Student::Student(int n) {
+     float g[] = {0.0f};
+     *this = Student("", n, g, 0);
+ }
+
+ Student::Student(const char* nm, int sn, const float* g, int ng_) : Person(nm) {&nbsp;
+     bool valid = sn &gt; 0 &amp;&amp; g != nullptr &amp;&amp; ng_ &gt;= 0;&nbsp;
+     if (valid)
+         for (int i = 0; i &lt; ng_ &amp;&amp; valid; i++)
+             valid = g[i] &gt;= 0.0f &amp;&amp; g[i] &lt;= 100.0f;
+
+     if (valid) {
+         // accept the client's data
+         no = sn;
+         ng = ng_ &lt; NG ? ng_ : NG;
+         for (int i = 0; i &lt; ng; i++)
+             grade[i] = g[i];
+     } else {
+         *this = Student();
+     }
+ }
+
+ void Student::display(std::ostream&amp; os) const {
+     if (no &gt; 0) {
+         Person::display(os);
+         os &lt;&lt; no &lt;&lt; ":\n";
+         os.setf(ios::fixed);
+         os.precision(2);
+         for (int i = 0; i &lt; ng; i++) {&nbsp;
+             os.width(6);
+             os &lt;&lt; grade[i] &lt;&lt; endl;
+         }
+         os.unsetf(ios::fixed);
+         os.precision(6);
+     } else {
+         os &lt;&lt; "no data available" &lt;&lt; endl;&nbsp;
+     }
+ }
+
+ <span class="high">void Student::read(istream&amp; is) {
+     char name[NC + 1]; // will hold the student's name
+     int no;            // will hold the student's number
+     int ng;            // will hold the number of grades
+     float grade[NG];   // will hold the grades
+
+     std::cout &lt;&lt; "Name: ";
+     is.getline(name, NC+1);
+     cout &lt;&lt; "Student Number : ";
+     is &gt;&gt; no;
+     cout &lt;&lt; "Number of Grades : ";
+     is &gt;&gt; ng;
+     if (ng &gt; NG) ng = NG;
+     for (int i = 0; i &lt; ng; i++) {
+         cout &lt;&lt; "Grade " &lt;&lt; i + 1 &lt;&lt; " : ";
+         is &gt;&gt; grade[i];
+     }
+
+     // construct a temporary Student
+     Student temp(name, no, grade, ng);
+     // if data is valid, the temporary object into the current object&nbsp;
+     if (temp.no != 0)
+         *this = temp;
+ }
+
+ istream&amp; operator&gt;&gt;(istream&amp; is, Student&amp; s) {&nbsp;
+     s.read(is);
+     return is;
+ }
+
+ ostream&amp; operator&lt;&lt;(ostream&amp; os, const Student&amp; s) {&nbsp;
+     s.display(os);
+     return os;
+ }</span>
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <p>
+       The following client uses this implementation to produce the
+       output shown on the right:
+       </p>
+
+       <table width="95%" summary="">
+        <tbody><tr>
+         <td class="w70">
+          <pre> // Helpers to Derived Classes
+ // drvdHelpers.cpp
+
+ #include &lt;iostream&gt;
+ #include "Student.h"
+
+ int main() {
+     Person jane;
+     Student harry;
+
+     std::cin &gt;&gt; jane;
+     std::cin &gt;&gt; harry;
+     std::cout &lt;&lt; jane &lt;&lt; std::endl;
+     std::cout &lt;&lt; harry &lt;&lt; std::endl;
+ }
+</pre>
+         </td>
+
+         <td class="w30">
+          <pre class="result">
+
+
+ Name: Jane Doe
+ Name: Harry
+ Student Number : 1234&nbsp;
+ Number of Grades : 3
+ Grade 1 : 89.40
+ Grade 2 : 67.80
+ Grade 3 : 45.50
+ Jane Doe
+ Harry 1234
+  89.40
+  67.80
+  45.50
+</pre>
+         </td>
+        </tr>
+       </tbody></table>
+
+       <br>
+
+       <p id="sum" class="section">Summary</p>
+
+       <ul>
+        <li>a member function of a derived class shadows an identically named member function
+        of a base class</li>
+
+        <li>a derived class does not inherit the destructor, assignment operators
+        or helper functions of a base class</li>
+
+        <li>a derived class does not by default inherit the constructor of a base
+        class, but we may add syntax to allow inheritance where the derived class
+        constructor does not contain logic to set its instance variables</li>
+
+        <li>constructors in an inheritance hierarchy execute in order from the base
+        class to the derived class</li>
+
+        <li>destructors in an inheritance hierarchy execute in order from the derived
+        class to the base class</li>
+
+       </ul>
+       <br>
+
+       <p id="exe" class="section">Exercises</p>
+
+       <ul>
+        <li>Complete the Handout on <a href="https://ict.senecacollege.ca/~oop244/pages/handouts/h13.html">Functions in a Hierarchy</a></li>
+        <li>Complete the Workshop on <a href="https://ict.senecacollege.ca/~oop244/pages/workshops/w8.html">Derived Classes</a></li>
+       </ul>
+       <br>
+       <br>
+       <br>
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Detail Menu -->
+
+   <td class="panel1 w150" valign="top" rowspan="2">
+    <ul id="mennav">
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/welco.html">Welcome</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/langu.html">&nbsp;Welcome&nbsp;to&nbsp;OO</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/objec.html">&nbsp;Object&nbsp;Terminology</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/compi.html">&nbsp;Modular&nbsp;Programming</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/rudim.html">&nbsp;Types&nbsp;Overloading</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dynam.html">&nbsp;Dynamic&nbsp;Memory</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/cppst.html">&nbsp;Member&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ctors.html">&nbsp;Construction</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/membe.html">&nbsp;Current&nbsp;Object</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/overl.html">&nbsp;Member&nbsp;Operators</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/deepc.html">&nbsp;Class&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/nonme.html">&nbsp;Helper&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/custo.html">&nbsp;Input&nbsp;Output</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html">&nbsp;Derived&nbsp;Classes</a></li>
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html">&nbsp;Derived&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html">&nbsp;Virtual&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/abstr.html">&nbsp;Abstract&nbsp;Classes</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/param.html">&nbsp;Templates</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/adhoc.html">&nbsp;Polymorphism</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/basic.html">&nbsp;I/O&nbsp;Refinements</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/dclas.html">&nbsp;D&nbsp;C&nbsp;+&nbsp;Resources</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ansis.html">&nbsp;Standards</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/bibli.html">&nbsp;Bibliography</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/libraries.html">&nbsp;Library&nbsp;Functions</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/ascii.html">&nbsp;ASCII&nbsp;Sequence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/prece.html">&nbsp;Operator&nbsp;Precedence</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/content/c_cpp.html">&nbsp;C++&nbsp;and&nbsp;C</a></li>
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/handouts/index.html">Handouts</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/practice/index.html">Practice</a></li>
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/resources/index.html">Resources</a></li>
+    </ul>
+   </td>
+  </tr><!-- Content Area Footer -->
+
+  <tr class="navigate">
+   <td class="panel3" align="center">
+    <table class="panel2" width="95%" summary="footer">
+     <tbody><tr>
+      <td align="left">&nbsp;&nbsp; <a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc_p.html" class="text3"><img src="./Inheritance _ Functions in a Hierarchy_files/Printer.gif" height="15" width="10" alt="Printer Friendly Version of this Page">&nbsp;print this
+      page</a>&nbsp;&nbsp;</td>
+
+      <td align="right">&nbsp;&nbsp;<a href="https://ict.senecacollege.ca/~oop244/pages/content/dfunc.html#top" class="text3">Top&nbsp; <img src="./Inheritance _ Functions in a Hierarchy_files/ArrowToT.gif" height="15" width="15" alt="Go Back to the Top of this Page"></a></td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr><!-- Footer -->
+
+  <tr>
+   <!-- Left Panel -->
+
+   <td class="panel1 lateral center">
+    <!-- Lateral Motion Control -->
+
+    <table width="90%" class="center" summary="previous next">
+     <tbody><tr>
+      <td class="half" align="left"><a href="https://ict.senecacollege.ca/~oop244/pages/content/inher.html" class="text3"><img src="./Inheritance _ Functions in a Hierarchy_files/ArrowToL.gif" height="15" width="15" class="panel1" alt="Previous Reading">&nbsp;&nbsp;Previous:
+      Derived Classes</a></td>
+
+      <td class="half" align="right"><a href="https://ict.senecacollege.ca/~oop244/pages/content/inclu.html" class="text3">Next: Virtual Functions&nbsp;&nbsp; <img src="./Inheritance _ Functions in a Hierarchy_files/ArrowToR.gif" height="15" width="15" class="panel1" alt="Next Reading"></a></td>
+     </tr>
+    </tbody></table>
+    <br>
+    <!-- Alternate Navigation Links -->
+
+    <ul id="altnav" class="center">
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/ict.js"></script><a href="https://ict.senecac.on.ca/">ICT</a></li>
+
+     <!--<li><a href="https://cs.senecac.on.ca/~bsd">BSD Home</a></li>-->
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/index.html">Home</a></li>
+
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/outline.js"></script><a href="http://www.senecacollege.ca/ssos/findwithoutsemester/oop244/sict">Outline</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/timeline.html">Timeline&nbsp;</a></li>
+    </ul>
+
+    <ul id="altnav2" class="center">
+     <li><a class="active" href="https://ict.senecacollege.ca/~oop244/pages/content/index.html">Notes</a></li>
+
+     <li>
+      <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/classroom_a.js">
+</script><a href="https://scs.senecac.on.ca/~ipc144/pages/content/index.html">IPC Notes</a>
+     </li>
+
+     <li>
+      <script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/classroom_b.js">
+</script><a href="https://my.senecacollege.ca/webapps/portal/frameset.jsp">MySeneca</a>
+     </li>
+
+     <li><script type="text/javascript" src="./Inheritance _ Functions in a Hierarchy_files/workshops.js"></script><a href="https://ict.senecacollege.ca/~oop244/dynamic/workshops/index.html">Workshops</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/assignments/index.html">Assignments</a></li>
+
+     <li><a href="https://ict.senecacollege.ca/~oop244/pages/instructors/index.html">Instructor</a></li>
+    </ul>
+    <br>
+    <!-- Bottom Line -->
+
+    <table cellpadding="1" width="90%" summary="bottom line">
+     <tbody><tr>
+      <td class="w33 text3">&nbsp;&nbsp;Designed by Chris
+      Szalwinski&nbsp;&nbsp;</td>
+
+      <td class="w33 center"><a href="https://ict.senecacollege.ca/~oop244/pages/copyright.html" class="text3">Copying From This Site</a></td>
+
+      <td class="w33 text3" align="right">
+       <script type="text/javascript">
+//<![CDATA[
+                        var lm = document.lastModified.slice(0,-3);
+                        document.write("Last Modified: " +lm)
+       //]]>
+       </script>Last Modified: 03/21/2018 12:24&nbsp;&nbsp;
+      </td>
+     </tr>
+    </tbody></table>
+   </td><!-- Logo - Right Bottom Corner -->
+
+   <td class="panel2 w150" align="center"><img src="./Inheritance _ Functions in a Hierarchy_files/Logo.gif" alt="Logo" height="73" width="85"><br><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/"><img alt="Creative Commons License" style="border-width:0" src="./Inheritance _ Functions in a Hierarchy_files/88x31.png"></a></td>
+  </tr>
+ </tbody></table>
+
+
+</body></html>
